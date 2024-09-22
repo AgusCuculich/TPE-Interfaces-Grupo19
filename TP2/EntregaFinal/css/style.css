@@ -39,6 +39,90 @@ body{
     background-color: var(--azul-background);
 }
 
+h1,h2,h3{
+    color: var(--hueso);
+}
+
+#cambio-formulario{
+    color: var(--verde);
+}
+
+
+
+
+
+/* Pagina de register */
+
+
+label{
+    display: block;
+    color: var(--hueso);
+    font-size: var(--texto);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"]{
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+    height: 4rem;
+    font-size: var(--texto-destacado);
+    color:white;
+    width:25rem;
+    padding-left: 11px;
+    margin-bottom: 14px;
+
+}
+
+input[type="email"]{
+    width: 55.3rem;
+}
+
+
+input::placeholder{
+    font-weight: bold;
+    font-size: var(--texto-placeholder);
+}
+
+
+form button{
+    display: block;
+    cursor: pointer;
+
+    background-color: var(--violeta);
+    border: none;
+    border-radius: var(--bordes-esquinas);
+
+    color: var(--hueso);
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--texto-destacado);
+    font-weight: bold;
+
+    width: 23rem;
+    height: 3.8rem;
+
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+
+#sign_google{
+    background-color: var(--gris-claro);
+    font-size: var(--texto);
+}
+
+#sign_facebook{
+    background-color: #1877f2;
+    font-size: var(--texto);
+}
+
 
 
 
