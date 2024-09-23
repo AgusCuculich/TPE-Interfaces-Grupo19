@@ -124,7 +124,72 @@ form button{
 }
 
 
+/* Layout */
 
+.contenedor-form{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--azul-contenedores);
+    border-radius: var(--bordes-esquinas);
+    height: 100vh;
+    width:50vw;
+
+}
+
+.contenedor-form h1{
+    font-size: var(--tamanio-subtitulo);
+    margin-bottom: 14px;
+}
+.contenedor-form h3{
+    font-size: var(--leyenda);
+}
+
+
+.grupo-inputs{
+    display: flex;
+    justify-content: space-between;
+    height:15rem;
+    width:80%;
+    /*background-color: beige;*/
+    margin-bottom: 16px;
+
+}
+
+.tupla-inputs{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30rem;
+    /*background-color: red;*/
+}
+
+.singular-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    width: 30rem;
+
+}
+
+
+
+
+.grupo-inputs:has(.tupla-inputs:has(input[type="email"])){
+    /*background-color: #3effa2;*/
+}
+
+
+
+.sign-redes{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    gap:3rem;
+}
 
 
 
