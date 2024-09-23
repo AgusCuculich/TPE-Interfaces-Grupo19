@@ -75,14 +75,16 @@ input[type="password"]{
     height: 4rem;
     font-size: var(--texto-destacado);
     color:white;
-    width:25rem;
+    width:80%;
     padding-left: 11px;
     margin-bottom: 14px;
 
 }
 
 input[type="email"]{
-    width: 55.3rem;
+    width: 180%;
+    margin-left:8%;
+    align-self: flex-start;
 }
 
 
@@ -127,6 +129,7 @@ form button{
 /* Layout */
 
 .contenedor-form{
+    margin-top:15vh;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -134,8 +137,7 @@ form button{
     align-items: center;
     background-color: var(--azul-contenedores);
     border-radius: var(--bordes-esquinas);
-    height: 100vh;
-    width:50vw;
+    width:30%;
 
 }
 
@@ -152,7 +154,7 @@ form button{
     display: flex;
     justify-content: space-between;
     height:15rem;
-    width:80%;
+    width:100%;
     /*background-color: beige;*/
     margin-bottom: 16px;
 
@@ -161,17 +163,20 @@ form button{
 .tupla-inputs{
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
-    width: 30rem;
+    width: 50%;
     /*background-color: red;*/
+
 }
 
 .singular-input{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
     height: 100%;
-    width: 30rem;
+    width: 50%;
 
 }
 
