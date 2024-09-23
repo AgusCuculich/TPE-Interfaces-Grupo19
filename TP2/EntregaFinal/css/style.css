@@ -70,6 +70,21 @@ label{
     margin-bottom: 4px;
 }
 
+.campo-obligatorio {
+    color: red;
+}
+
+hr.custom-line {
+    margin-top: 12px;
+    margin-bottom: 15px;
+    width: 250px;
+    border: none;
+    border-top: 1px solid var(--gris-claro);
+    height: 1px;
+    background-color: var(--gris-claro);
+}
+
+
 
 
 .contenedor-form label{
