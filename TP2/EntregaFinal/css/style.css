@@ -35,8 +35,19 @@ html{
     font-size: 10px;
 }
 
+
+
 body{
     background-color: var(--azul-background);
+    min-height: 100vh;
+}
+
+body.body-form{
+    align-content: center;
+}
+
+form{
+    margin: 0 auto;
 }
 
 h1,h2,h3{
@@ -53,13 +64,17 @@ h1,h2,h3{
 
 /* Pagina de register */
 
-
 label{
-    display: block;
-    color: var(--hueso);
     font-size: var(--texto);
     font-weight: 600;
     margin-bottom: 4px;
+}
+
+
+
+.contenedor-form label{
+    display: block;
+    color: var(--hueso);
     align-self: flex-start;
     margin-left: 7%;
 }
@@ -91,7 +106,7 @@ input::-webkit-inner-spin-button {
 }
 
 
-input[type="email"]{
+.contenedor-form input[type="email"]{
     width: 180%;
     margin-left:8%;
     align-self: flex-start;
@@ -120,10 +135,14 @@ form button{
     width: 23rem;
     height: 3.8rem;
 
-    margin-bottom: 12px;
-    margin-top: 12px;
+
 
     transition: 0.2s;
+}
+
+form.contenedor-form button{
+    margin-bottom: 12px;
+    margin-top: 12px;
 }
 
 form button:hover{
@@ -161,9 +180,9 @@ form button:hover{
 /* Layout */
 
 .contenedor-form{
-    margin-top:15vh;
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-top:15vh;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
     display: flex;
     flex-direction: column;
     align-items: center;
