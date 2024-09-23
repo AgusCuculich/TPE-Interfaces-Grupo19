@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ChascaGames | Inicia sesión</title>
+</head>
+<body class="body-form">
+    <form class="form-login">
+        <div>
+            <h2>Inicia Sesión</h2>
+            <h3>¿No tienes una cuenta? <span id="cambio-formulario">Regístrate</span></h3>
+            <hr class="custom-line">
+        </div>
+
+        <label for="email"><span id="campo-obligatorio">*</span> Correo Electrónico</label>
+        <input type="email" name="email" id="email" placeholder="john22@email.com">
+    
+        <label for="password"><span id="campo-obligatorio">*</span> Contraseña</label>
+        <input type="password" name="password" id="password">
+
+        <button>Iniciar Sesión</button>
+        <hr class="custom-line">
+
+        <div class="sign-redes">
+            <button id="sign_google">
+                <!-- <object data="svg/compartir_google.svg" type="image/svg+xml" width="40" height="40"></object> -->
+                Continuar con Google
+            </button>
+            <button id="sign_facebook">Continuar con Facebook</button>
+        </div>
+    </form>
+</body>
+</html>

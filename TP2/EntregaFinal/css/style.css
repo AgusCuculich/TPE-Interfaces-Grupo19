@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 /* CSS General */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;     /* Asegura que el padding y el borde se incluyan en el ancho/alto */
+}
+
 :root{
 
     --tamanio-titulo:3.2rem;
@@ -37,10 +43,135 @@ html{
 
 body{
     background-color: var(--azul-background);
+    min-height: 100vh;
+    color: var(--hueso);
+}
+
+h1 {
+    font-size: var(--tamanio-titulo);
+}
+
+h2 {
+    font-size: var(--tamanio-subtitulo);
+}
+
+body.body-form {
+    align-content: center;
+}
+
+form {
+    background-color: var(--azul-contenedores);
+    border-radius: var(--bordes-esquinas);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+form.form-login {
+    width: fit-content;
+    height: fit-content;
+    padding: 4%;
+    text-align: center;
+}
+
+form.form-login h2 {
+    margin-bottom: 4px;
+}
+
+hr.custom-line {
+    margin-top: 12px;
+    margin-bottom: 15px;
+    width: 250px;                      /* Ancho de la línea */
+    border: none;                      /* Elimina el borde predeterminado */
+    border-top: 1px solid var(--gris-claro); /* Línea superior con el color deseado */
+    height: 1px;                       /* Altura de la línea */
+    background-color: var(--gris-claro); /* Fallback para asegurar el color */
 }
 
 
+form.form-login h3 + hr {
+    margin-bottom: calc(46px - 12px);   /*habria que establecer un margin-top de hr para no tener constantes en codigo*/
+}
+
+label{
+    font-size: var(--texto);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+form.form-login label {
+    align-self: first baseline;
+}
+
+#campo-obligatorio {
+    color: red;
+}
+
+form.form-login input + button {
+    margin-top: 46px;
+}
+
+input[type="email"],
+input[type="password"]{
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+    height: 4rem;
+    font-size: var(--texto-destacado);
+    color:white;
+    padding-left: 11px;
+    margin-bottom: 14px;
+}
+
+form.form-login 
+input[type="email"],
+input[type="password"]{
+    width: 55.3rem;
+}
+
+input::placeholder{
+    font-weight: bold;
+    font-size: var(--texto-placeholder);
+}
+
+#cambio-formulario{
+    color: var(--verde);
+}
+
+.sign-redes{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    gap:3rem;
+}
+
+form button{
+    display: block;
+    cursor: pointer;
+
+    background-color: var(--violeta);
+    border: none;
+    border-radius: var(--bordes-esquinas);
+
+    color: var(--hueso);
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--texto-destacado);
+    font-weight: bold;
+
+    width: 23rem;
+    height: 3.8rem;
+}
 
 
+#sign_google{
+    background-color: var(--gris-claro);
+    font-size: var(--texto);
+}
 
-
+#sign_facebook{
+    background-color: #1877f2;
+    font-size: var(--texto);
+}
