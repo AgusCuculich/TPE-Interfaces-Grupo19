@@ -59,6 +59,10 @@ h2 {
     font-size: var(--tamanio-subtitulo);
 }
 
+a{
+    color: inherit;
+}
+
 body.body-form {
     align-content: center;
 }
