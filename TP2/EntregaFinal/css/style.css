@@ -104,7 +104,7 @@ form.form-login label {
     align-self: first baseline;
 }
 
-#campo-obligatorio {
+.campo-obligatorio {
     color: red;
 }
 
