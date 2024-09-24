@@ -116,13 +116,9 @@ body.body-form{
     align-content: center;
 }
 
-form{
-    margin: 0 auto;
-}
 
-h1,h2,h3{
-    color: var(--hueso);
-}
+
+
 
 #cambio-formulario{
     color: var(--verde);
@@ -239,6 +235,7 @@ form button:hover{
     color: var(--violeta);
     background-color: var(--hueso);
     border: 2px solid var(--violeta);
+    transform: scale(1.05);
 }
 
 
@@ -350,16 +347,9 @@ input::placeholder{
     font-size: var(--texto-placeholder);
 }
 
-#cambio-formulario{
-    color: var(--verde);
-}
 
-.sign-redes{
-    display: flex;
-    width:100%;
-    justify-content: center;
-    gap:3rem;
-}
+
+
 
 form button{
     display: block;
@@ -376,15 +366,8 @@ form button{
 
     width: 23rem;
     height: 3.8rem;
+
+    transition: 0.2s ease-in;
 }
 
 
-#sign_google{
-    background-color: var(--gris-claro);
-    font-size: var(--texto);
-}
-
-#sign_facebook{
-    background-color: #1877f2;
-    font-size: var(--texto);
-}
