@@ -166,10 +166,10 @@ input[type="password"]{
 }
 
 
-contenedor-form input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"]{
+.contenedor-form input[type="text"],
+.contenedor-form input[type="number"],
+.contenedor-form input[type="email"],
+.contenedor-form input[type="password"]{
     font-family: "Montserrat", sans-serif;
     background-color: var(--gris-claro);
     border-radius: 10px;
