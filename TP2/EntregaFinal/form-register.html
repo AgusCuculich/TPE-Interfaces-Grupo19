@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ChascaGames | Crea tu cuenta</title>
+</head>
+<body class="body-form">
+
+
+
+<form class="contenedor-form">
+    <h1>Crea tu cuenta</h1>
+    <h3>¿No tienes una cuenta? <span id="cambio-formulario">Inicia Sesión</span></h3>
+
+    <hr class="custom-line">
+
+
+
+    <section class="grupo-inputs">
+        <div class="tupla-inputs">
+            <label for="nombre"><span class="campo-obligatorio">*</span> Nombre</label>
+            <input type="text" name="nombre" id="nombre" placeholder="John" required>
+
+            <label for="nickname">Nickname</label>
+            <input type="text" name="nickname" id="nickname" placeholder="Star791">
+        </div>
+
+        <div class="tupla-inputs">
+
+            <label for="apellido"><span class="campo-obligatorio">*</span> Apellido</label>
+            <input type="text" name="apellido" id="apellido"  placeholder="Doe" required>
+
+            <label for="edad"><span class="campo-obligatorio">*</span> Edad</label>
+            <input type="number" name="edad" id="edad"  placeholder="20" required>
+
+        </div>
+
+    </section>
+
+    <section class="grupo-inputs">
+        <div class="tupla-inputs">
+
+            <label for="email"><span class="campo-obligatorio">*</span> Correo Electrónico</label>
+            <input type="email" name="email" id="email" placeholder="john22@email.com" required>
+
+            <label for="password"><span class="campo-obligatorio">*</span> Contraseña</label>
+            <input type="password" name="password" id="password" required>
+
+        </div>
+
+        <div class="singular-input">
+            <label for="password-confirm"><span class="campo-obligatorio">*</span> Confirmar Contraseña</label>
+            <input type="password" name="password-confirm" id="password-confirm" required>
+        </div>
+
+    </section>
+
+
+    <button>CAPTCHA (PLACEHOLDER)</button>
+    <button>Registrarse</button>
+
+    <hr class="custom-line">
+    <div class="sign-redes">
+
+        <button id="sign_google">
+            <!-- <object data="svg/compartir_google.svg" type="image/svg+xml" width="40" height="40"></object> -->
+            Continuar con Google
+        </button>
+        <button id="sign_facebook">Continuar con Facebook</button>
+
+    </div>
+
+</form>
+
+
+
+
+
+</body>
+</html>

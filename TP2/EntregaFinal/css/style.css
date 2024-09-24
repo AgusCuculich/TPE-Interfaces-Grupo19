@@ -6,6 +6,8 @@
     box-sizing: border-box;     /* Asegura que el padding y el borde se incluyan en el ancho/alto */
 }
 
+
+
 :root{
 
     --tamanio-titulo:3.2rem;
@@ -40,6 +42,8 @@ html{
     font-family: "Montserrat", sans-serif;
     font-size: 10px;
 }
+
+
 
 body{
     background-color: var(--azul-background);
@@ -104,6 +108,30 @@ form.form-login label {
     align-self: first baseline;
 }
 
+body.body-form{
+    align-content: center;
+}
+
+form{
+    margin: 0 auto;
+}
+
+h1,h2,h3{
+    color: var(--hueso);
+}
+
+#cambio-formulario{
+    color: var(--verde);
+}
+
+
+
+
+
+/* Pagina de register */
+
+
+
 .campo-obligatorio {
     color: red;
 }
@@ -111,6 +139,7 @@ form.form-login label {
 form.form-login input + button {
     margin-top: 46px;
 }
+
 
 input[type="email"],
 input[type="password"]{
@@ -126,7 +155,187 @@ input[type="password"]{
     margin-bottom: 14px;
 }
 
-form.form-login 
+
+
+
+.contenedor-form label{
+    display: block;
+    color: var(--hueso);
+    align-self: flex-start;
+    margin-left: 7%;
+}
+
+
+contenedor-form input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"]{
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+    height: 4rem;
+    font-size: var(--texto-destacado);
+    color:white;
+    width:80%;
+    padding-left: 11px;
+    margin-bottom: 14px;
+
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.contenedor-form input[type="email"]{
+    width: 180%;
+    margin-left:8%;
+    align-self: flex-start;
+}
+
+
+input::placeholder{
+    font-weight: bold;
+    font-size: var(--texto-placeholder);
+}
+
+
+form button{
+    display: block;
+    cursor: pointer;
+
+    background-color: var(--violeta);
+    border: none;
+    border-radius: var(--bordes-esquinas);
+
+    color: var(--hueso);
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--texto-destacado);
+    font-weight: bold;
+
+    width: 23rem;
+    height: 3.8rem;
+
+
+
+    transition: 0.2s;
+}
+
+form.contenedor-form button{
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+form button:hover{
+    color: var(--violeta);
+    background-color: var(--hueso);
+    border: 2px solid var(--violeta);
+}
+
+
+#sign_google{
+    background-color: var(--gris-claro);
+    font-size: var(--texto);
+
+    transition: 0.2s;
+}
+
+#sign_google:hover{
+    background-color: #ffffff;
+}
+
+#sign_facebook{
+    background-color: #1877f2;
+    font-size: var(--texto);
+
+    transition: 0.2s;
+}
+
+#sign_facebook:hover{
+    color: var(--hueso);
+    border: 2px solid var(--hueso);
+    background-color: #004990;
+}
+
+
+/* Layout */
+
+.contenedor-form{
+    /*margin-top:15vh;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--azul-contenedores);
+    border-radius: var(--bordes-esquinas);
+    width:30%;
+
+}
+
+
+
+
+.contenedor-form h1{
+    font-size: var(--tamanio-subtitulo);
+    margin-bottom: 14px;
+}
+.contenedor-form h3{
+    font-size: var(--leyenda);
+}
+
+
+.grupo-inputs{
+    display: flex;
+    justify-content: space-between;
+    height:15rem;
+    width:100%;
+    /*background-color: beige;*/
+    margin-bottom: 16px;
+
+}
+
+.tupla-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    /*background-color: red;*/
+
+}
+
+.singular-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+
+}
+
+
+
+
+.grupo-inputs:has(.tupla-inputs:has(input[type="email"])){
+    /*background-color: #3effa2;*/
+}
+
+
+
+.sign-redes{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    gap:3rem;
+}
+form.form-login
 input[type="email"],
 input[type="password"]{
     width: 55.3rem;
