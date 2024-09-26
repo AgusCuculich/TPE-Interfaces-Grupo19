@@ -448,23 +448,36 @@ header #shopping_cart {
 .menu_hamburguesa{
     background-color: var(--azul-background);
     border-right: 1px solid var(--gris-claro);
-    color: white;
+    color: var(--hueso);
     width: 200px;
     height: 100%;
     transition: 0.2s;
     position: fixed;
+
+
+}
+
+.menu_hamburguesa h3{
+    font-size: var(--texto-destacado);
+    font-weight: bold;
+    margin-left: 2rem;
 }
 
 .menu_opciones{
     list-style: none;
+    margin:2rem;
+
 
 }
 
 .menu_opciones li{
 
-    font-size: 16px;
+    width:100%;
+    font-size: var(--texto);
+    font-weight: bold;
     margin-bottom: 1em;
     transition: 0.1s;
+
 
 }
 
@@ -475,7 +488,77 @@ header #shopping_cart {
 }
 
 
+.menu_opciones li img{
+    margin-right: 0.8rem;
+}
+
 
 .oculto{
     transform: translateX(-120%);
 }
+
+
+.informacion-usuario{
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    margin-left: 2rem;
+
+    font-size: var(--texto);
+    font-weight: bold;
+    /*background-color: palegreen;*/
+    min-height:200px;
+}
+
+
+
+.informacion-usuario button{
+    display: block;
+    cursor: pointer;
+
+    background-color: var(--gris-oscuro);
+    border: 2px solid var(--hueso);
+    border-radius: var(--bordes-esquinas);
+
+    color: var(--hueso);
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--texto-destacado);
+    font-weight: bold;
+
+    width: 16rem;
+    height: 3.2rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+
+    transition: 0.2s;
+}
+
+.informacion-usuario button:hover{
+    background-color: var(--hueso);
+    border: 2px solid var(--gris-oscuro);
+    color: var(--gris-oscuro);
+}
+
+.informacion-usuario .custom-line{
+    width:16rem;
+}
+
+.perfil{
+    display: flex;
+    width:100%;
+    align-items: center;
+}
+
+.acciones-perfil{
+    margin-bottom: 1rem;
+}
+
+.acciones-perfil img{
+    margin-right: 0.8rem;
+}
+
+.perfil img{
+    margin: 2rem 1rem 2rem 1rem;
+}
+
+
