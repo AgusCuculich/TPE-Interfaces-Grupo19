@@ -374,33 +374,85 @@ form button{
 
 /*NAVBAR*/
 header{
+    padding-left: 20rem;
+    padding-right: 20rem;
     position: sticky;
     top: 0;
-}
-
-nav{
-    display: flex;
-    justify-content: flex-start;
-    min-height: 60px;
+    display: grid;
+    grid-template-columns: auto auto minmax(2rem, 46rem) auto;
+    min-height: 6rem;
     width:100%;
-    gap:10em;
     background-color: var(--gris-oscuro);
     color:white;
+    align-items: center;
 }
 
-nav input, nav button{
-    max-height: 40px;
+header input, button, #shopping_cart {
+    /*Le da la misma altura a los elementos especificados del header.*/
+    height: 3rem;
 }
+
+header input {
+    /*Principalmente relacionado al aspecto del input, como el color de fondo, que no tenga borde, el radio de las esquinas, que el
+    texto (que escribe el usuario) no empiece tan sobre el borde izq del input, etc*/
+    border-radius: var(--bordes-esquinas);
+    background-color: var(--gris-claro);
+    padding-left: 3%;
+    border: none;
+}
+
+header input::placeholder {
+    /*En general se encarga de posicionar el texto placeholder del input al medio y mostrar el icono de la lupa*/
+    text-align: center; /* Centra el placeholder visualmente */
+    color: var(--texto-placeholder); /*Color de las letras del placeholder*/
+    position: absolute; /* Posición absoluta */
+    left: 0; /* Se alinea al borde izquierdo */
+    right: 0; /* Se alinea al borde derecho */
+    top: 50%; /* Se centra verticalmente */
+    transform: translateY(-50%); /* Ajusta para centrar verticalmente */
+    background: url(../svg/search.svg);
+    background-size: contain;
+    background-position: right 3% center;   /* Coloca el ícono a la derecha con un margen de 3% */
+    background-repeat: no-repeat;   /*Hace que la lupa no se repita por todo el espacio del input*/
+}
+
+header input:focus {
+    /*Cambia el color de la línea que parpadea al ingresar texto en un input.*/
+    color: var(--hueso);
+}
+
+header h1 {
+    /*Le da el degradado al nombre de la página.*/
+    background: linear-gradient(to right, #3EFFA2 0%, #6A4DDE 50%);
+    background-clip: text;
+    color: transparent;
+}
+
+header #btn_hamburguesa {
+    /*Se encarga de dar forma cuadrada al botón de la hamburguesa, eliminar la forma saltona del botón, etc */
+    aspect-ratio: 1/1;
+    background-image: url(../svg/btn_cerrar_hamburguesa.svg);
+    background-color: transparent;
+    background-position: center;
+    border: none; /* Elimina bordes */
+    box-shadow: none; /* Elimina sombras */
+    cursor: pointer;
+}
+
+header #shopping_cart {
+    justify-self: flex-end;
+}
+
+/*MENU_HAMBURGUESA*/
 
 .menu_hamburguesa{
     background-color: var(--azul-background);
     border-right: 1px solid var(--gris-claro);
     color: white;
-    width: 12%;
+    width: 200px;
     height: 100%;
     transition: 0.2s;
     position: fixed;
-
 }
 
 .menu_opciones{
