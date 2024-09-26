@@ -371,3 +371,59 @@ form button{
 }
 
 
+
+/*NAVBAR*/
+header{
+    position: sticky;
+    top: 0;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-start;
+    min-height: 60px;
+    width:100%;
+    gap:10em;
+    background-color: var(--gris-oscuro);
+    color:white;
+}
+
+nav input, nav button{
+    max-height: 40px;
+}
+
+.menu_hamburguesa{
+    background-color: var(--azul-background);
+    border-right: 1px solid var(--gris-claro);
+    color: white;
+    width: 12%;
+    height: 100%;
+    transition: 0.2s;
+    position: fixed;
+
+}
+
+.menu_opciones{
+    list-style: none;
+
+}
+
+.menu_opciones li{
+
+    font-size: 16px;
+    margin-bottom: 1em;
+    transition: 0.1s;
+
+}
+
+.menu_opciones li:hover{
+    transform: scale(1.25);
+    color:wheat;
+    cursor: pointer;
+}
+
+
+
+.oculto{
+    transform: translateX(-120%);
+}
