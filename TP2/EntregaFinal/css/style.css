@@ -435,6 +435,10 @@ nav input, nav button{
 }
 
 
+.menu_opciones li img{
+    margin-right: 0.8rem;
+}
+
 
 .oculto{
     transform: translateX(-120%);
@@ -444,12 +448,16 @@ nav input, nav button{
 .informacion-usuario{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
+    margin-left: 2rem;
+
     font-size: var(--texto);
     font-weight: bold;
     /*background-color: palegreen;*/
     min-height:200px;
 }
+
+
 
 .informacion-usuario button{
     display: block;
@@ -469,9 +477,13 @@ nav input, nav button{
     margin-top: 1.6rem;
     margin-bottom: 1.6rem;
 
-
-
     transition: 0.2s;
+}
+
+.informacion-usuario button:hover{
+    background-color: var(--hueso);
+    border: 2px solid var(--gris-oscuro);
+    color: var(--gris-oscuro);
 }
 
 .informacion-usuario .custom-line{
@@ -481,8 +493,15 @@ nav input, nav button{
 .perfil{
     display: flex;
     width:100%;
-    justify-content: center;
     align-items: center;
+}
+
+.acciones-perfil{
+    margin-bottom: 1rem;
+}
+
+.acciones-perfil img{
+    margin-right: 0.8rem;
 }
 
 .perfil img{
