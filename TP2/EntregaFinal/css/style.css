@@ -562,3 +562,60 @@ header #shopping_cart {
 }
 
 
+/*-----------------------------PAGINA DE JUGAR JUEGO-----------------------------*/
+/*Chequear el menu opacando parte de la pantalla visible*/
+
+.container-juego{
+    background-color: var(--azul-contenedores);
+    margin-left: auto;
+    margin-right: auto;
+    height: 200vh;
+    padding: 2rem;
+    width: calc(100vw - 40rem);
+
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.info-juego{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top :2rem;
+
+}
+
+.info-juego h2 {
+
+}
+
+.container-juego h3{
+    margin-bottom: 2rem;
+}
+
+
+.render-juego{
+    background-color: var(--gris-claro);
+    width: 100%;
+    height: calc(100vh - 20rem);
+
+}
+
+
+
+
+
+.render-juego img{
+
+
+        width: 100%; /* Se ajusta al 100% del ancho disponible */
+        height: auto; /* El alto se ajusta automáticamente */
+        aspect-ratio: 16/9;
+        max-width: 100vw; /* Limita el ancho máximo al ancho de la ventana */
+        max-height: calc(100vh - 20rem); /* Limita el alto máximo */
+        margin: 0 auto; /* Centra horizontalmente */
+
+
+}
