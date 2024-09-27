@@ -117,9 +117,6 @@ body.body-form{
 }
 
 
-
-
-
 #cambio-formulario{
     color: var(--verde);
 }
@@ -208,21 +205,15 @@ input::placeholder{
 form button{
     display: block;
     cursor: pointer;
-
     background-color: var(--violeta);
     border: none;
     border-radius: var(--bordes-esquinas);
-
     color: var(--hueso);
     font-family: "Montserrat", sans-serif;
     font-size: var(--texto-destacado);
     font-weight: bold;
-
     width: 23rem;
     height: 3.8rem;
-
-
-
     transition: 0.2s;
 }
 
@@ -280,8 +271,6 @@ form button:hover{
 }
 
 
-
-
 .contenedor-form h1{
     font-size: var(--tamanio-subtitulo);
     margin-bottom: 14px;
@@ -321,15 +310,6 @@ form button:hover{
 
 }
 
-
-
-
-.grupo-inputs:has(.tupla-inputs:has(input[type="email"])){
-    /*background-color: #3effa2;*/
-}
-
-
-
 .sign-redes{
     display: flex;
     width:100%;
@@ -346,10 +326,6 @@ input::placeholder{
     font-weight: bold;
     font-size: var(--texto-placeholder);
 }
-
-
-
-
 
 form button{
     display: block;
@@ -374,12 +350,12 @@ form button{
 
 /*NAVBAR*/
 header{
-    padding-left: 20rem;
+    padding-left: 2rem;
     padding-right: 20rem;
     position: sticky;
     top: 0;
     display: grid;
-    grid-template-columns: auto auto minmax(2rem, 46rem) auto;
+    grid-template-columns: minmax(3rem, calc(20rem - 2rem)) max-content minmax(17.873rem, auto) max-content;
     min-height: 6rem;
     width:100%;
     background-color: var(--gris-oscuro);
@@ -397,8 +373,12 @@ header input {
     texto (que escribe el usuario) no empiece tan sobre el borde izq del input, etc*/
     border-radius: var(--bordes-esquinas);
     background-color: var(--gris-claro);
-    padding-left: 3%;
+    padding-left: 1%;   /*Mueve un poco a la derecha la barrita que parpadea para que el usuario escriba*/
     border: none;
+    justify-self: center;
+    min-width: 17.873rem;
+    width: 90%;
+    max-width: 46rem;
 }
 
 header input::placeholder {
@@ -421,7 +401,12 @@ header input:focus {
     color: var(--hueso);
 }
 
-header h1 {
+header div {
+    display: flex;
+    align-items: center;
+}
+
+header div h1 {
     /*Le da el degradado al nombre de la página.*/
     background: linear-gradient(to right, #3EFFA2 0%, #6A4DDE 50%);
     background-clip: text;
