@@ -12,36 +12,25 @@
     <header>
         <button id="btn_hamburguesa"></button>
         <div>
-            <img src="./svg/logo.svg"/>
+            <img id="img_logo" src="./svg/logo.svg"/>
             <h1>ChascaGames</h1>
         </div>
+        <button id="btn_search"></button>
         <input type="text" placeholder="¿Que jugamos hoy?">
         <img id="shopping_cart" src="./svg/shopping_cart.svg"/>
     </header>
 
-
-
-    <section class="menu_hamburguesa">
-
+    <section class="menu_hamburguesa oculto">
         <div class="informacion-usuario">
             <div class="perfil">
                 <img src="img/profile.png" alt="Imagen de usuario">
                 <p>Pedro</p>
             </div>
-
-
-
-            <p class="acciones-perfil"> <img src = "svg/user.svg" alt="Mi SVG feliz"/> Perfil</p>
-            <p class="acciones-perfil"> <img src = "svg/heart.svg" alt="Mi SVG feliz"/>Mis juegos</p>
-
-            <button>Cerrar Sesión</button>
-
-            <hr class="custom-line">
-
+                <p class="acciones-perfil"> <img src = "svg/user.svg" alt="Mi SVG feliz"/> Perfil</p>
+                <p class="acciones-perfil"> <img src = "svg/heart.svg" alt="Mi SVG feliz"/>Mis juegos</p>
+                <button>Cerrar Sesión</button>
+                <hr class="custom-line">
         </div>
-
-
-
 
         <h3>Categorias</h3>
         <ul class="menu_opciones">
@@ -54,6 +43,23 @@
         </ul>
     </section>
 
+    <main>
 
+        <h2>Recomendados para ti</h2>
+        <div class="carrusel">
+            <div class="big-card"></div>
+            <div class="big-card"></div>
+        </div>
+
+        <h2>Jugados recientemente</h2>
+        <div class="carrusel">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+
+        <h2>Acción</h2>
+    </main>
 </body>
 </html>
