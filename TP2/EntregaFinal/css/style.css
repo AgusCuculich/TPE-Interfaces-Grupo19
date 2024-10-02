@@ -208,21 +208,15 @@ input::placeholder{
 form button{
     display: block;
     cursor: pointer;
-
     background-color: var(--violeta);
     border: none;
     border-radius: var(--bordes-esquinas);
-
     color: var(--hueso);
     font-family: "Montserrat", sans-serif;
     font-size: var(--texto-destacado);
     font-weight: bold;
-
     width: 23rem;
     height: 3.8rem;
-
-
-
     transition: 0.2s;
 }
 
@@ -280,8 +274,6 @@ form button:hover{
 }
 
 
-
-
 .contenedor-form h1{
     font-size: var(--tamanio-subtitulo);
     margin-bottom: 14px;
@@ -321,15 +313,6 @@ form button:hover{
 
 }
 
-
-
-
-.grupo-inputs:has(.tupla-inputs:has(input[type="email"])){
-    /*background-color: #3effa2;*/
-}
-
-
-
 .sign-redes{
     display: flex;
     width:100%;
@@ -346,10 +329,6 @@ input::placeholder{
     font-weight: bold;
     font-size: var(--texto-placeholder);
 }
-
-
-
-
 
 form button{
     display: block;
@@ -378,7 +357,6 @@ header, main {
 }
 
 /*NAVBAR*/
-
 header{
     position: sticky;
     top: 0;
@@ -404,6 +382,29 @@ header div {
     /*Contenedor del logo y h1 (no visible)*/
     width: max-content;
     justify-self: center;
+    min-width: 17.873rem;
+    width: 90%;
+    max-width: 46rem;
+}
+
+header input::placeholder {
+    /*En general se encarga de posicionar el texto placeholder del input al medio y mostrar el icono de la lupa*/
+    text-align: center; /* Centra el placeholder visualmente */
+    color: var(--texto-placeholder); /*Color de las letras del placeholder*/
+    position: absolute; /* Posición absoluta */
+    left: 0; /* Se alinea al borde izquierdo */
+    right: 0; /* Se alinea al borde derecho */
+    top: 50%; /* Se centra verticalmente */
+    transform: translateY(-50%); /* Ajusta para centrar verticalmente */
+    background: url(../svg/search.svg);
+    background-size: contain;
+    background-position: right 3% center;   /* Coloca el ícono a la derecha con un margen de 3% */
+    background-repeat: no-repeat;   /*Hace que la lupa no se repita por todo el espacio del input*/
+}
+
+header input:focus {
+    /*Cambia el color de la línea que parpadea al ingresar texto en un input.*/
+    color: var(--hueso);
 }
 
 #img_logo {
@@ -543,7 +544,7 @@ div.big-card {
 
 
 
-.informacion-usuario button{
+.informacion-usuario button, #btn-compartir{
     display: block;
     cursor: pointer;
 
@@ -633,6 +634,81 @@ div.big-card {
 .seccion-descripcion-juego h2 {
     margin-left: 1rem;
 }
+.seccion-carga{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:100vh;
+}
+
+
+.area-cargado{
+    display: flex;
+    width: 100%;
+    height:10%;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+}
+
+.area-cargado div{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--verde);
+
+    /*Animaciones*/
+    transform: scale(0);
+    animation: cargar 3s ease-in-out infinite;
+}
+
+
+.area-cargado div:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.area-cargado div:nth-child(2){
+    animation-delay: 0.4s;
+}
+
+.area-cargado div:nth-child(3){
+    animation-delay: 0.6s;
+}
+
+.area-cargado div:nth-child(4){
+    animation-delay: 0.8s;
+}
+
+.area-cargado div:nth-child(5){
+    animation-delay: 1s;
+}
+
+.area-cargado div:nth-child(6){
+    animation-delay: 1.2s;
+}
+
+.area-cargado div:nth-child(7){
+    animation-delay: 1.4s;
+}
+
+
+@keyframes cargar{
+    10%, 80%{
+        transform: scale(0.1);
+        background-color: var(--violeta);
+    }
+
+    40%{
+        transform: scale(1);
+        background-color: var(--verde);
+    }
+
+}
+
+
+
+
 
 
 .titulo-juego{
