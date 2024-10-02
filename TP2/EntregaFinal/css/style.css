@@ -56,7 +56,7 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: var(--tamanio-subtitulo);
 }
 
 a{
@@ -115,6 +115,9 @@ form.form-login label {
 body.body-form{
     align-content: center;
 }
+
+
+
 
 
 #cambio-formulario{
@@ -205,15 +208,21 @@ input::placeholder{
 form button{
     display: block;
     cursor: pointer;
+
     background-color: var(--violeta);
     border: none;
     border-radius: var(--bordes-esquinas);
+
     color: var(--hueso);
     font-family: "Montserrat", sans-serif;
     font-size: var(--texto-destacado);
     font-weight: bold;
+
     width: 23rem;
     height: 3.8rem;
+
+
+
     transition: 0.2s;
 }
 
@@ -271,6 +280,8 @@ form button:hover{
 }
 
 
+
+
 .contenedor-form h1{
     font-size: var(--tamanio-subtitulo);
     margin-bottom: 14px;
@@ -310,6 +321,15 @@ form button:hover{
 
 }
 
+
+
+
+.grupo-inputs:has(.tupla-inputs:has(input[type="email"])){
+    /*background-color: #3effa2;*/
+}
+
+
+
 .sign-redes{
     display: flex;
     width:100%;
@@ -326,6 +346,10 @@ input::placeholder{
     font-weight: bold;
     font-size: var(--texto-placeholder);
 }
+
+
+
+
 
 form button{
     display: block;
@@ -363,6 +387,7 @@ header{
     min-height: 6rem;
     width:100%;
     background-color: var(--gris-oscuro);
+    color:white;
     align-items: center;
 }
 
@@ -388,6 +413,7 @@ header div {
 header button {
     /*abstrae las caracteristicas que comparten los botones del navbar*/
     aspect-ratio: 1/1;
+    background-image: url(../svg/btn_cerrar_hamburguesa.svg);
     background-color: transparent;
     background-position: center;
     border: none; /* Elimina bordes */
@@ -437,7 +463,7 @@ div.card, div.big-card {
     height: 20rem;
     background-color: pink;
     border-radius: var(--bordes-esquinas);
-    flex-shrink: 0;  
+    flex-shrink: 0;
 }
 
 div.card {
@@ -458,6 +484,8 @@ div.big-card {
     height: 100%;
     transition: 0.2s;
     position: fixed;
+
+
 }
 
 .menu_hamburguesa h3{
@@ -536,7 +564,7 @@ div.big-card {
     transition: 0.2s;
 }
 
-.informacion-usuario button:hover{
+.informacion-usuario button:hover, #btn-compartir:hover{
     background-color: var(--hueso);
     border: 2px solid var(--gris-oscuro);
     color: var(--gris-oscuro);
@@ -565,8 +593,153 @@ div.big-card {
 }
 
 
+/*-----------------------------PAGINA DE JUGAR JUEGO-----------------------------*/
+/*Chequear el menu opacando parte de la pantalla visible*/
+
+#breadcrumb{
+    font-size: var(--texto);
+    margin-bottom: 1rem;
+}
+
+
+.container-juego{
+    /*background-color: var(--azul-contenedores);*/
+    margin-left: auto;
+    margin-right: auto;
+    height: 350vh;
+    padding: 2rem;
+    width: calc(100vw - 40rem);
+    font-size: var(--texto-destacado);
+
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container-juego p{
+    margin-top: 1.4rem;
+}
+
+.seccion-descripcion-juego{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top :2rem;
+    border-bottom: 1px solid var(--gris-claro);
+
+}
+
+.seccion-descripcion-juego h2 {
+    margin-left: 1rem;
+}
+
+
+.titulo-juego{
+    /*background-color: red;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.render-juego{
+    background-color: var(--gris-claro);
+    width: 100%;
+    height: calc(100vh - 20rem);
+
+}
+
+
+
+
+
+.render-juego img{
+
+
+        width: 100%; /* Se ajusta al 100% del ancho disponible */
+        height: auto; /* El alto se ajusta automáticamente */
+        aspect-ratio: 16/9;
+        max-width: 100vw; /* Limita el ancho máximo al ancho de la ventana */
+        max-height: calc(100vh - 20rem); /* Limita el alto máximo */
+        margin: 0 auto; /* Centra horizontalmente */
+
+
+}
+
+
+
+.iconos-controles{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.multimedia-juego{
+    display: flex;
+    justify-content: space-around;
+    width:100%;
+    padding: 2rem;
+}
+
+.multimedia-juego img{
+    width: 30rem;
+    height: 15rem;
+    object-fit: cover;
+
+}
+
+#placeholder{
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    width: 100%;
+    height: 20rem;
+}
+
+#comentar{
+    min-height: 15rem;
+}
+
+.caja-comentario{
+    margin-top: 3rem;
+    width:75%;
+    align-self: center;
+    background-color: var(--azul-contenedores);
+    border-radius: var(--bordes-esquinas);
+    overflow: hidden;
+    /*padding-left:3rem;*/
+    min-height: 21.3rem;
+
+}
+
+.caja-comentario perfil, .caja-comentario p, .caja-comentario img{
+    margin-left: 3rem;
+}
+
+.perfil p{
+    margin: 1rem;
+}
+
+.linea-separador{
+    width:100%;
+    height:1px;
+    border-bottom: 1px solid var(--gris-claro);
+    box-sizing: border-box;
+}
+
+
+/*.caja-comentario .perfil{*/
+/*    border-bottom: 1px solid var(--gris-claro);*/
+/*    height:50%;*/
+
+/*}*/
+
+
 @media screen and (min-width: 1024px) {
-    
+
     header{
         padding-left: 2rem;
         padding-right: 20rem;
@@ -584,7 +757,7 @@ div.big-card {
     header button#btn_search {
         display: none;
     }
-    
+
     header input {
         /*Principalmente relacionado al aspecto del input, como el color de fondo, que no tenga borde, el radio de las esquinas, que el
         texto (que escribe el usuario) no empiece tan sobre el borde izq del input, etc*/
@@ -598,7 +771,7 @@ div.big-card {
         width: 90%;
         max-width: 46rem;
     }
-    
+
     header input::placeholder {
         /*En general se encarga de posicionar el texto placeholder del input al medio y mostrar el icono de la lupa*/
         text-align: center; /* Centra el placeholder visualmente */
@@ -613,24 +786,24 @@ div.big-card {
         background-position: right 3% center;   /* Coloca el ícono a la derecha con un margen de 3% */
         background-repeat: no-repeat;   /*Hace que la lupa no se repita por todo el espacio del input*/
     }
-    
+
     header input:focus {
         /*Cambia el color de la línea que parpadea al ingresar texto en un input.*/
         color: var(--hueso);
     }
-    
+
     header div {
         display: flex;
         align-items: center;
     }
-    
+
     header div h1 {
         /*Le da el degradado al nombre de la página.*/
         background: linear-gradient(to right, #3EFFA2 0%, #6A4DDE 50%);
         background-clip: text;
         color: transparent;
     }
-    
+
     header #shopping_cart {
         justify-self: flex-end;
     }
