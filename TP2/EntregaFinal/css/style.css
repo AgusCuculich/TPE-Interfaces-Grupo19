@@ -439,7 +439,7 @@ header input {
 }
 
 .menu_hamburguesa {
-    z-index: 2;
+    z-index: 5;
 }
 
 /*MAIN*/
@@ -462,17 +462,115 @@ div.carrusel {
 
 div.card, div.big-card {
     height: 20rem;
-    background-color: pink;
+    background-color: var(--azul-contenedores);
     border-radius: var(--bordes-esquinas);
     flex-shrink: 0;
+    position: relative;
+    display: grid;
+    grid-template-rows: 60% 15% 25%;
 }
 
 div.card {
+    /*Estable ancho de las cards comunes*/
     width: 15rem;
 }
 
 div.big-card {
+    /*Establece el ancho de las cards grandes (el cual es dos veces una card comun)*/
     width: calc(15rem * 2 + 2rem);
+}
+
+div.card.en-carrito {
+    /*Pisa el valor anterior para que solo hayan dos filas (ya que en esta card no hay btn)*/
+    grid-template-rows: 60% auto !important;
+}
+
+.card-img {
+    /*Div que contiene la img (background) de la card*/
+    height: 100%;
+    border-radius: var(--bordes-esquinas) var(--bordes-esquinas) 0 0;
+    background-size: cover;
+    z-index: 1;
+    position: relative;
+    display: grid;
+}
+
+.card-titulo {
+    /*Estilos específicos para las cards que no están marcadas como 'en carrito'.*/
+    padding-top:5%;
+    white-space: nowrap;       /* Evita el salto de línea */
+    overflow: hidden;          /* Oculta el texto que sobrepasa el ancho del contenedor */
+    text-overflow: ellipsis;   /* Muestra puntos suspensivos si el texto es demasiado largo */
+}
+
+div.card p {
+    /*Estilos generales de los titulos de las cards*/
+    font-size: var(--texto-destacado);
+    text-align: center;
+    padding-left: 5%;
+    padding-right:5%;
+    font-weight: bolder;
+    align-self: center;
+}
+
+div.card .card-img .card-precio {
+    /*Da los estilos al precio y contenedor del mismo*/
+    border-radius: 1rem 0 0 0;
+    z-index: 3;
+    position: absolute;
+    padding: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    align-self: flex-end;
+    justify-self: flex-end;
+    background-color: var(--azul-contenedores);
+    font-size: var(--texto);
+    color: var(--verde);
+    font-weight:500;
+}
+
+.capa-opacidad {
+    /*Capa opaca que se posiciona sobre la imagen de las cards marcadas como 'en carrito'.*/
+    background-color: rgba(0, 0, 0, 0.7); 
+    width: 100%;
+    height: 100%;
+    border-radius: var(--bordes-esquinas) var(--bordes-esquinas) 0 0;
+    z-index: 2; 
+}
+
+.en-carrito-text {
+    /*Estilos del texto que indica que un elemento ya esta en el carrito de compras*/
+    z-index: 3;
+    position: absolute;
+    align-self: center;
+    font-size: var(--texto-destacado);
+    font-weight: bold;
+    justify-self: center;
+}
+
+div.card button {
+    /*Estilos generales de los botones de las cards*/
+    border: none; /* Elimina bordes */
+    box-shadow: none; /* Elimina sombras */
+    cursor: pointer;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: var(--bordes-esquinas);
+    font-size: var(--texto);
+    margin: 0 auto;
+    margin-top: 5%;
+    font-weight: bold;
+    justify-self: start;
+}
+
+.btn-carrito {
+    background-color: var(--verde);
+    color: var(--azul-contenedores);
+}
+
+.btn-jugar {
+    background-color: var(--violeta);
+    color: var(--hueso);
 }
 
 /*MENU_HAMBURGUESA*/
@@ -807,12 +905,6 @@ div.big-card {
 }
 
 
-/*.caja-comentario .perfil{*/
-/*    border-bottom: 1px solid var(--gris-claro);*/
-/*    height:50%;*/
-
-/*}*/
-
 
 @media screen and (min-width: 1024px) {
 
@@ -875,6 +967,7 @@ div.big-card {
 
     header div h1 {
         /*Le da el degradado al nombre de la página.*/
+        display: block;
         background: linear-gradient(to right, #3EFFA2 0%, #6A4DDE 50%);
         background-clip: text;
         color: transparent;
