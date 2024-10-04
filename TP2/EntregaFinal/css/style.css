@@ -462,6 +462,25 @@ div.carrusel {
     scroll-snap-type: x mandatory;
 }
 
+.btn-carrusel{
+    all: unset;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: none;
+    width:4.8rem;
+    height:4.8rem;
+    background-color: var(--gris-claro);
+}
+
+.btn-carrusel img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.espejeado{
+    transform: scaleX(-1);
+}
+
 div.card, div.big-card {
     height: 20rem;
     background-color: var(--azul-contenedores);
