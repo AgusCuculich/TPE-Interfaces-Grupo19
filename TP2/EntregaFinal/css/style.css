@@ -459,6 +459,7 @@ main h2 {
 div.carrusel {
     display: flex;
 
+    transition: 0.2s ease-in-out;
     column-gap: 2rem;
     width: 100%;
     overflow-x: scroll;
@@ -1039,6 +1040,22 @@ div.card button {
     .btn-carrusel.espejeado{
         transform: scaleX(-1);
         left: -5%;
+    }
+
+
+    .carrusel-izq{
+        transition: 0.1s;
+        transform: skewX(15deg);
+    }
+
+    .carrusel-der{
+        transition: 0.1s;
+        transform: skewX(-15deg);
+    }
+
+
+    .carrusel-izq .btn-carrusel, .carrusel-der .btn-carrusel{
+        display: none;
     }
 
 
