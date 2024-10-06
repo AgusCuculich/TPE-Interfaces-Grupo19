@@ -364,6 +364,7 @@ header{
     grid-template-columns: max-content auto max-content max-content;
     min-height: 6rem;
     width:100%;
+    z-index:5;
     background-color: var(--gris-oscuro);
     color:white;
     align-items: center;
@@ -760,6 +761,13 @@ div.card button {
 .seccion-descripcion-juego h2 {
     margin-left: 1rem;
 }
+
+
+.container-juego .carrusel-wrapper{
+    margin-top: 2rem;
+}
+
+
 .seccion-carga{
     display: flex;
     flex-direction: column;

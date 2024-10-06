@@ -17,8 +17,9 @@ function animar(){
 
         //Segun si el boton es espejeado (izquierda) o no espejeado (derecha), defino la direccion
         //hacia la que hay que animar
-        boton.addEventListener("click", ()=>{
-            let dir = boton.classList.contains("espejeado") ? 0 : 1;
+        boton.addEventListener("click", (event)=>{
+            event.preventDefault();
+            let dir = boton.classList.contains("espejeado") ? -1 : 1;
             animarCarrusel(boton, dir);
         })
 
@@ -39,10 +40,12 @@ function animar(){
         let padre = boton.parentElement.parentElement;
 
 
+        //Scrollea el div del carrousel 700px, a la direccion indicada
+        padre.scrollLeft += direccion * 700;
 
 
         //Segun la direccion, asigno la clase que anima al elemento, y a los 500ms la quito
-        if (direccion == 0){
+        if (direccion == 1){
             padre.classList.add("carrusel-izq");
             setTimeout(()=>{
                 padre.classList.remove("carrusel-izq");
