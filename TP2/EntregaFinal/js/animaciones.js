@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", animar);
 function animar(){
 
 
+    //FUNCION DEL CARRUSEL
+
+
     //Me traigo todos los botones de los carruseles
     let botones = document.querySelectorAll(".btn-carrusel");
     console.log(botones);
@@ -27,6 +30,33 @@ function animar(){
 
 
     })
+
+
+
+    //FUNCIONALIDAD DE AÑADIR AL CARRITO
+
+    let botonesCarrito = document.querySelectorAll(".btn-carrito");
+
+    botonesCarrito.forEach(boton =>{
+        boton.addEventListener("click", ()=>{
+            aniadirCarrito(boton);
+        })
+    });
+
+
+
+    function aniadirCarrito(botonActivador){
+
+        //Cambiar el estilo de la card
+        botonActivador.parentElement.classList.add("en-carrito");
+
+    }
+
+
+
+
+
+
 
 
 

@@ -502,6 +502,13 @@ div.card.en-carrito {
     grid-template-rows: 60% auto !important;
 }
 
+
+/*Al agregar una card al carrito, no se ve su precio ni botones*/
+.en-carrito .card-precio, .en-carrito button{
+    display: none;
+}
+
+
 .card-img {
     /*Div que contiene la img (background) de la card*/
     height: 100%;
