@@ -74,14 +74,32 @@ function animar(){
         console.log(direccion);
 
         //Consigo el abuelo del boton, // boton -> etiqueta a -> carrusel
-        let padre = boton.parentElement.parentElement;
+        let padre = boton.parentElement.querySelector('.carrusel');
 
 
         //Scrollea el div del carrousel 700px, a la direccion indicada
         padre.scrollLeft += direccion * 700;
 
+        let cards = padre.querySelectorAll('.card');
 
-        //Segun la direccion, asigno la clase que anima al elemento, y a los 500ms la quito
+        if (direccion == 1) { // Cambiar a la izquierda
+            cards.forEach(card => {
+                card.classList.add("carrusel-izq");
+                setTimeout(() => {
+                    card.classList.remove("carrusel-izq");
+                }, 500);
+            });
+        } else { // Cambiar a la derecha
+            cards.forEach(card => {
+                card.classList.add("carrusel-der");
+                setTimeout(() => {
+                    card.classList.remove("carrusel-der");
+                }, 500);
+            });
+        }
+
+
+        /*//Segun la direccion, asigno la clase que anima al elemento, y a los 500ms la quito
         if (direccion == 1){
             padre.classList.add("carrusel-izq");
             setTimeout(()=>{
@@ -93,7 +111,7 @@ function animar(){
             setTimeout(()=>{
                 padre.classList.remove("carrusel-der");
             }, 500)
-        }
+        }*/
 
 
 

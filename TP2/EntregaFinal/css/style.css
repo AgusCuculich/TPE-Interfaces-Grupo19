@@ -35,6 +35,12 @@
     --hueso: #f2e0cc;
     --verde: #3effa2;
     --texto-placeholder: #a5a8b9;
+
+
+    /* tamaños cards */
+    --card-altura-mobile: 20rem;    /*Es la misma altura tanto para card grande como chica*/
+    --card-ancho-mobile: 15rem;
+    --cardGrande-ancho-mobile: calc(var(--card-ancho-mobile) * 2 + 2rem);
 }
 
 
@@ -445,26 +451,27 @@ header input {
 
 /*MAIN*/
 
-main {
-    padding-top: 2rem;
-}
-
 main h2 {
+    margin-top: 3rem;
     margin-bottom: 1rem;
 }
 
-.carrusel-wrapper{
-    position: relative;
+section.destacados {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 1rem;
 }
+
+div.carrusel, section.destacados {
+    overflow-x: scroll;
+}  
 
 div.carrusel {
     display: flex;
-
     transition: 0.2s ease-in-out;
     column-gap: 2rem;
     width: 100%;
-    overflow-x: scroll;
-    margin-bottom: 2rem;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
 }
@@ -473,12 +480,8 @@ div.carrusel {
     display: none;
 }
 
-
-
-
-
 div.card, div.big-card {
-    height: 20rem;
+    height: var(--card-altura-mobile);
     background-color: var(--azul-contenedores);
     border-radius: var(--bordes-esquinas);
     flex-shrink: 0;
@@ -489,12 +492,12 @@ div.card, div.big-card {
 
 div.card {
     /*Estable ancho de las cards comunes*/
-    width: 15rem;
+    width: var(--card-ancho-mobile);
 }
 
 div.big-card {
     /*Establece el ancho de las cards grandes (el cual es dos veces una card comun)*/
-    width: calc(15rem * 2 + 2rem);
+    width: var(--cardGrande-ancho-mobile);
 }
 
 div.card.en-carrito {
@@ -789,11 +792,6 @@ div.card button {
 }
 
 
-.container-juego .carrusel-wrapper{
-    margin-top: 2rem;
-}
-
-
 .seccion-carga{
     display: flex;
     flex-direction: column;
@@ -1042,15 +1040,73 @@ div.card button {
     /*MAIN*/
 
     main {
-        padding-left: 20rem;
-        padding-right: 20rem;
+        padding-left: 21rem;
+        padding-right: 21rem;
+    }
+
+    main h2 {
+        margin-left: 5.5rem;
+    }
+
+    section.destacados {
+        padding-left: 45px;
+        padding-right: 45px;
+        height: calc(var(--card-altura-mobile) + 5rem);
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+
+    div.card, div.big-card {
+        height: calc(var(--card-altura-mobile) + 5rem);
+    }
+    
+    div.card {
+        width: calc(var(--card-ancho-mobile) + 5rem);
+    }
+
+    div.big-card {
+        width: calc(var(--cardGrande-ancho-mobile) + 5rem * 2);
+    }
+
+    .carrusel-wrapper{
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: 1rem;
+        align-items: center;
     }
 
     div.carrusel {
-        overflow-x:hidden;
+        overflow-x: hidden;
     }
 
-    .btn-carrusel{
+    .btn-carrusel {
+        width:4.8rem;
+        height:4.8rem;
+        display: block;
+        background-color: var(--gris-claro);
+        box-shadow: none;
+        cursor: pointer;
+        border-radius: 10px;
+        border: none;
+    }
+
+    .btn-carrusel.espejeado{
+        transform: scaleX(-1);
+        left: -5%;
+    }
+
+    .carrusel-izq {
+        transition: transform 0.8s; /* Suaviza la rotación */
+        transform: rotateY(-360deg); /* Rota en la dirección izquierda */
+    }
+
+    .carrusel-der {
+        transition: transform 0.8s; /* Suaviza la rotación */
+        transform: rotateY(360deg); /* Rota en la dirección derecha */
+    }
+
+    /*.btn-carrusel{
         all: unset;
         top: 50%;
         left: 101%;
@@ -1071,11 +1127,6 @@ div.card button {
         display: inline-block;
     }
 
-    .btn-carrusel.espejeado{
-        transform: scaleX(-1);
-        left: -5%;
-    }
-
 
     .carrusel-izq{
         transition: 0.1s;
@@ -1090,7 +1141,7 @@ div.card button {
 
     .carrusel-izq .btn-carrusel, .carrusel-der .btn-carrusel{
         display: none;
-    }
+    }*/
 
 
 }
