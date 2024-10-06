@@ -515,6 +515,7 @@ div.card.en-carrito {
 
 .en-carrito::after {
     width:100%;
+    height:50%;
     content: "En el carrito";
     z-index: 3;
     position: absolute;

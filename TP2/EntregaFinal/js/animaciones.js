@@ -35,8 +35,12 @@ function animar(){
 
     //FUNCIONALIDAD DE AÑADIR AL CARRITO
 
+
+
+    //Consigo todos los botones de añadir al carrito
     let botonesCarrito = document.querySelectorAll(".btn-carrito");
 
+    //A cada boton le asigno el evento de comprar cuando se clickea
     botonesCarrito.forEach(boton =>{
         boton.addEventListener("click", ()=>{
             aniadirCarrito(boton);
@@ -45,10 +49,13 @@ function animar(){
 
 
 
+    //Cambia la apariencia de la card afectada y dispara una animacion en el carrito de compras
     function aniadirCarrito(botonActivador){
 
         //Cambiar el estilo de la card
         botonActivador.parentElement.classList.add("en-carrito");
+
+        //TODO Animar carrito
 
     }
 
