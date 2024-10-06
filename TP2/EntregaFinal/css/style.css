@@ -509,6 +509,24 @@ div.card.en-carrito {
 }
 
 
+.en-carrito{
+    position: relative;
+}
+
+.en-carrito::after {
+    width:100%;
+    content: "En el carrito";
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--texto-destacado);
+    font-weight: bold;
+    text-align: center;
+}
+
+
 .card-img {
     /*Div que contiene la img (background) de la card*/
     height: 100%;
