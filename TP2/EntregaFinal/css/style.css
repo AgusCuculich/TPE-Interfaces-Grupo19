@@ -1076,6 +1076,10 @@ div.card button {
         align-items: center;
     }
 
+     .container-juego .carrusel-wrapper{
+         margin-top: 2rem;
+     }
+
     div.carrusel {
         overflow-x: hidden;
     }
