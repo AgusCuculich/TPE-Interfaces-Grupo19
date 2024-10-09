@@ -755,6 +755,14 @@ div.card button {
 }
 
 
+.iconos-redes{
+    display: flex;
+    width: 16rem;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+
 /*-----------------------------PAGINA DE JUGAR JUEGO-----------------------------*/
 /*Chequear el menu opacando parte de la pantalla visible*/
 
