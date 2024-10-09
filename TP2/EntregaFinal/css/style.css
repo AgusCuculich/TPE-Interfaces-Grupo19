@@ -85,7 +85,7 @@ form {
 form.form-login {
     width: fit-content;
     height: fit-content;
-    padding: 4%;
+    padding: 2%;
     text-align: center;
 }
 
@@ -200,7 +200,7 @@ input::-webkit-inner-spin-button {
 
 .contenedor-form input[type="email"]{
     width: 180%;
-    margin-left:8%;
+    margin-left:10%;
     align-self: flex-start;
 }
 
@@ -276,6 +276,7 @@ form button:hover{
     background-color: var(--azul-contenedores);
     border-radius: var(--bordes-esquinas);
     width:30%;
+    padding:2rem;
 
 }
 
