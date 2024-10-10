@@ -763,6 +763,88 @@ div.card button {
 }
 
 
+
+
+
+footer{
+    background-color: var(--azul-contenedores);
+    min-height:25vh;
+    margin-top: 3rem;
+
+}
+
+.footer-superior{
+    /*background-color: blue;*/
+    height:100%;
+    width:100%;
+    gap: 5rem;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-footer{
+    /*background-color: red;*/
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: visible;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    font-size: var(--texto);
+
+    align-items: center;
+    justify-content: flex-start;
+    gap:2rem;
+
+}
+
+footer .linea-separador{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+
+.seccion-footer ul{
+    list-style: none;
+}
+
+.seccion-footer img{
+    width:100%;
+}
+
+.seccion-footer li img{
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+
+.footer-inferior{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+.copyright{
+    background-color: var(--gris-claro);
+    font-size: var(--texto-destacado);
+    text-align: center;
+    vertical-align: center;
+    min-height:3rem;
+}
+
+
+
 /*-----------------------------PAGINA DE JUGAR JUEGO-----------------------------*/
 /*Chequear el menu opacando parte de la pantalla visible*/
 
@@ -1197,5 +1279,77 @@ div.card button {
         display: none;
     }*/
 
+
+    /*FAT FOOTER*/
+
+
+    .footer-superior{
+        /*background-color: blue;*/
+        height:80%;
+        width: calc(100% - 400px);
+
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .seccion-footer{
+        /*background-color: red;*/
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow: visible;
+        width: 15%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        font-size: var(--texto);
+
+        align-items: center;
+        justify-content: flex-start;
+        gap:2rem;
+
+    }
+
+    footer .linea-separador{
+        width: calc(100vw - 400px);
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+
+
+    .seccion-footer ul{
+        list-style: none;
+    }
+
+    .seccion-footer img{
+        width:100%;
+    }
+
+    .seccion-footer li img{
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+
+
+    .footer-inferior{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+
+    .copyright{
+        background-color: var(--gris-claro);
+        font-size: var(--texto-destacado);
+        text-align: center;
+        vertical-align: center;
+        min-height:3rem;
+    }
 
 }
