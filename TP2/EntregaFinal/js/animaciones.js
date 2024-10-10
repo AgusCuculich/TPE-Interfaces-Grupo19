@@ -78,7 +78,7 @@ function animar(){
 
 
         //Scrollea el div del carrousel 700px, a la direccion indicada
-        padre.scrollLeft += direccion * 700;
+        padre.scrollLeft += direccion * 1380;
 
         let cards = padre.querySelectorAll('.card');
 
@@ -97,25 +97,6 @@ function animar(){
                 }, 500);
             });
         }
-
-
-        /*//Segun la direccion, asigno la clase que anima al elemento, y a los 500ms la quito
-        if (direccion == 1){
-            padre.classList.add("carrusel-izq");
-            setTimeout(()=>{
-                padre.classList.remove("carrusel-izq");
-            }, 500)
-        }
-        else{
-            padre.classList.add("carrusel-der");
-            setTimeout(()=>{
-                padre.classList.remove("carrusel-der");
-            }, 500)
-        }*/
-
-
-
-
     }
 
 
