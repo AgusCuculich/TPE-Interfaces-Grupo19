@@ -1068,6 +1068,35 @@ footer .linea-separador{
     box-sizing: border-box;
 }
 
+.encabezado-comentario{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.acciones-comentario{
+    /*background-color: red;*/
+    width:20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.acciones-comentario button{
+    border-radius: var(--bordes-esquinas);
+    border: none;
+    width: 75%;
+    height: 50%;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.botonera-likes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
 .compartir-contenedor{
     display: flex;
