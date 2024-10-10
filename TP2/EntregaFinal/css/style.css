@@ -1097,6 +1097,36 @@ footer .linea-separador{
     align-items: center;
 }
 
+.barra-comentar{
+    width:100%;
+    height:6rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.caja-comentario input[type="text"]{
+    border-radius: 10px;
+    background-color: var(--gris-claro);
+    border: none;
+    height:3rem;
+    color: var(--hueso);
+    width:100%;
+    text-align: left;
+    padding: 1rem;
+    margin-left: 3rem;
+    margin-right:3rem;
+
+
+}
+
+.caja-comentario input[type="text"]::placeholder{
+    color:var(--texto-placeholder);
+
+}
+
+
 
 .compartir-contenedor{
     display: flex;
