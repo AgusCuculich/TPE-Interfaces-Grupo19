@@ -769,7 +769,7 @@ div.card button {
 footer{
     background-color: var(--azul-contenedores);
     min-height:25vh;
-    margin-top: 3rem;
+    margin-top: 5rem;
     padding-top: 1rem;
 }
 
@@ -867,7 +867,7 @@ footer .linea-separador{
     /*background-color: var(--azul-contenedores);*/
     margin-left: auto;
     margin-right: auto;
-    height: 350vh;
+    /*height: 350vh;*/
     padding: 2rem;
     width: calc(100vw - 40rem);
     font-size: var(--texto-destacado);
