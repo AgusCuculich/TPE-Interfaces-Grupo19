@@ -1072,6 +1072,7 @@ footer .linea-separador{
     width:100%;
     display: flex;
     justify-content: center;
+
 }
 
 .acciones-comentario{
@@ -1089,12 +1090,14 @@ footer .linea-separador{
     height: 50%;
     cursor: pointer;
     font-weight: 600;
+    margin-right:3rem;
 }
 
 .botonera-likes{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-right:3rem;
 }
 
 .barra-comentar{
@@ -1113,8 +1116,10 @@ footer .linea-separador{
     height:3rem;
     color: var(--hueso);
     width:100%;
+    height:80%;
     text-align: left;
     padding: 1rem;
+    margin-top: 2rem;
     margin-left: 3rem;
     margin-right:3rem;
 
@@ -1126,6 +1131,11 @@ footer .linea-separador{
 
 }
 
+#contador-caracteres{
+    text-align: right;
+    margin-right:3rem;
+    margin-bottom: 1rem;
+}
 
 
 .compartir-contenedor{

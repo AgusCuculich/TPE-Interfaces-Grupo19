@@ -306,8 +306,10 @@
             <div class="linea-separador"> </div>
 
             <div class="barra-comentar">
-                <input type="text" placeholder="Escribir aquí">
+                <input type="text" placeholder="Escribir aquí" maxlength="200" id="comentario" oninput="actualizarContador()">
+
             </div>
+            <p id="contador-caracteres">200 caractares restantes</p>
 
         </div>
 
@@ -469,5 +471,6 @@
 
     </footer>
 
+<script src="js/limite-caracteres.js"></script>
 </body>
 </html>
