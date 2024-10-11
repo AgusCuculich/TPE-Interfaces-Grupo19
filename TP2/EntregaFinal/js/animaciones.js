@@ -74,13 +74,13 @@ function animar(){
         console.log(direccion);
 
         //Consigo el abuelo del boton, // boton -> etiqueta a -> carrusel
-        let padre = boton.parentElement.querySelector('.carrusel');
+        const carrusel = boton.parentElement.querySelector('.carrusel');
 
 
         //Scrollea el div del carrousel 700px, a la direccion indicada
-        padre.scrollLeft += direccion * 1380;
+        carrusel.scrollLeft += direccion * 1380;
 
-        let cards = padre.querySelectorAll('.card');
+        const cards = carrusel.querySelectorAll('buy-card, free-card, carrito-card');
 
         if (direccion == 1) { // Cambiar a la izquierda
             cards.forEach(card => {

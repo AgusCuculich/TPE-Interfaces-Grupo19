@@ -378,6 +378,10 @@ header{
     align-items: center;
 }
 
+header a {
+    text-decoration: none; /* Elimina el subrayado */
+}
+
 header div h1 {
     display: none;
 }
@@ -606,6 +610,14 @@ div.big-card p {
     justify-self: center;
 }
 
+div.big-card button a {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
 div.card button, div.big-card button {
     /*Estilos generales de los botones de las cards*/
     height: 60%;
@@ -613,13 +625,12 @@ div.card button, div.big-card button {
     border: none; /* Elimina bordes */
     box-shadow: none; /* Elimina sombras */
     cursor: pointer;
-    /*padding-left: 5%;
-    padding-right: 5%;*/
     border-radius: var(--bordes-esquinas);
     font-size: var(--texto);
     margin: 0 auto;
     font-weight: bold;
     align-self: center;
+    position: relative;
 }
 
 .btn-carrito {
