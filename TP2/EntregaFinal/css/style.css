@@ -434,7 +434,17 @@ header button {
 
 header #btn_hamburguesa {
     background-image: url(../svg/btn_cerrar_hamburguesa.svg);
+    transition: 0.2s ease-in-out;
 }
+
+#btn_hamburguesa.espejeado{
+    transform: rotate(180deg);
+}
+
+#btn_hamburguesa:hover{
+
+}
+
 
 header #btn_search {
     background-image: url(../svg/search.svg);
@@ -687,7 +697,7 @@ div.card button {
 }
 
 .oculto-compartir{
-    transform: translateY(-20rem);
+    transform: translateY(-15rem);
 }
 
 
@@ -1169,11 +1179,12 @@ footer .linea-separador{
     border-radius: 20px;
     background-color: var(--gris-oscuro);
     height: 6rem;
-    box-shadow: 2px 2px 2px black;
+    box-shadow: 0px 0px 5px black;
 
     transition: 0.2s;
     position: fixed;
     right:200px;
+    top:50px;
 
     z-index: 10;
 
