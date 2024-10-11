@@ -706,6 +706,9 @@ div.card button {
 
 
 .informacion-usuario button, #btn-compartir{
+    position: relative;
+    overflow:hidden;
+    z-index: 1;
     display: block;
     cursor: pointer;
 
@@ -727,10 +730,29 @@ div.card button {
 }
 
 .informacion-usuario button:hover, #btn-compartir:hover{
-    background-color: var(--hueso);
-    border: 2px solid var(--gris-oscuro);
+
     color: var(--gris-oscuro);
 }
+
+
+.informacion-usuario button::before,#btn-compartir::before{
+    border-radius: 30px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20%;
+    height: 100%;
+    transform: scale(0);
+    background-color: var(--hueso);
+    transition: 0.4s;
+    z-index: -1;
+}
+
+.informacion-usuario button:hover::before,#btn-compartir:hover::before{
+    transform: scale(10);
+}
+
 
 .informacion-usuario .custom-line{
     width:16rem;
