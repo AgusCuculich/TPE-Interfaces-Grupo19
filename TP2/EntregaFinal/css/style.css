@@ -633,14 +633,71 @@ div.card button {
 }
 
 .btn-carrito {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
     background-color: var(--verde);
     color: var(--azul-contenedores);
+    transition: 0.2s;
+
+}
+
+.btn-carrito:hover{
+    color: var(--verde);
+    border: 2px solid var(--verde);
+}
+
+.btn-carrito::before{
+    border-radius: 30px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20%;
+    height: 100%;
+    transform: scale(0);
+    background-color: var(--gris-oscuro);
+    transition: 0.4s;
+    z-index: -1;
+}
+
+.btn-carrito:hover::before{
+    transform: scale(10);
 }
 
 .btn-jugar {
     background-color: var(--violeta);
     color: var(--hueso);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
+
+.btn-jugar:hover{
+    color: var(--violeta);
+    border: 2px solid var(--violeta);
+}
+
+.btn-jugar::before{
+    border-radius: 30px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 20%;
+    height: 100%;
+    transform: scale(0);
+    background-color: var(--hueso);
+    transition: 0.4s;
+    z-index: -1;
+
+}
+
+.btn-jugar:hover::before{
+    transform: scale(10);
+}
+
+
 
 /*MENU_HAMBURGUESA*/
 
@@ -746,11 +803,11 @@ div.card button {
 
 
 .informacion-usuario button::before,#btn-compartir::before{
-    border-radius: 30px;
+    /*border-radius: 30px;*/
     content: "";
     position: absolute;
     top: 0;
-    left: 40%;
+    left: -15%;
     width: 20%;
     height: 100%;
     transform: scale(0);
@@ -760,7 +817,7 @@ div.card button {
 }
 
 .informacion-usuario button:hover::before,#btn-compartir:hover::before{
-    transform: scale(10);
+    transform: scale(12);
 }
 
 
@@ -1336,6 +1393,20 @@ footer .linea-separador{
         cursor: pointer;
         border-radius: 10px;
         border: none;
+        transition: 0.2s;
+    }
+
+    .btn-carrusel:hover{
+        background-color: var(--gris-oscuro);
+    }
+
+    .btn-carrusel img{
+        transition: 0.2s;
+    }
+
+    .btn-carrusel:hover img{
+        transform: scaleX(1.5);
+        transition: 0.2s;
     }
 
     .btn-carrusel.espejeado{
