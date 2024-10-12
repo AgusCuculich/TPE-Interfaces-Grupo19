@@ -1069,8 +1069,20 @@ footer .linea-separador{
 .seccion-carga{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height:100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: var(--azul-background);
+    transition: 0.2s;
+}
+
+.desaparecer{
+    opacity: 0;
 }
 
 
@@ -1081,11 +1093,13 @@ footer .linea-separador{
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    width:100%;
+   gap: 1rem;
 }
 
 .area-cargado div{
-    width: 3rem;
-    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
     border-radius: 50%;
     background-color: var(--verde);
 
@@ -1599,4 +1613,9 @@ footer .linea-separador{
         vertical-align: center;
         min-height:3rem;
     }
+
+    .area-cargado{
+        gap: 5rem;
+    }
+
 }
