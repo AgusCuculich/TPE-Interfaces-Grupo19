@@ -23,4 +23,7 @@ function toggle_compartir(){
 function toggle_menu(){
     let menu = document.querySelector(".menu_hamburguesa");
     menu.classList.toggle("oculto");
+
+    let icono_menu = document.querySelector("#btn_hamburguesa");
+    icono_menu.classList.toggle("espejeado");
 }
