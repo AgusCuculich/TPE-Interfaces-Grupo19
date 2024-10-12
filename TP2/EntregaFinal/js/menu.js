@@ -8,7 +8,11 @@ function control_menu(){
     boton_menu.addEventListener("click", toggle_menu);
 
     let boton_compartir = document.querySelector("#btn-compartir");
-    boton_compartir.addEventListener("click", toggle_compartir);
+
+    if (boton_compartir){
+        boton_compartir.addEventListener("click", toggle_compartir);
+    };
+
 
 
 }

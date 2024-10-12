@@ -396,6 +396,35 @@ header div.cont-carrito {
     position: relative;
 }
 
+.circulo-pulsante {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--verde);
+    border-radius: 50%;
+    animation: pulse 1s linear;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(6);
+        opacity: 0;
+    }
+}
+
+
 header div.cont-carrito p.carrito-circulo {
     height: max-content;
     min-width: 50%;
