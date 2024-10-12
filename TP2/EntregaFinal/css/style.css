@@ -383,7 +383,33 @@ header a {
 }
 
 header div h1 {
-    display: none;
+    margin-left: .5rem;
+    font-size: var(--tamanio-subtitulo);
+    background: linear-gradient(to right, #3EFFA2 0%, #6A4DDE 50%);
+    background-clip: text;
+    color: transparent;
+}
+
+header div.cont-carrito {
+    height: max-content;
+    width: max-content;
+    position: relative;
+}
+
+header div.cont-carrito p.carrito-circulo {
+    height: max-content;
+    min-width: 50%;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    right: -5px;
+    background-color: var(--verde);
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    text-align: center;
+    color: var(--azul-background);
+    font-size: var(--leyenda);
+    font-weight: bold;
 }
 
 header input, button, #shopping_cart {
@@ -391,13 +417,13 @@ header input, button, #shopping_cart {
     height: 3rem;
 }
 
-header div {
+header div.identidad {
     /*Contenedor del logo y h1 (no visible)*/
     width: max-content;
     justify-self: center;
     min-width: 17.873rem;
-    width: 90%;
     max-width: 46rem;
+    display: grid;
 }
 
 header input::placeholder {
@@ -421,7 +447,7 @@ header input:focus {
 }
 
 #img_logo {
-    height: 5rem;
+    display: none;
 }
 
 header button {
@@ -851,7 +877,7 @@ div.card button, div.big-card button {
 }
 
 .perfil img{
-    margin: 2rem 1rem 2rem 1rem;
+    margin: 2rem 1rem 2rem 0rem;
 }
 
 
@@ -859,6 +885,7 @@ div.card button, div.big-card button {
     display: flex;
     width: 16rem;
     justify-content: space-evenly;
+    margin: 0 auto;
     margin-top: 1rem;
 }
 
@@ -1073,7 +1100,7 @@ footer .linea-separador{
 
 .render-juego{
     width: 100%;
-    height: calc(100vh - 20rem);
+    height: 100%;
 }
 
 
@@ -1310,17 +1337,18 @@ footer .linea-separador{
         color: var(--hueso);
     }
 
-    header div {
+    header div.identidad {
         display: flex;
         align-items: center;
     }
 
-    header div h1 {
+    header div.identidad h1 {
         /*Le da el degradado al nombre de la página.*/
+        font-size: var(--tamanio-titulo);
+    }
+
+    #img_logo {
         display: block;
-        background: linear-gradient(to right, #3EFFA2 0%, #6A4DDE 50%);
-        background-clip: text;
-        color: transparent;
     }
 
     header #shopping_cart {
@@ -1524,5 +1552,4 @@ footer .linea-separador{
         vertical-align: center;
         min-height:3rem;
     }
-
 }
