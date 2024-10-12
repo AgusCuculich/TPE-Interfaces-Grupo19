@@ -239,6 +239,10 @@ form button:hover{
     transform: scale(1.05);
 }
 
+#captcha{
+    width: 50%;
+    height:50%;
+}
 
 #sign_google{
     background-color: var(--gris-claro);
@@ -258,11 +262,16 @@ form button:hover{
     transition: 0.2s;
 }
 
+
 #sign_facebook:hover{
     color: var(--hueso);
     border: 2px solid var(--hueso);
     background-color: #004990;
 }
+
+
+
+
 
 
 /* Layout */
@@ -886,6 +895,15 @@ div.card button, div.big-card button {
     transform: scale(12);
 }
 
+#sign_facebook, #sign_google, #btn-compartir{
+    display: flex;
+    align-items: center;
+}
+
+#btn-compartir{
+    justify-content: space-evenly;
+
+}
 
 .informacion-usuario .custom-line{
     width:16rem;
