@@ -70,6 +70,13 @@ a{
     color: inherit;
 }
 
+button {
+    border: none; /* Elimina bordes */
+    box-shadow: none; /* Elimina sombras */
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+}
+
 body.body-form {
     align-content: center;
 }
@@ -214,9 +221,7 @@ input::placeholder{
 
 form button{
     display: block;
-    cursor: pointer;
     background-color: var(--violeta);
-    border: none;
     border-radius: var(--bordes-esquinas);
     color: var(--hueso);
     font-family: "Montserrat", sans-serif;
@@ -340,20 +345,14 @@ input::placeholder{
 
 form button{
     display: block;
-    cursor: pointer;
-
     background-color: var(--violeta);
-    border: none;
     border-radius: var(--bordes-esquinas);
-
     color: var(--hueso);
     font-family: "Montserrat", sans-serif;
     font-size: var(--texto-destacado);
     font-weight: bold;
-
     width: 23rem;
     height: 3.8rem;
-
     transition: 0.2s ease-in;
 }
 
@@ -456,9 +455,6 @@ header button {
     background-image: url(../svg/btn_cerrar_hamburguesa.svg);
     background-color: transparent;
     background-position: center;
-    border: none; /* Elimina bordes */
-    box-shadow: none; /* Elimina sombras */
-    cursor: pointer;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -470,10 +466,6 @@ header #btn_hamburguesa {
 
 #btn_hamburguesa.espejeado{
     transform: rotate(180deg);
-}
-
-#btn_hamburguesa:hover{
-
 }
 
 
@@ -658,9 +650,6 @@ div.card button, div.big-card button {
     /*Estilos generales de los botones de las cards*/
     height: 60%;
     aspect-ratio: 4/1;
-    border: none; /* Elimina bordes */
-    box-shadow: none; /* Elimina sombras */
-    cursor: pointer;
     border-radius: var(--bordes-esquinas);
     font-size: var(--texto);
     margin: 0 auto;
@@ -746,8 +735,6 @@ div.card button, div.big-card button {
     height: 100%;
     transition: 0.2s;
     position: fixed;
-
-
 }
 
 .menu_hamburguesa h3{
@@ -759,19 +746,14 @@ div.card button, div.big-card button {
 .menu_opciones{
     list-style: none;
     margin:2rem;
-
-
 }
 
 .menu_opciones li{
-
     width:100%;
     font-size: var(--texto);
     font-weight: bold;
     margin-bottom: 1em;
     transition: 0.1s;
-
-
 }
 
 .menu_opciones li:hover{
@@ -798,65 +780,66 @@ div.card button, div.big-card button {
 .informacion-usuario{
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
     margin-left: 2rem;
-
     font-size: var(--texto);
     font-weight: bold;
-    /*background-color: palegreen;*/
     min-height:200px;
 }
 
+.informacion-usuario button a {
+    text-decoration: none;
+}
 
-
-.informacion-usuario button, #btn-compartir{
+.informacion-usuario button, #btn-compartir {
     position: relative;
-    overflow:hidden;
-    z-index: 1;
-    display: block;
-    cursor: pointer;
-
     background-color: var(--gris-oscuro);
-    border: 2px solid var(--hueso);
     border-radius: var(--bordes-esquinas);
-
     color: var(--hueso);
-    font-family: "Montserrat", sans-serif;
     font-size: var(--texto-destacado);
     font-weight: bold;
-
     width: 16rem;
     height: 3.2rem;
     margin-top: 1.6rem;
     margin-bottom: 1.6rem;
-
-    transition: 0.2s;
-}
-
-.informacion-usuario button:hover, #btn-compartir:hover{
-
-    color: var(--gris-oscuro);
+    border: 2px solid var(--hueso);
+    overflow: hidden;
+    transition: .5s;
 }
 
 
-.informacion-usuario button::before,#btn-compartir::before{
-    /*border-radius: 30px;*/
-    content: "";
+.informacion-usuario button:hover, #btn-compartir:hover {
+    color: var(--azul-contenedores);
+}
+
+.informacion-usuario button:hover::before, #btn-compartir:hover::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: -15%;
-    width: 20%;
-    height: 100%;
-    transform: scale(0);
+    width: 120%;
+    height: 120%;
     background-color: var(--hueso);
-    transition: 0.4s;
-    z-index: -1;
+    top: -3px;
+    right: -10px;
+    transform-origin: center; /* Asegura que la rotación ocurra en el centro */
+    animation: rotate .5s ease-in-out;
+    z-index: 0; /* Asegúrate de que esté debajo del texto */
 }
 
-.informacion-usuario button:hover::before,#btn-compartir:hover::before{
-    transform: scale(12);
+
+.btn-text {
+    position: relative; /* Asegura que el texto esté sobre los pseudo-elementos */
+    z-index: 2; /* Asegura que el texto esté por encima de la animación */
 }
 
+@keyframes rotate {
+    from {
+        transform: rotate(90deg); /* Combina ambas transformaciones */
+        opacity: 0%;
+    }
+    to {
+        transform: rotate(180deg); /* Mantén el centrado y rota */
+        opacity: 100%;
+    }
+}
 
 .informacion-usuario .custom-line{
     width:16rem;
@@ -888,9 +871,6 @@ div.card button, div.big-card button {
     margin: 0 auto;
     margin-top: 1rem;
 }
-
-
-
 
 
 footer{
@@ -1191,10 +1171,8 @@ footer .linea-separador{
 
 .acciones-comentario button{
     border-radius: var(--bordes-esquinas);
-    border: none;
     width: 75%;
     height: 50%;
-    cursor: pointer;
     font-weight: 600;
     margin-right:3rem;
 }
@@ -1408,24 +1386,34 @@ footer .linea-separador{
         height:4.8rem;
         display: block;
         background-color: var(--gris-claro);
-        box-shadow: none;
-        cursor: pointer;
         border-radius: 10px;
-        border: none;
         transition: 0.2s;
     }
 
     .btn-carrusel:hover{
         background-color: var(--gris-oscuro);
+        border: 2px solid var(--hueso);
+        border-radius: 10px;
     }
 
-    .btn-carrusel img{
-        transition: 0.2s;
+    .btn-carrusel img {
+        transition: transform 0.3s ease; /* Transición suave */
     }
-
-    .btn-carrusel:hover img{
-        transform: scaleX(1.5);
-        transition: 0.2s;
+    
+    .btn-carrusel:hover img {
+        animation: latido 0.6s infinite; /* Llama a la animación */
+    }
+    
+    @keyframes latido {
+        0% {
+            transform: scale(1); /* Tamaño normal */
+        }
+        50% {
+            transform: scale(1.2); /* Aumenta el tamaño (latido) */
+        }
+        100% {
+            transform: scale(1); /* Vuelve al tamaño normal */
+        }
     }
 
     .btn-carrusel.espejeado{
@@ -1442,43 +1430,6 @@ footer .linea-separador{
         transition: transform 0.8s; /* Suaviza la rotación */
         transform: rotateY(360deg); /* Rota en la dirección derecha */
     }
-
-    /*.btn-carrusel{
-        all: unset;
-        top: 50%;
-        left: 101%;
-        position: absolute;
-        z-index: 2;
-
-        border-radius: 10px;
-        cursor: pointer;
-        box-shadow: none;
-        width:4.8rem;
-        height:4.8rem;
-        background-color: var(--gris-claro);
-    }
-
-
-    .btn-carrusel img {
-        vertical-align: middle;
-        display: inline-block;
-    }
-
-
-    .carrusel-izq{
-        transition: 0.1s;
-        transform: skewX(15deg);
-    }
-
-    .carrusel-der{
-        transition: 0.1s;
-        transform: skewX(-15deg);
-    }
-
-
-    .carrusel-izq .btn-carrusel, .carrusel-der .btn-carrusel{
-        display: none;
-    }*/
 
 
     /*FAT FOOTER*/
