@@ -48,6 +48,8 @@
 html{
     font-family: "Montserrat", sans-serif;
     font-size: 10px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
 }
 
 
