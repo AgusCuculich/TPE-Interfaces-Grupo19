@@ -372,6 +372,14 @@ form button{
 
 /*INDEX*/
 
+main{
+    transition: 0.2s;
+}
+
+.semitransparente{
+    opacity: 0.5;
+}
+
 header, main {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -520,6 +528,44 @@ header #btn_search {
 header input {
     /*Con esto nos encargamos de que no aparezca el input de busqueda de juegos*/
     display: none;
+}
+
+input.search-mobile {
+    /*Principalmente relacionado al aspecto del input, como el color de fondo, que no tenga borde, el radio de las esquinas, que el
+    texto (que escribe el usuario) no empiece tan sobre el borde izq del input, etc*/
+    display: block;
+    border-radius: var(--bordes-esquinas);
+    background-color: var(--gris-claro);
+    padding-left: 1%;   /*Mueve un poco a la derecha la barrita que parpadea para que el usuario escriba*/
+    border: none;
+    justify-self: center;
+    min-width: 17.873rem;
+    width: 90%;
+    height:5%;
+    margin-top: 1rem;
+    margin-left: 5%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+input.search-mobile::placeholder {
+    /*En general se encarga de posicionar el texto placeholder del input al medio y mostrar el icono de la lupa*/
+    text-align: center; /* Centra el placeholder visualmente */
+    color: var(--texto-placeholder); /*Color de las letras del placeholder*/
+    position: absolute; /* Posición absoluta */
+    left: 0; /* Se alinea al borde izquierdo */
+    right: 0; /* Se alinea al borde derecho */
+    top: 50%; /* Se centra verticalmente */
+    transform: translateY(-50%); /* Ajusta para centrar verticalmente */
+    background: url(../svg/search.svg);
+    background-size: contain;
+    background-position: right 3% center;   /* Coloca el ícono a la derecha con un margen de 3% */
+    background-repeat: no-repeat;   /*Hace que la lupa no se repita por todo el espacio del input*/
+}
+
+input.search-mobile:focus {
+    /*Cambia el color de la línea que parpadea al ingresar texto en un input.*/
+    color: var(--hueso);
 }
 
 .menu_hamburguesa {
@@ -774,10 +820,12 @@ div.card button, div.big-card button {
     background-color: var(--azul-background);
     border-right: 1px solid var(--gris-claro);
     color: var(--hueso);
-    width: 200px;
+    width: 80%;
     height: 100%;
     transition: 0.2s;
     position: fixed;
+    margin: 0;
+
 }
 
 .menu_hamburguesa h3{
@@ -1576,6 +1624,112 @@ footer .linea-separador{
 
     .area-cargado{
         gap: 5rem;
+    }
+
+
+
+
+    /*MENU HAMBURGUESA DESKTOP*/
+
+    .menu_hamburguesa{
+        background-color: var(--azul-background);
+        border-right: 1px solid var(--gris-claro);
+        color: var(--hueso);
+        width: 200px;
+        height: 100%;
+        transition: 0.2s;
+        position: fixed;
+    }
+
+    .menu_hamburguesa h3{
+        font-size: var(--texto-destacado);
+        font-weight: bold;
+        margin-left: 2rem;
+    }
+
+    .menu_opciones{
+        list-style: none;
+        margin:2rem;
+    }
+
+    .menu_opciones li{
+        width:100%;
+        font-size: var(--texto);
+        font-weight: bold;
+        margin-bottom: 1em;
+        transition: 0.1s;
+    }
+
+    .menu_opciones li:hover{
+        transform: scale(1.25);
+        color:wheat;
+        cursor: pointer;
+    }
+
+
+    .menu_opciones li img{
+        margin-right: 0.8rem;
+    }
+
+
+    .oculto{
+        transform: translateX(-120%);
+    }
+
+    .oculto-compartir{
+        transform: translateY(-15rem);
+    }
+
+
+    .informacion-usuario{
+        display: flex;
+        flex-direction: column;
+        margin-left: 2rem;
+        font-size: var(--texto);
+        font-weight: bold;
+        min-height:200px;
+    }
+
+    .informacion-usuario button a {
+        text-decoration: none;
+    }
+
+    .informacion-usuario button, #btn-compartir {
+        position: relative;
+        background-color: var(--gris-oscuro);
+        border-radius: var(--bordes-esquinas);
+        color: var(--hueso);
+        font-size: var(--texto-destacado);
+        font-weight: bold;
+        width: 16rem;
+        height: 3.2rem;
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+        border: 2px solid var(--hueso);
+        overflow: hidden;
+        transition: .5s;
+    }
+
+
+    .informacion-usuario button:hover, #btn-compartir:hover {
+        color: var(--azul-contenedores);
+    }
+
+    .informacion-usuario button:hover::before, #btn-compartir:hover::before {
+        content: '';
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        background-color: var(--hueso);
+        top: -3px;
+        right: -10px;
+        transform-origin: center; /* Asegura que la rotación ocurra en el centro */
+        animation: rotate .5s ease-in-out;
+        z-index: 0; /* Asegúrate de que esté debajo del texto */
+    }
+
+    input.search-mobile{
+        display: none;
     }
 
 }
