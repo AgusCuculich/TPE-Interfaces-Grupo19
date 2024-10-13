@@ -249,6 +249,10 @@ form button:hover{
     transform: scale(1.05);
 }
 
+#captcha{
+    width: 50%;
+    height:50%;
+}
 
 #sign_google{
     background-color: var(--gris-claro);
@@ -268,11 +272,16 @@ form button:hover{
     transition: 0.2s;
 }
 
+
 #sign_facebook:hover{
     color: var(--hueso);
     border: 2px solid var(--hueso);
     background-color: #004990;
 }
+
+
+
+
 
 
 /* Layout */
@@ -399,6 +408,35 @@ header div.cont-carrito {
     width: max-content;
     position: relative;
 }
+
+.circulo-pulsante {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--verde);
+    border-radius: 50%;
+    animation: pulse 1s linear;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(6);
+        opacity: 0;
+    }
+}
+
 
 header div.cont-carrito p.carrito-circulo {
     height: max-content;
@@ -846,6 +884,16 @@ div.card button, div.big-card button {
     }
 }
 
+#sign_facebook, #sign_google, #btn-compartir{
+    display: flex;
+    align-items: center;
+}
+
+#btn-compartir{
+    justify-content: space-evenly;
+
+}
+
 .informacion-usuario .custom-line{
     width:16rem;
 }
@@ -1007,8 +1055,20 @@ footer .linea-separador{
 .seccion-carga{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height:100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: var(--azul-background);
+    transition: 0.2s;
+}
+
+.desaparecer{
+    opacity: 0;
 }
 
 
@@ -1019,11 +1079,13 @@ footer .linea-separador{
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    width:100%;
+   gap: 1rem;
 }
 
 .area-cargado div{
-    width: 3rem;
-    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
     border-radius: 50%;
     background-color: var(--verde);
 
@@ -1511,4 +1573,9 @@ footer .linea-separador{
         vertical-align: center;
         min-height:3rem;
     }
+
+    .area-cargado{
+        gap: 5rem;
+    }
+
 }

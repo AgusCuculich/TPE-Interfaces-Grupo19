@@ -40,6 +40,8 @@ function animar(){
     //Consigo todos los botones de añadir al carrito
     let botonesCarrito = document.querySelectorAll(".btn-carrito");
 
+    document.querySelector(".carrito-circulo").textContent = Number(document.querySelectorAll(".en-carrito").length);
+
     //A cada boton le asigno el evento de comprar cuando se clickea
     botonesCarrito.forEach(boton =>{
         boton.addEventListener("click", ()=>{
@@ -56,6 +58,16 @@ function animar(){
         botonActivador.parentElement.classList.add("en-carrito");
 
         //TODO Animar carrito
+        let cantidadCompras = document.querySelector(".carrito-circulo");
+        cantidadCompras.textContent = Number(cantidadCompras.textContent) + 1;
+
+        let pulso = document.createElement("div");
+        pulso.classList.add("circulo-pulsante");
+        document.querySelector(".cont-carrito").appendChild(pulso);
+
+        setTimeout(()=>{
+            pulso.remove();
+        }, 1000)
 
     }
 
