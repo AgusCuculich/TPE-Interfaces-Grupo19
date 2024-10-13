@@ -21,7 +21,7 @@
     <section class="grupo-inputs">
         <div class="tupla-inputs">
             <label for="nombre"><span class="campo-obligatorio">*</span> Nombre</label>
-            <input type="text" name="nombre" id="nombre" placeholder="John" required>
+            <input type="text" name="nombre" id="nombre" placeholder="John">
 
             <label for="nickname">Nickname</label>
             <input type="text" name="nickname" id="nickname" placeholder="Star791">
@@ -30,10 +30,10 @@
         <div class="tupla-inputs">
 
             <label for="apellido"><span class="campo-obligatorio">*</span> Apellido</label>
-            <input type="text" name="apellido" id="apellido"  placeholder="Doe" required>
+            <input type="text" name="apellido" id="apellido"  placeholder="Doe">
 
             <label for="edad"><span class="campo-obligatorio">*</span> Edad</label>
-            <input type="number" name="edad" id="edad"  placeholder="20" required>
+            <input type="number" name="edad" id="edad"  placeholder="20">
 
         </div>
 
@@ -43,38 +43,37 @@
         <div class="tupla-inputs">
 
             <label for="email"><span class="campo-obligatorio">*</span> Correo Electrónico</label>
-            <input type="email" name="email" id="email" placeholder="john22@email.com" required>
+            <input type="email" name="email" id="email" placeholder="john22@email.com">
 
             <label for="password"><span class="campo-obligatorio">*</span> Contraseña</label>
-            <input type="password" name="password" id="password" required>
+            <input type="password" name="password" id="password">
 
         </div>
 
         <div class="singular-input">
             <label for="password-confirm"><span class="campo-obligatorio">*</span> Confirmar Contraseña</label>
-            <input type="password" name="password-confirm" id="password-confirm" required>
+            <input type="password" name="password-confirm" id="password-confirm">
         </div>
 
     </section>
 
 
     <button>CAPTCHA (PLACEHOLDER)</button>
-    <button>Registrarse</button>
+    <a href="index.html" class="no-decor"><button class="btn-ingreso">Registrarse</button></a>
 
     <hr class="custom-line">
     <div class="sign-redes">
 
-        <button id="sign_google">
-            <!-- <object data="svg/compartir_google.svg" type="image/svg+xml" width="40" height="40"></object> -->
+        <button id="sign_google" class="btn-ingreso">
             Continuar con Google
         </button>
-        <button id="sign_facebook">Continuar con Facebook</button>
+        <button id="sign_facebook" class="btn-ingreso">Continuar con Facebook</button>
 
     </div>
 
 </form>
 
-
+<script src="js/ingreso.js"></script>
 
 
 

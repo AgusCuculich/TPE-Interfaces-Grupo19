@@ -150,10 +150,13 @@ body.body-form{
     color: red;
 }
 
-form.form-login input + button {
-    margin-top: 46px;
+form.form-login input + a button {
+    margin-top: 2rem;
 }
 
+.no-decor {
+    text-decoration: none;
+}
 
 input[type="email"],
 input[type="password"]{
@@ -1104,16 +1107,19 @@ footer .linea-separador{
 
 .multimedia-juego{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     width:100%;
+    height: fit-content;
     padding: 2rem;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .multimedia-juego img{
-    width: 30rem;
-    height: 15rem;
+    width: 30%;
+    height: 100%;
     object-fit: cover;
-
 }
 
 #placeholder{
