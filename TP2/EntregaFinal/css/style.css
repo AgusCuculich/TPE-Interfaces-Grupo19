@@ -943,7 +943,8 @@ div.card button, div.big-card button {
 }
 
 .informacion-usuario .custom-line{
-    width:16rem;
+    width: calc(100% - 2rem);
+
 }
 
 .perfil{
@@ -1300,6 +1301,16 @@ footer .linea-separador{
     justify-content: space-around;
     align-items: center;
     margin-right:3rem;
+}
+
+.botonera-likes img{
+    transition: 0.2s;
+    cursor:pointer;
+}
+
+.botonera-likes img:hover{
+    opacity: 0.5;
+    transform:scale(1.1);
 }
 
 .barra-comentar{
