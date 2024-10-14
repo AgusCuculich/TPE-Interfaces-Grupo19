@@ -496,6 +496,13 @@ header input:focus {
     color: var(--hueso);
 }
 
+
+header input:not(:focus), input.search-mobile:not(:focus){
+    color: var(--hueso);
+}
+
+
+
 #img_logo {
     display: none;
 }
@@ -1426,6 +1433,8 @@ footer .linea-separador{
         width: 90%;
         max-width: 46rem;
     }
+
+
 
     header input::placeholder {
         /*En general se encarga de posicionar el texto placeholder del input al medio y mostrar el icono de la lupa*/
