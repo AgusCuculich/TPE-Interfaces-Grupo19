@@ -357,6 +357,23 @@ input::placeholder{
     font-size: var(--texto-placeholder);
 }
 
+.form-inverso{
+    transform: rotateX(180deg);
+    transition: 1s;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-inverso * {
+    transform: rotateX(180deg);
+}
+
+
+
+
+
 form button{
     display: block;
     background-color: var(--violeta);
