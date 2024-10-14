@@ -85,12 +85,21 @@ function animar(){
     function animarCarrusel(boton, direccion){
         console.log(direccion);
 
-        //Consigo el abuelo del boton, // boton -> etiqueta a -> carrusel
         const carrusel = boton.parentElement.querySelector('.carrusel');
 
+        /* lógica para desplazar las cards*/
+        const anchoWrapper = document.querySelector(".carrusel-wrapper").offsetWidth - 48 * 2; // Resta el ancho de los botones
+        let anchoTarjeta = 200; // Ancho de cada tarjeta
+        let gap = 30; // Espacio entre tarjetas
+        
+        // Calcular cuántas tarjetas caben en el ancho del wrapper
+        let cantCards = Math.floor((anchoWrapper + gap) / (anchoTarjeta + gap)); // Usa floor para evitar problemas
 
-        //Scrollea el div del carrousel 700px, a la direccion indicada
-        carrusel.scrollLeft += direccion * 1380;
+        let desplazamiento = cantCards * 200 + (cantCards * 30);
+
+        //Scrollea el div del carrousel a la direccion indicada
+        //carrusel.scrollLeft += direccion * anchoWrapper;
+        carrusel.scrollLeft += direccion * desplazamiento;
 
         const cards = carrusel.querySelectorAll('buy-card, free-card, carrito-card');
 
@@ -115,12 +124,14 @@ function animar(){
 
 
 
+    //FUNCIONALIDAD DE CLICKEAR BTN JUGAR (JUEGO)
 
 
+    const btnGame = document.querySelector("#btn-game");
+    const gameImg = document.querySelector("#img-game");
 
 
-
-
+    if(btnGame && gameImg) {btnGame.addEventListener("click", () => {gameImg.classList.remove("img-opaca"); btnGame.classList.add("ocultar")})}
 
 
 
