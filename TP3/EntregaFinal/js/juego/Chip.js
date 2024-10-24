@@ -1,6 +1,7 @@
-class Circle extends Figure {
+class Chip extends Drawable {
     constructor(posX, posY, radius, fill, context, draggable) {
-        super(posX,posY,fill,context, draggable);
+        super(posX,posY,fill,context);
+        this.draggable = draggable;
 
         this.radius = radius;
     }

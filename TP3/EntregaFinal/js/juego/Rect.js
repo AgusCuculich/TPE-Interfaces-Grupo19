@@ -1,4 +1,4 @@
-class Rect extends Figure {
+class Rect extends Drawable {
     constructor(posX,posY,width,height,fill,context,draggable) {
         super(posX,posY,fill,context, draggable);
 
