@@ -210,13 +210,13 @@ let matriz = [];
 for (let i = 0; i < filas; i++) {
     const fila = []; // Crear fila
     for (let j = 0; j < columnas; j++) {
-        let posX = j*12 * 15 + 100;
-        let posY =  100 + i*15*10;
+        let posX = j*10 * 15 + 100;
+        let posY =  50 + i*10*10;
         let color = randomRGBA();
-        let radius = 50;
+        let radius = 30;
 
 
-        let circle = new Circle(posX,posY, radius, color, ctx,false);
+        let circle = new Circle(posX,posY, radius, color, ctx,true);
         fila.push (circle);
         figures.push(circle);
 
