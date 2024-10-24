@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Interfaces TP2</title>
+    <script src="js/animaciones.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="./js/FreeCard.js"></script>
+    <script src="./js/BuyCard.js"></script>
+    <script src="./js/CarritoCard.js"></script>
+    <script src="js/loading.js"></script>
+</head>
+<body>
+
+    <div class="seccion-carga">
+        <div class="area-cargado">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <h1 id="porcentaje-carga">0%</h1>
+    </div>
+
+    <header>
+        <button id="btn_hamburguesa" class="espejeado"></button>
+        <a href="index.html"><div class="identidad">
+            <img id="img_logo" src="./svg/logo.svg"/>
+            <h1>ChascaGames</h1>
+        </div></a>
+        <button id="btn_search"></button>
+        <input type="text" placeholder="¿Que jugamos hoy?">
+        <div class="cont-carrito">
+            <img id="shopping_cart" src="./svg/shopping_cart.svg"/>
+            <p class="carrito-circulo">0</p>
+        </div>
+    </header>
+
+    <section class="menu_hamburguesa oculto">
+
+        <input type="text" placeholder="¿Que jugamos hoy?" class="search-mobile">
+
+        <div class="informacion-usuario">
+            <div class="perfil">
+                <img src="img/profile.png" alt="Imagen de usuario">
+                <p>Pedro</p>
+            </div>
+                <p class="acciones-perfil"> <img src = "svg/user.svg" alt="Mi SVG feliz"/> Perfil</p>
+                <p class="acciones-perfil"> <img src = "svg/heart.svg" alt="Mi SVG feliz"/>Mis juegos</p>
+                <button><span class="btn-text"><a href="form-login.html">Cerrar Sesión</a></span></button>
+                <hr class="custom-line">
+        </div>
+
+        <h3>Categorias</h3>
+        <ul class="menu_opciones">
+            <li><img src="svg/swords.svg" alt="Icono de acción"><a href="#c-accion">Acción</a></li>
+            <li><img src="svg/compass.svg" alt="Icono de aventura"><a href="#c-aventura">Aventura</a></li>
+            <li><img src="svg/car.svg" alt="Icono de carrera"><a href="#c-carreras">Carreras</a></li>
+            <li><img src="svg/basketball.svg" alt="Icono de deportes"><a href="#c-deportes">Deportes</a></li>
+            <li><img src="svg/crown.svg" alt="Icono de estrategia"><a href="#c-estrategia">Estrategia</a></li>
+            <li><img src="svg/diamond.svg" alt="Icono de plataformas"><a href="#c-plataformas">Plataformas</a></li>
+        </ul>
+
+        <h3>Redes</h3>
+        <div class="iconos-redes">
+            <img src="svg/twitch.svg" alt="Icono de Twitch">
+            <img src="svg/ds.svg" alt="Icono de Discord">
+            <img src="svg/x.svg" alt="Icono de Twitter">
+        </div>
+
+    </section>
+
+    <main>
+
+        <h2>Recomendados para ti</h2>
+
+        <section class="destacados">
+            <div class="big-card">
+                <div class="card-img">
+                    <img src="./img/4-linea.png">
+                </div>
+                <p class="card-titulo">4 En Línea: Línea Roja vs Línea Marrón</p>
+                <button class="btn-jugar"><a href="jugar-juego.html"></a>Jugar ahora</button>
+            </div>
+            <div class="big-card">
+                <div class="card-img">
+                    <img src="./img/fire&water.png">
+                    <p class="card-precio">$8.000</p>
+                </div>
+                <p class="card-titulo">Fireboy & Watergirl</p>
+                <button class="btn-carrito">Añadir al carrito</button>
+            </div>
+            <div class="big-card en-carrito">
+                <div class="card-img">
+                    <img src="img/plantsvsz.png">
+                </div>
+                <p class="card-titulo-solo">Plantas vs Zombies</p>
+            </div>
+        </section>
+
+
+
+        <h2>Jugados recientemente</h2>
+
+        <div class="carrusel-wrapper">
+
+            <button class="btn-carrusel espejeado"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+            <div class="carrusel">
+
+                <free-card
+                    titulo="Sue's Chocolate Factory"
+                    img-src="img/sue-choco.png">
+                </free-card>
+
+                <free-card
+                    titulo="Sue's Witch Magic Makeover"
+                    img-src="img/sue-witch.png">
+                </free-card>
+
+                <free-card
+                    titulo="Devilish Hairdresser"
+                    img-src="img/devilish.png">
+                </free-card>
+
+                <free-card
+                    titulo="Lost Objects"
+                    img-src="img/lost-obj.png">
+                </free-card>
+
+                <free-card
+                    titulo="Red Ball"
+                    img-src="img/red-ball.png">
+                </free-card>
+
+                <free-card
+                    titulo="Love Me!"
+                    img-src="img/love-me.png">
+                </free-card>
+
+                <free-card
+                    titulo="Electricman 2"
+                    img-src="img/electricman.png">
+                </free-card>
+
+                <free-card
+                    titulo="Run 3"
+                    img-src="img/run3.png">
+                </free-card>
+
+                <free-card
+                    titulo="Pucca vs Garu"
+                    img-src="img/pucca.png">
+                </free-card>
+
+                <free-card
+                    titulo="Baby Bratz! Mall Crawl"
+                    img-src="img/bratz.png">
+                </free-card>
+
+                <free-card
+                    titulo="Burrito Bison"
+                    img-src="img/bison.png">
+                </free-card>
+
+                <free-card
+                    titulo="Ultimate Flash Sonic"
+                    img-src="img/sonic.png">
+                </free-card>
+
+                <free-card
+                    titulo="Demo - Fireboy & Watergirl"
+                    img-src="img/fire&water.png">
+                </free-card>
+
+                <free-card
+                    titulo="Demo - Plantas vs Zombies"
+                    img-src="img/plantsvsz.png">
+                </free-card>
+
+            </div>
+
+            <button class="btn-carrusel"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+        </div>
+
+
+
+        <h2 id="c-accion">Acción</h2>
+
+        <div class="carrusel-wrapper">
+
+            <button class="btn-carrusel espejeado"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+            <div class="carrusel">
+
+                <buy-card
+                    titulo="Penguin Diner"
+                    img-src="img/penguin-diner.png"
+                    precio="$10.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Bartender: The Right Mix"
+                    img-src="img/bartender.png">
+                </free-card>
+
+                <buy-card
+                    titulo="Scooby Doo! Horror of the High Seas"
+                    img-src="img/scooby.png"
+                    precio="$3.500">
+                </buy-card>
+                
+                <carrito-card
+                    titulo="Happy Wheels"
+                    img-src="img/happy-wheels.png">
+                </carrito-card>
+
+                <buy-card
+                    titulo="Territory-war"
+                    img-src="img/territory-war.png"
+                    precio="$8.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Office Kissing"
+                    img-src="img/office-kiss.png">
+                </free-card>
+
+                <free-card
+                    titulo="Bomb It 6"
+                    img-src="img/bomb-it.png">
+                </free-card>
+
+                <buy-card
+                    titulo="Wonder Boy"
+                    img-src="img/wonder-boy.png"
+                    precio="$38.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Super Mario 63"
+                    img-src="img/mario63.png">
+                </free-card>
+
+                <free-card
+                    titulo="Megaman Polarity"
+                    img-src="img/megaman.png">
+                </free-card>
+
+                <carrito-card
+                    titulo="Oriental Flirting"
+                    img-src="img/oriental-flirting.png">
+                </carrito-card>
+
+                <buy-card
+                    titulo="My Sweet Baby"
+                    img-src="img/sweet-baby.png"
+                    precio="$2.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Baby Blimp"
+                    img-src="img/baby-blimp.png">
+                </free-card>
+
+                <free-card
+                    titulo="Beach Flirting"
+                    img-src="img/beach-flirting.png">
+                </free-card>
+
+            </div>
+
+            <button class="btn-carrusel"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+        </div>
+
+
+        <h2 id="c-aventura">Aventura</h2>
+
+        <div class="carrusel-wrapper">
+
+            <button class="btn-carrusel espejeado"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+            <div class="carrusel">
+
+                <free-card
+                    titulo="Demo - Plantas vs Zombies"
+                    img-src="img/plantsvsz.png">
+                </free-card>
+
+                <buy-card
+                    titulo="My Sweet Baby"
+                    img-src="img/sweet-baby.png"
+                    precio="$2.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Megaman Polarity"
+                    img-src="img/megaman.png">
+                </free-card>
+
+                <free-card
+                    titulo="Super Mario 63"
+                    img-src="img/mario63.png">
+                </free-card>
+
+                <buy-card
+                    titulo="Wonder Boy"
+                    img-src="img/wonder-boy.png"
+                    precio="$38.000">
+                </buy-card>
+
+                <carrito-card
+                    titulo="Oriental Flirting"
+                    img-src="img/oriental-flirting.png">
+                </carrito-card>
+
+                <buy-card
+                    titulo="Scooby Doo! Horror of the High Seas"
+                    img-src="img/scooby.png"
+                    precio="$3.500">
+                </buy-card>
+
+                <carrito-card
+                    titulo="Happy Wheels"
+                    img-src="img/happy-wheels.png">
+                </carrito-card>
+
+                <free-card
+                    titulo="Demo - Fireboy & Watergirl"
+                    img-src="img/fire&water.png">
+                </free-card>
+
+                <free-card
+                    titulo="Lost Objects"
+                    img-src="img/lost-obj.png">
+                </free-card>
+
+                <free-card
+                    titulo="Red Ball"
+                    img-src="img/red-ball.png">
+                </free-card>
+
+                <buy-card
+                    titulo="Penguin Diner"
+                    img-src="img/penguin-diner.png"
+                    precio="$10.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Electricman 2"
+                    img-src="img/electricman.png">
+                </free-card>
+
+                <free-card
+                    titulo="Bartender: The Right Mix"
+                    img-src="img/bartender.png">
+                </free-card>
+
+            </div>
+
+            <button class="btn-carrusel"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+        </div>
+
+
+        <h2 id="c-carreras">Carreras</h2>
+
+        <div class="carrusel-wrapper">
+
+            <button class="btn-carrusel espejeado"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+            <div class="carrusel">
+
+                <free-card
+                        titulo="Bomb It 6"
+                        img-src="img/bomb-it.png">
+                </free-card>
+
+                <free-card
+                        titulo="Beach Flirting"
+                        img-src="img/beach-flirting.png">
+                </free-card>
+
+                <buy-card
+                        titulo="Penguin Diner"
+                        img-src="img/penguin-diner.png"
+                        precio="$10.000">
+                </buy-card>
+
+
+
+                <buy-card
+                        titulo="Scooby Doo! Horror of the High Seas"
+                        img-src="img/scooby.png"
+                        precio="$3.500">
+                </buy-card>
+
+                <carrito-card
+                        titulo="Happy Wheels"
+                        img-src="img/happy-wheels.png">
+                </carrito-card>
+
+                <buy-card
+                        titulo="Wonder Boy"
+                        img-src="img/wonder-boy.png"
+                        precio="$38.000">
+                </buy-card>
+
+                <free-card
+                        titulo="Super Mario 63"
+                        img-src="img/mario63.png">
+                </free-card>
+
+                <free-card
+                        titulo="Megaman Polarity"
+                        img-src="img/megaman.png">
+                </free-card>
+
+                <carrito-card
+                        titulo="Oriental Flirting"
+                        img-src="img/oriental-flirting.png">
+                </carrito-card>
+
+                <buy-card
+                        titulo="My Sweet Baby"
+                        img-src="img/sweet-baby.png"
+                        precio="$2.000">
+                </buy-card>
+
+                <free-card
+                        titulo="Baby Blimp"
+                        img-src="img/baby-blimp.png">
+                </free-card>
+
+                <free-card
+                        titulo="Bartender: The Right Mix"
+                        img-src="img/bartender.png">
+                </free-card>
+
+
+
+
+
+                <buy-card
+                    titulo="Territory-war"
+                    img-src="img/territory-war.png"
+                    precio="$8.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Office Kissing"
+                    img-src="img/office-kiss.png">
+                </free-card>
+
+
+
+            </div>
+
+            <button class="btn-carrusel"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+        </div>
+
+
+        <h2 id="c-deportes">Deportes</h2>
+
+        <div class="carrusel-wrapper">
+
+            <button class="btn-carrusel espejeado"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+            <div class="carrusel">
+
+
+
+                <buy-card
+                    titulo="Penguin Diner"
+                    img-src="img/penguin-diner.png"
+                    precio="$10.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Bartender: The Right Mix"
+                    img-src="img/bartender.png">
+                </free-card>
+
+
+                
+
+
+                <free-card
+                        titulo="Bomb It 6"
+                        img-src="img/bomb-it.png">
+                </free-card>
+
+                <buy-card
+                    titulo="Territory-war"
+                    img-src="img/territory-war.png"
+                    precio="$8.000">
+                </buy-card>
+
+                <free-card
+                        titulo="Baby Blimp"
+                        img-src="img/baby-blimp.png">
+                </free-card>
+
+                <free-card
+                        titulo="Megaman Polarity"
+                        img-src="img/megaman.png">
+                </free-card>
+
+                <buy-card
+                        titulo="Scooby Doo! Horror of the High Seas"
+                        img-src="img/scooby.png"
+                        precio="$3.500">
+                </buy-card>
+
+                <free-card
+                    titulo="Office Kissing"
+                    img-src="img/office-kiss.png">
+                </free-card>
+
+
+
+
+                <buy-card
+                    titulo="Wonder Boy"
+                    img-src="img/wonder-boy.png"
+                    precio="$38.000">
+                </buy-card>
+
+
+                <carrito-card
+                        titulo="Happy Wheels"
+                        img-src="img/happy-wheels.png">
+                </carrito-card>
+
+
+
+                <carrito-card
+                    titulo="Oriental Flirting"
+                    img-src="img/oriental-flirting.png">
+                </carrito-card>
+
+                <buy-card
+                    titulo="My Sweet Baby"
+                    img-src="img/sweet-baby.png"
+                    precio="$2.000">
+                </buy-card>
+
+
+
+                <free-card
+                        titulo="Super Mario 63"
+                        img-src="img/mario63.png">
+                </free-card>
+
+                <free-card
+                    titulo="Beach Flirting"
+                    img-src="img/beach-flirting.png">
+                </free-card>
+
+            </div>
+
+            <button class="btn-carrusel"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+        </div>
+
+
+        <h2 id="c-estrategia">Estrategia</h2>
+
+        <div class="carrusel-wrapper">
+
+            <button class="btn-carrusel espejeado"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+            <div class="carrusel">
+
+
+                <carrito-card
+                        titulo="Oriental Flirting"
+                        img-src="img/oriental-flirting.png">
+                </carrito-card>
+
+                <buy-card
+                        titulo="My Sweet Baby"
+                        img-src="img/sweet-baby.png"
+                        precio="$2.000">
+                </buy-card>
+
+
+
+
+
+
+                <free-card
+                    titulo="Office Kissing"
+                    img-src="img/office-kiss.png">
+                </free-card>
+
+                <free-card
+                    titulo="Bomb It 6"
+                    img-src="img/bomb-it.png">
+                </free-card>
+                <free-card
+                        titulo="Beach Flirting"
+                        img-src="img/beach-flirting.png">
+                </free-card>
+
+                <buy-card
+                        titulo="Penguin Diner"
+                        img-src="img/penguin-diner.png"
+                        precio="$10.000">
+                </buy-card>
+
+                <free-card
+                        titulo="Bartender: The Right Mix"
+                        img-src="img/bartender.png">
+                </free-card>
+
+                <buy-card
+                    titulo="Wonder Boy"
+                    img-src="img/wonder-boy.png"
+                    precio="$38.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Super Mario 63"
+                    img-src="img/mario63.png">
+                </free-card>
+
+                <free-card
+                    titulo="Megaman Polarity"
+                    img-src="img/megaman.png">
+                </free-card>
+
+                <buy-card
+                        titulo="Scooby Doo! Horror of the High Seas"
+                        img-src="img/scooby.png"
+                        precio="$3.500">
+                </buy-card>
+
+
+                <free-card
+                        titulo="Baby Blimp"
+                        img-src="img/baby-blimp.png">
+                </free-card>
+
+
+                <carrito-card
+                        titulo="Happy Wheels"
+                        img-src="img/happy-wheels.png">
+                </carrito-card>
+
+                <buy-card
+                        titulo="Territory-war"
+                        img-src="img/territory-war.png"
+                        precio="$8.000">
+                </buy-card>
+
+
+            </div>
+
+            <button class="btn-carrusel"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+        </div>
+
+
+        <h2 id="c-plataformas">Plataformas</h2>
+
+        <div class="carrusel-wrapper">
+
+            <button class="btn-carrusel espejeado"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+            <div class="carrusel">
+
+                <buy-card
+                        titulo="Wonder Boy"
+                        img-src="img/wonder-boy.png"
+                        precio="$38.000">
+                </buy-card>
+
+                <free-card
+                        titulo="Super Mario 63"
+                        img-src="img/mario63.png">
+                </free-card>
+
+                <free-card
+                        titulo="Megaman Polarity"
+                        img-src="img/megaman.png">
+                </free-card>
+
+                <carrito-card
+                        titulo="Happy Wheels"
+                        img-src="img/happy-wheels.png">
+                </carrito-card>
+
+                <free-card
+                        titulo="Bomb It 6"
+                        img-src="img/bomb-it.png">
+                </free-card>
+
+
+
+
+                <buy-card
+                    titulo="Scooby Doo! Horror of the High Seas"
+                    img-src="img/scooby.png"
+                    precio="$3.500">
+                </buy-card>
+                
+
+
+                <buy-card
+                    titulo="Territory-war"
+                    img-src="img/territory-war.png"
+                    precio="$8.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Office Kissing"
+                    img-src="img/office-kiss.png">
+                </free-card>
+
+
+
+
+                <carrito-card
+                    titulo="Oriental Flirting"
+                    img-src="img/oriental-flirting.png">
+                </carrito-card>
+
+                <free-card
+                        titulo="Bartender: The Right Mix"
+                        img-src="img/bartender.png">
+                </free-card>
+
+                <buy-card
+                    titulo="My Sweet Baby"
+                    img-src="img/sweet-baby.png"
+                    precio="$2.000">
+                </buy-card>
+
+                <free-card
+                    titulo="Baby Blimp"
+                    img-src="img/baby-blimp.png">
+                </free-card>
+
+                <free-card
+                    titulo="Beach Flirting"
+                    img-src="img/beach-flirting.png">
+                </free-card>
+
+                <buy-card
+                        titulo="Penguin Diner"
+                        img-src="img/penguin-diner.png"
+                        precio="$10.000">
+                </buy-card>
+
+            </div>
+
+            <button class="btn-carrusel"><img src="svg/arrow_left.svg" alt="Boton de carrusel izquierdo"></button>
+
+        </div>
+
+    </main>
+
+
+
+    <footer>
+
+        <div class="footer-superior">
+
+            <div class="seccion-footer">
+                <img src="svg/logo.svg" alt="">
+            </div>
+
+            <div class="seccion-footer" id="datos-footer">
+                <ul>
+                    <li><img src="svg/phone.svg" alt=""> +54 123 456 7890</li>
+                    <li><img src="svg/map_pin.svg" alt=""> Avenida Siempreviva 742</li>
+                    <li><img src="svg/mail.svg" alt=""> chascagm@zmail.com</li>
+                </ul>
+            </div>
+
+            <div class="seccion-footer">
+                <h3>Links del sitio</h3>
+                <ul>
+                    <li>Home</li>
+                    <li>Mis juegos</li>
+                    <li>Mi perfil</li>
+                </ul>
+
+            </div>
+
+            <div class="seccion-footer">
+                <h3>Soporte al cliente</h3>
+                <ul>
+                    <li>Contacto</li>
+                    <li>Preguntas Frecuentes</li>
+                    <li>Política de devoluciones</li>
+                </ul>
+
+            </div>
+
+            <div class="seccion-footer">
+                <h3>Información Legal</h3>
+                <ul>
+                    <li>Términos y Condiciones</li>
+                    <li>Política de Privacidad</li>
+                    <li>Cookies</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="linea-separador"> </div>
+
+        <div class="footer-inferior">
+            <h3>Seguinos en nuestras redes</h3>
+            <div class="iconos-redes">
+                <img src="svg/twitch.svg" alt="Icono de Twitch">
+                <img src="svg/ds.svg" alt="Icono de Discord">
+                <img src="svg/x.svg" alt="Icono de Twitter">
+            </div>
+
+        </div>
+
+        <div class="copyright">Copyright 2024 Cuculich - Aceto</div>
+
+    </footer>
+
+
+</body>
+</html>
