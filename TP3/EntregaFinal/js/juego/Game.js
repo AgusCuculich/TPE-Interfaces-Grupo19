@@ -126,6 +126,7 @@ class Game{
     onMouseUp(e){
         this.isMouseDown = false;
 
+        //Si tenia una figura clickeada, le quito el resaltado
         if (this.lastClickedFigure != null){
             this.lastClickedFigure.setResaltado(false);
 
@@ -133,10 +134,35 @@ class Game{
 
 
             for (let figure of this.renderQueue) {
-                if (figure !== this.lastClickedFigure && figure.isInside(this.lastClickedFigure)) {
-                    console.log("Figura soltada dentro de otra figura");
-                    this.lastClickedFigure.descendTo(700,5);
-                    this.lastClickedFigure.setDraggableState(false);
+
+                //Cuando suelto una ficha en otro elemento
+                if (figure !== this.lastClickedFigure && figure.encloses(this.lastClickedFigure)) {
+
+                    //Si es un casillero
+                    if (figure.getSlot()){
+
+                        //Alineo horizontalmente la ficha con el casillero
+                        this.lastClickedFigure.posX = figure.posX;
+
+                        //El propio casillero me indica en que columna estoy, asi que necesito saber
+                        //en que fila va a caer la ficha
+                        let target_row = this.board.findLandingRow(figure.getColPos());
+
+                        //Una vez que tengo fila y columna, ya se a cual ficha vacia voy a viajar
+                        let target_chip = this.board.getChip(target_row,figure.getColPos());
+
+
+                        console.log("Figura soltada dentro de la columna: " + figure.getColPos());
+                        this.moveToLastRenderPosition(this.lastClickedFigure);
+                        this.board.putChip(target_row, figure.getColPos(), this.lastClickedFigure);
+
+
+                        //Entonces, hago que la ficha descienda hasta la misma posicion Y que la ficha vacia
+                        this.lastClickedFigure.descendTo(target_chip.getPosY(),5, ()=>{this.newFrame()}); //La funcion de animar necesita poder llamar al newFrame
+                        this.lastClickedFigure.setDraggableState(false);
+                    }
+
+
                 }
             }
         }
@@ -144,6 +170,24 @@ class Game{
     }
 
 
+
+    moveToLastRenderPosition(element){
+        for(let i = 0; i < this.renderQueue.length;i++){
+            if (this.renderQueue[i] === element){
+                let aux = this.renderQueue[i];
+                this.renderQueue.splice(i,1);
+                this.renderQueue.push(element);
+            }
+        }
+    }
+
+    DEBUG_RENDERMATRIZ(){
+        this.board.DEBUG_RENDERMATRIZ();
+    }
+
+    DEBUG_MATRIZELEMENTO(row,col){
+        this.board.DEBUG_MATRIZELEMENTO(row,col);
+    }
 
 
 

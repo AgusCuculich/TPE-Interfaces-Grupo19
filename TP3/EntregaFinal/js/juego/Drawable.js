@@ -73,29 +73,12 @@ class Drawable {
 
 
 
-    isInside(other) {
+    encloses(other) {
 
     }
 
 
-    //Hace al elemento caer hasta la posicion vertical deseada
-    //Utiliza animation frames para que la animacion se adecue al refresco el monitor
-    descendTo(target_y, speed) {
-        //Se define la funcion de animar como un bucle que decremente la posicion Y del elemento
-        const animacionCaer = () => {
-            if (this.posY < target_y) {
-                speed *=1.04;   //Le multiplico la velocidad para simular aceleracion
-                this.posY+= speed; // Speed es la cantidad de pixeles que se movera en cada iteracion
-                newFrame();
 
-                // Solicito que la animacion continue su curso en el siguiente frame
-                requestAnimationFrame(animacionCaer);
-            }
-        };
-
-        //Inicio el primer frame de la animacion
-        requestAnimationFrame(animacionCaer);
-    }
 
 
 

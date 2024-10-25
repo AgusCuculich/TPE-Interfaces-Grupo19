@@ -1,7 +1,7 @@
 class Rect extends Drawable {
     constructor(posX,posY,width,height,fill,context,draggable) {
-        super(posX,posY,fill,context, draggable);
-
+        super(posX,posY,fill,context);
+        this.draggable = draggable;
         this.width = width;
         this.height = height;
     }
@@ -51,7 +51,7 @@ class Rect extends Drawable {
 
 
     //Comprueba si esta figura esta dentro de otra figura
-    isInside(other) {
+    encloses(other) {
         const { x, y } = other.getPosition();   //Obtengo la posicion de la otra figura
 
         //Si tiene radio, lo uso, sino, uso los lados
@@ -76,7 +76,9 @@ class Rect extends Drawable {
     }
 
 
-
+    getSlot(){
+        return false;
+    }
 
 
 
