@@ -118,4 +118,8 @@ class Chip extends Drawable {
         return this.slot;
     }
 
+    isDraggable(player){
+        return this.draggable && (this.player === player);
+    }
+
 }

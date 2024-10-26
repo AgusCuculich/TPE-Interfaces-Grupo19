@@ -233,3 +233,4 @@
 
 
 let juego = new Game(5,6);
+juego.start();
