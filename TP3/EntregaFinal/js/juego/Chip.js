@@ -1,6 +1,11 @@
 class Chip extends Drawable {
     constructor(posX, posY, radius, fill, context, draggable,isFree,player,rowPos=null,colPos=null, slot= false) {
         super(posX,posY,fill,context);
+
+        this.startingPosX = posX;
+        this.startingPosY = posY;
+
+
         this.radius = radius;
 
 

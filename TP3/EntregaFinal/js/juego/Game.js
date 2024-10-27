@@ -133,7 +133,7 @@ class Game{
 
 
 
-
+            let validTurn = false;
             for (let figure of this.renderQueue) {
 
                 //Cuando suelto una ficha en otro elemento
@@ -141,6 +141,7 @@ class Game{
 
                     //Si es un casillero
                     if (figure.getSlot()){
+                        validTurn = true;
 
                         //Alineo horizontalmente la ficha con el casillero
                         this.lastClickedFigure.posX = figure.posX;
@@ -165,12 +166,24 @@ class Game{
                         //Pasa el turno al siguiente jugador
                         this.swapCurrentPlayer();
                         console.log("Turno de: " + this.currentPlayer);
+                        break;
                     }
 
 
+
+
+
                 }
+
+
+
+
+            }
+            if (!validTurn){
+                this.lastClickedFigure.setPosition(this.lastClickedFigure.startingPosX,this.lastClickedFigure.startingPosY);
             }
         }
+
         this.newFrame();
     }
 
