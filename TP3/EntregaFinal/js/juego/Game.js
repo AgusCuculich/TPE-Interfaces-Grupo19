@@ -147,7 +147,7 @@ class Game{
 
                     //Si es un casillero
                     if (figure.getSlot()){
-                        validTurn = true;
+
 
                         //Alineo horizontalmente la ficha con el casillero
                         this.lastClickedFigure.posX = figure.posX;
@@ -155,24 +155,28 @@ class Game{
                         //El propio casillero me indica en que columna estoy, asi que necesito saber
                         //en que fila va a caer la ficha
                         let target_row = this.board.findLandingRow(figure.getColPos());
-
-                        //Una vez que tengo fila y columna, ya se a cual ficha vacia voy a viajar
-                        let target_chip = this.board.getChip(target_row,figure.getColPos());
-
-
-                        console.log("Figura soltada dentro de la columna: " + figure.getColPos());
-                        this.moveToLastRenderPosition(this.lastClickedFigure);
-                        this.board.putChip(target_row, figure.getColPos(), this.lastClickedFigure);
+                        if (target_row >=0){
+                            validTurn = true;
+                            //Una vez que tengo fila y columna, ya se a cual ficha vacia voy a viajar
+                            let target_chip = this.board.getChip(target_row,figure.getColPos());
 
 
-                        //Entonces, hago que la ficha descienda hasta la misma posicion Y que la ficha vacia
-                        this.lastClickedFigure.descendTo(target_chip.getPosY(),5, ()=>{this.newFrame()}); //La funcion de animar necesita poder llamar al newFrame
-                        this.lastClickedFigure.setDraggableState(false);
+                            console.log("Figura soltada dentro de la columna: " + figure.getColPos());
+                            this.moveToLastRenderPosition(this.lastClickedFigure);
+                            this.board.putChip(target_row, figure.getColPos(), this.lastClickedFigure);
 
-                        //Pasa el turno al siguiente jugador
-                        this.swapCurrentPlayer();
-                        console.log("Turno de: " + this.currentPlayer);
-                        break;
+
+                            //Entonces, hago que la ficha descienda hasta la misma posicion Y que la ficha vacia
+                            this.lastClickedFigure.descendTo(target_chip.getPosY(),5, ()=>{this.newFrame()}); //La funcion de animar necesita poder llamar al newFrame
+                            this.lastClickedFigure.setDraggableState(false);
+
+                            //Pasa el turno al siguiente jugador
+                            this.swapCurrentPlayer();
+                            console.log("Turno de: " + this.currentPlayer);
+                            break;
+                        }
+
+
                     }
 
 
