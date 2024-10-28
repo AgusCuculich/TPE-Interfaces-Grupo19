@@ -232,4 +232,10 @@
 // console.log(matriz[0][0]);
 
 
-let juego = new Game(5,6);
+let juego = new Game(5, 6);
+
+// 4 en linea 5x6
+// 5 en linea 6x7
+// 6 en linea 7x8
+// 7 en linea 7x9
+// --> 7 filas es el max.

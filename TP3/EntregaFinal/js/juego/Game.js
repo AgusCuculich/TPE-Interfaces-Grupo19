@@ -7,9 +7,15 @@ class Game{
         this.canvasHeight = this.canvas.height;
 
 
+        const centro = {
+            x: canvas.width / 2,
+            y: canvas.height / 2
+        };
+
+
         //Variables del juego
         this.renderQueue = [];   //Lista de todas las figuras dibujadas
-        this.board = new Board(0,0,'#FF5733',this.ctx,rows,columns);
+        this.board = new Board(120,150,'#FF5733',this.ctx,rows,columns, centro);
         this.renderBoard();
 
 
