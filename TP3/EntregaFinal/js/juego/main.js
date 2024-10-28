@@ -239,3 +239,4 @@ let juego = new Game(5, 6);
 // 6 en linea 7x8
 // 7 en linea 7x9
 // --> 7 filas es el max.
+juego.start();

@@ -1,6 +1,11 @@
 class Chip extends Drawable {
     constructor(posX, posY, radius, fill, context, draggable,isFree,player,rowPos=null,colPos=null, slot= false) {
         super(posX,posY,fill,context);
+
+        this.startingPosX = posX;
+        this.startingPosY = posY;
+
+
         this.radius = radius;
 
 
@@ -89,33 +94,48 @@ class Chip extends Drawable {
 
 
 
-    //Hace al elemento caer hasta la posicion vertical deseada
-    //Utiliza animation frames para que la animacion se adecue al refresco el monitor
     descendTo(target_y, speed, renderCallBack) {
-        //Se define la funcion de animar como un bucle que decremente la posicion Y del elemento
+        let velocity = speed; // Velocidad Inicial
+        let damping = 0.6; // Cuanto se amortigua el rebote en cada impacto
+        let bounceThreshold = 3; // Umbral para detener la animacion cuando los rebotes sean minimos
+
         const animacionCaer = () => {
-            if (this.posY < target_y) {
-                speed *= 1.04;
-                this.posY+= speed; // Speed es la cantidad de pixeles que se movera en cada iteracion
+            // Hago descender el elemento
+            this.posY += velocity;
+            velocity += 0.98; // Acelera la caida (gravedad simulada)
 
-                if (this.posY > target_y){
-                    this.posY = target_y;
-                }
-                if (renderCallBack) {
-                    renderCallBack();  // Llama a la función de render en cada frame
-                }
+            // Cuando me pase del target_y deseado, reboto
+            if (this.posY >= target_y) {
+                this.posY = target_y; // Aseguro que no pase del target
+                velocity = -velocity * damping; // Invierto la velocidad para simular el rebote
 
-                // Solicito que la animacion continue su curso en el siguiente frame
-                requestAnimationFrame(animacionCaer);
+                // Si el rebote es demasiado pequeño, detengo la animación
+                if (Math.abs(velocity) < bounceThreshold) {
+                    this.posY = target_y; // Ajusto a la posición final
+                    if (renderCallBack) renderCallBack(); // Renderizo el frame (donde la ficha esta perfectamente alineada)
+                    return; // Se detiene la animacion
+                }
             }
+
+            //Dibuja frames en cada step de la animación
+            if (renderCallBack) {
+                renderCallBack();
+            }
+
+            // Solicita el próximo frame de la animación
+            requestAnimationFrame(animacionCaer);
         };
 
-        //Inicio el primer frame de la animacion
+        // Inicio la animación
         requestAnimationFrame(animacionCaer);
     }
 
     getSlot(){
         return this.slot;
+    }
+
+    isDraggable(player){
+        return this.draggable && (this.player === player);
     }
 
 }

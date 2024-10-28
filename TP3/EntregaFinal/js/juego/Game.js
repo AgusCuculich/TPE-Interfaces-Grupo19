@@ -17,6 +17,7 @@ class Game{
         this.renderQueue = [];   //Lista de todas las figuras dibujadas
         this.board = new Board(120,150,'#FF5733',this.ctx,rows,columns, centro);
         this.renderBoard();
+        this.currentPlayer = null;
 
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
@@ -105,7 +106,7 @@ class Game{
 
         //Encuentra la figura clickeada (si la hay) y la resalta
         let clickFig = this.findClickedFigure(e.layerX,e.layerY);
-        if (clickFig != null && clickFig.isDraggable()){
+        if (clickFig != null && clickFig.isDraggable(this.currentPlayer)){
             clickFig.setResaltado(true);
             this.lastClickedFigure = clickFig;
         }
@@ -120,7 +121,7 @@ class Game{
 //Cuando el mouse se esta moviendo
 //En cada frame, mientras mantenga el mouse apretado, actualizo la posicion y refresco la pantalla
     onMouseMove(e){
-        if (this.isMouseDown && this.lastClickedFigure != null && this.lastClickedFigure.isDraggable()){
+        if (this.isMouseDown && this.lastClickedFigure != null && this.lastClickedFigure.isDraggable(this.currentPlayer)){
             this.lastClickedFigure.setPosition(e.layerX,e.layerY);
             this.newFrame();
         }
@@ -138,7 +139,7 @@ class Game{
 
 
 
-
+            let validTurn = false;
             for (let figure of this.renderQueue) {
 
                 //Cuando suelto una ficha en otro elemento
@@ -146,6 +147,7 @@ class Game{
 
                     //Si es un casillero
                     if (figure.getSlot()){
+                        validTurn = true;
 
                         //Alineo horizontalmente la ficha con el casillero
                         this.lastClickedFigure.posX = figure.posX;
@@ -166,12 +168,28 @@ class Game{
                         //Entonces, hago que la ficha descienda hasta la misma posicion Y que la ficha vacia
                         this.lastClickedFigure.descendTo(target_chip.getPosY(),5, ()=>{this.newFrame()}); //La funcion de animar necesita poder llamar al newFrame
                         this.lastClickedFigure.setDraggableState(false);
+
+                        //Pasa el turno al siguiente jugador
+                        this.swapCurrentPlayer();
+                        console.log("Turno de: " + this.currentPlayer);
+                        break;
                     }
 
 
+
+
+
                 }
+
+
+
+
+            }
+            if (!validTurn){
+                this.lastClickedFigure.setPosition(this.lastClickedFigure.startingPosX,this.lastClickedFigure.startingPosY);
             }
         }
+
         this.newFrame();
     }
 
@@ -196,6 +214,18 @@ class Game{
     }
 
 
+    start(){
+        this.currentPlayer = "p1";
+    }
+
+    swapCurrentPlayer(){
+        if (this.currentPlayer === "p1"){
+            this.currentPlayer = "p2";
+        }
+        else if (this.currentPlayer === "p2"){
+            this.currentPlayer = "p1";
+        }
+    }
 
 
 

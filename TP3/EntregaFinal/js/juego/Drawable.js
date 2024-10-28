@@ -43,7 +43,7 @@ class Drawable {
     }
 
     //Comprueba si este elemento se puede arrastrar
-    isDraggable(){
+    isDraggable(player){
         return this.draggable;
     }
 
