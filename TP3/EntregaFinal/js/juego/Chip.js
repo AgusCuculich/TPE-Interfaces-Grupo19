@@ -36,6 +36,10 @@ class Chip extends Drawable {
         return this.colPos;
     }
 
+    getPlayer() {
+        return this.player;
+    }
+
 
 
 
