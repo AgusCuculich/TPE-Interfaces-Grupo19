@@ -1,5 +1,5 @@
 class Game{
-    constructor(rows,columns){
+    constructor(){
         //CANVAS
         this.canvas = document.querySelector("#canvas");
         this.ctx = this.canvas.getContext("2d");
@@ -7,16 +7,10 @@ class Game{
         this.canvasHeight = this.canvas.height;
 
 
-        const centro = {
-            x: canvas.width / 2,
-            y: canvas.height / 2
-        };
-
-
         //Variables del juego
         this.renderQueue = [];   //Lista de todas las figuras dibujadas
-        this.board = new Board(120,150,'#FF5733',this.ctx,rows,columns, centro);
-        this.renderBoard();
+        this.board = null;
+
         this.currentPlayer = null;
 
 
@@ -218,8 +212,15 @@ class Game{
     }
 
 
-    start(){
+    start(rows,columns){
         this.currentPlayer = "p1";
+        const centro = {
+            x: canvas.width / 2,
+            y: canvas.height / 2
+        };
+        this.board = new Board(120,150,'#FF5733',this.ctx,rows,columns, centro);
+        this.renderBoard();
+        this.newFrame();
     }
 
     swapCurrentPlayer(){

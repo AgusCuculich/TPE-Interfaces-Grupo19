@@ -82,6 +82,8 @@ class Board extends Drawable{
         for (let i = 0; i < maxChips; i++){
 
             //Jugador 1
+
+
             let p1_chip = new Chip(startX - 60, i*10 + this.centroTablero.y ,30,"#804000",this.ctx,true,false,"p1");
 
             //Jugador 2
