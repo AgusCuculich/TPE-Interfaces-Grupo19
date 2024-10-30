@@ -16,14 +16,14 @@ class Board extends Drawable{
         let boardElements = [];
 
         // 60 siendo el lugar que ocupa cada ficha, y la otra sumando sirve para el margen
-        let anchoTablero = this.columns * 60 + this.columns * 60;   // anchoColumnas
-        let alturaTablero = this.rows * 60 + this.rows * 30;    // anchoFilas
+        let anchoTablero = this.columns * 60 + this.columns * 30;   // anchoColumnas
+        let alturaTablero = this.rows * 60 + this.rows * 15;    // anchoFilas
 
         // calculo para obtener las coordenadas donde empezará a deibujarse el rectángulo.
         // Para eso, a la posición x del centro del tablero le restamos la mitad del ancho del mismo
         //(lo mismo para y)
         const startX = this.centroTablero.x - anchoTablero / 2;
-        const startY = this.centroTablero.y - alturaTablero / 2.5;
+        const startY = this.centroTablero.y - alturaTablero / 2.4;
         console.log(startX);
         console.log(startY);
 
@@ -48,7 +48,7 @@ class Board extends Drawable{
 
         for (let i = 0; i < this.columns; i++){
             let x = startX + i * cellWidth + cellWidth / 2;
-            let slot = new Chip(x,startY - 60 ,50,"green",this.ctx,false,false,null,null,i,true);
+            let slot = new Chip(x,startY - 50 ,45,"green",this.ctx,false,false,null,null,i,true);
             boardElements.push(slot);
         }
 
@@ -80,10 +80,10 @@ class Board extends Drawable{
         for (let i = 0; i < maxChips; i++){
 
             //Jugador 1
-            let p1_chip = new Chip(startX - 60, i*10 + this.centroTablero.y ,30,"#804000",this.ctx,true,false,"p1");
+            let p1_chip = new Chip(startX - 60, i*10 + this.centroTablero.y -30 ,30,"#804000",this.ctx,true,false,"p1");
 
             //Jugador 2
-            let p2_chip = new Chip(startX + anchoTablero + 60, i * 10 + this.centroTablero.y,30,"red",this.ctx,true,false,"p2");
+            let p2_chip = new Chip(startX + anchoTablero + 60, i * 10 + this.centroTablero.y - 30,30,"red",this.ctx,true,false,"p2");
 
 
             boardElements.push(p1_chip);
