@@ -31,6 +31,9 @@ class Board extends Drawable{
         let board = new Rect(startX, startY, anchoTablero, alturaTablero, "yellow", this.ctx, false);
         boardElements.push(board);
 
+
+
+
         // Calcular el tamaño de cada celda
         const cellWidth = anchoTablero / this.columns;
         // Divide el ancho total del tablero entre el número de columnas, para obtener el ancho de cada celda.

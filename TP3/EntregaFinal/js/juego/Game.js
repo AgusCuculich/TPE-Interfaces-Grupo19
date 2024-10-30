@@ -16,6 +16,10 @@ class Game{
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
         this.isMouseDown = false;    //Esta el mouse siendo presionado?
+        this.playerText = new Text(100,50,"#000000",this.ctx,"Texto default");
+        this.playerText.changeFont("50px serif");
+        this.renderQueue.push(this.playerText);
+
 
 
         //Agregar los eventos que escuchan al mouse
@@ -162,12 +166,24 @@ class Game{
                             this.lastClickedFigure.setDraggableState(false);
     
                             // verificar ganador
-                            this.board.checkHorizontal(target_row, this.currentPlayer, figure.getColPos());
-                            this.board.checkVertical(target_row, this.currentPlayer, figure.getColPos())
-                            this.board.checkDiagonal(target_row, this.currentPlayer, figure.getColPos())
-    
+                            let h_check = this.board.checkHorizontal(target_row, this.currentPlayer, figure.getColPos());
+                            let v_check = this.board.checkVertical(target_row, this.currentPlayer, figure.getColPos())
+                            let d_check = this.board.checkDiagonal(target_row, this.currentPlayer, figure.getColPos())
+
+                            //Si se hizo N en linea, muestro el ganador por pantalla
+                            if (h_check || v_check || d_check){
+
+
+                                this.playerText.changeText("Ha ganado el jugador: " + this.currentPlayer);
+
+                                this.newFrame();
+                            }
+                            else{
+                                this.swapCurrentPlayer();
+                            }
+
                             //Pasa el turno al siguiente jugador
-                            this.swapCurrentPlayer();
+
                             break;
                         }
                     }
@@ -204,12 +220,17 @@ class Game{
 
     start(rows,columns){
         this.currentPlayer = "p1";
+        this.playerText.changeText("Turno de: " + this.currentPlayer);
         const centro = {
             x: canvas.width / 2,
             y: canvas.height / 2
         };
         this.board = new Board(120,150,'#FF5733',this.ctx,rows,columns, centro);
         this.renderBoard();
+
+
+
+
         this.newFrame();
     }
 
@@ -220,6 +241,8 @@ class Game{
         else if (this.currentPlayer === "p2"){
             this.currentPlayer = "p1";
         }
+
+        this.playerText.changeText("Turno de: " + this.currentPlayer);
     }
 
 
