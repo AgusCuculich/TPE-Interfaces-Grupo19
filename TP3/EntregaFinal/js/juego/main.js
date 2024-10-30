@@ -233,10 +233,11 @@
 
 
 let juego = new Game();
+//let juego = new Game(9, 10);
 
-// 4 en linea 5x6
-// 5 en linea 6x7
-// 6 en linea 7x8
-// 7 en linea 7x9
+// 4 en linea 6x7
+// 5 en linea 7x8
+// 6 en linea 8x9
+// 7 en linea 9x10
 // --> 7 filas es el max.
 juego.start(5,6);

@@ -154,34 +154,24 @@ class Game{
                             //Una vez que tengo fila y columna, ya se a cual ficha vacia voy a viajar
                             let target_chip = this.board.getChip(target_row,figure.getColPos());
 
-
-                            console.log("Figura soltada dentro de la columna: " + figure.getColPos());
                             this.moveToLastRenderPosition(this.lastClickedFigure);
                             this.board.putChip(target_row, figure.getColPos(), this.lastClickedFigure);
-
-
+    
                             //Entonces, hago que la ficha descienda hasta la misma posicion Y que la ficha vacia
                             this.lastClickedFigure.descendTo(target_chip.getPosY(),5, ()=>{this.newFrame()}); //La funcion de animar necesita poder llamar al newFrame
                             this.lastClickedFigure.setDraggableState(false);
-
+    
+                            // verificar ganador
+                            this.board.checkHorizontal(target_row, this.currentPlayer, figure.getColPos());
+                            this.board.checkVertical(target_row, this.currentPlayer, figure.getColPos())
+                            this.board.checkDiagonal(target_row, this.currentPlayer, figure.getColPos())
+    
                             //Pasa el turno al siguiente jugador
                             this.swapCurrentPlayer();
-                            console.log("Turno de: " + this.currentPlayer);
                             break;
                         }
-
-
                     }
-
-
-
-
-
                 }
-
-
-
-
             }
             if (!validTurn){
                 this.lastClickedFigure.setPosition(this.lastClickedFigure.startingPosX,this.lastClickedFigure.startingPosY);
