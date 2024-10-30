@@ -43,8 +43,7 @@ class Chip extends Drawable {
 
 
 
-    draw() {
-        super.draw();
+    draw(ctx) {
         this.ctx.beginPath();   //Al tratarse de una figura compleja, indicamos que trazaremos un camino
         this.ctx.arc(this.posX,this.posY,this.radius,0,2*Math.PI);  //Trayectoria del camino
         this.ctx.fill();    //Dibujamos el camino (antes solo existia "en la imaginacion" del programa)

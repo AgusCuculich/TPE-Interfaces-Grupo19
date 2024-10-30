@@ -38,7 +38,7 @@ class Game{
 
         console.log("cola de renderizado");
         console.log(this.renderQueue);
-        elements.forEach(element =>{
+        elements.flat().forEach(element =>{
 
             this.renderQueue.push(element);
         });
@@ -54,8 +54,9 @@ class Game{
     //Genera un nuevo fotograma, limpia la pantalla y dibuja todas las figuras de la lista
     newFrame(){
         this.clearCanvas();
+        console.log(this.renderQueue);
         for (let i = 0; i < this.renderQueue.length; i++){
-            this.renderQueue[i].draw();  //Aprovecha binding dinamico para dibujar cualquier figura
+            this.renderQueue[i].draw(this.ctx);  //Aprovecha binding dinamico para dibujar cualquier figura
         }
     }
 
