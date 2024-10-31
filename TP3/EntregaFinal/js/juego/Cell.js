@@ -8,15 +8,23 @@ class Cell {
     }
 
     draw(ctx) {
-        // Asegura que la imagen se dibuje cuando esté cargada
-        this.img.onload = () => {
-            // context.drawImage(img, x, y, width, height)
-            ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
-        };
-
         // Si la imagen ya está cargada, dibujarla inmediatamente
         if (this.img.complete) {
             ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
         }
     }
+
+    //Comprueba si la posicion dada se encuentra dentro del rectangulo
+    isPointInside(x,y){
+        return !(x < this.x || x > this.x + this.width || y < this.y || y > this.y + this.height);
+    }
+
+    isDraggable(player){
+        return false;
+    }
+
+    encloses(other) {
+        return false;
+    }
+
 }

@@ -1,43 +1,102 @@
-class Board extends Drawable{
+class Board{
 
-    constructor(posX, posY, fill, context,rows, columns, centro){
-        super(posX,posY ,fill ,context );
+    constructor(rows, columns, centro, canvasWidth, canvasHeight) {
         this.rows = rows;
         this.columns = columns;
         this.centroTablero = centro;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
+        this.matrix = [];
     }
-
-
-
+    
     createBoard() {
-        console.log("aaaaaaaa");
 
-        const cellSize = 70;
+        const cellSize = (this.rows === 9) ? 70 : 80;
         const chipSize = 35;
-
+    
         let boardElements = [];
+    
+        // Calcula el ancho del tablero al multiplicas la cantidad de columnas por el espacio que ocupa una celda en cada una.
+        const boardWidth = this.columns * cellSize;
+        // Calcula el alto del tablero al multiplicas la cantidad de filas por el espacio que ocupa una celda en cada una.
+        // chipSize * 2 es el espacio extra para las flechas. Asi a la hora de encontrar la coord y donde debe empezar a dibujarse el tablero,
+        // también se incluye este espacio y queda totalmente centrado.
+        const boardHeight = this.rows * cellSize + chipSize * 2;
+    
+        // Calcula el desplazamiento para centrar el tablero en el canvas
+        // Coordenadas donde debe empezar a dibujarse el tablero. Tomando en cuenta que el margen restante se divide x2 para que se centre, y
+        // que debe dejar un espacio vertical para las flechas.
+        const offsetX = (this.canvasWidth - boardWidth) / 2;
+        const offsetY = (this.canvasHeight - boardHeight) / 2 + cellSize;
+    
 
+        // Celdas del tablero
         for (let row = 0; row < this.rows; row++) {
+            const fila = []; // Crear fila
             for (let col = 0; col < this.columns; col++) {
-                // Calcula las posiciones para cada celda
-                const posX = col * cellSize;
-                const posY = row * cellSize + chipSize * 2; // hace este calculo para dejar espacio para las flechas
-                // Añadimos las celdas al arreglo para luego ser renderizadas en su correspondiente coord.
+                // Posiciona las celdas una al lado de la otra.
+                const posX = offsetX + col * cellSize;
+                const posY = offsetY + row * cellSize;
+
+                // Añadir celda y círculo negro (agujero) al arreglo de elementos.
                 boardElements.push(new Cell(posX, posY, cellSize, './img/patron.jpg'));
-                // Añadimos los circulos negros (agujeros) al tablero.
-                boardElements.push(new Circle(posX + cellSize/2 , posY + cellSize/2, chipSize, './img/circulo-negro.png', false));
+                let chip = new Circle(posX + cellSize / 2, posY + cellSize / 2, chipSize, './img/circulo-negro.png', false);
+                boardElements.push(chip);
+                fila.push(chip);
             }
+            this.matrix.push(fila); // Agregar la fila creada a la matriz
         }
 
-        for (let row = 0; row < 1; row++) {
-            for (let col = 0; col < this.columns; col++) {
-                const posX = col * cellSize;
-                const posY = row * cellSize;
-                boardElements.push(new Circle(posX + cellSize/2 , posY + cellSize/2, chipSize, './img/flecha-indicadora.png', true));
-            }
+        console.table(this.matrix);
+
+    
+        // Flechas
+        for (let col = 0; col < this.columns; col++) {
+            const posX = offsetX + col * cellSize;
+            const posY = offsetY - cellSize; 
+            // En el eje y restamos el espacio dejado para las flechas, así comienzan a renderizarse por sobre las celdas con agujeros del tablero
+    
+            boardElements.push(new Circle(posX + cellSize / 2, posY + chipSize, chipSize, './img/flecha-indicadora.png', true));
         }
+
+
+        // Fichas del jugador
+        const maxChips = Math.ceil((this.rows * this.columns) / 2);
+
+        // Posiciones de las fichas a los lados del tablero
+        const player1X = offsetX - cellSize; 
+        // coord x donde se posicionaran las flechas del jugador 1 del lado izq. Para esto se posiciona en el origen del tablero y le suma el
+        // ancho de una celda.
+        const player2X = offsetX + boardWidth + cellSize; // A la derecha del tablero
+        // coord x donde se posicionaran las flechas del jugador w del lado derecho. Para esto se posiciona en el origen del tablero y le suma
+        // el ancho de una celda.
+
+        for (let i = 0; i < maxChips; i++) {
+            // Calcular la posición en `Y` para que se alineen en una columna a los lados del tablero
+            const posY = offsetY + i * 20;
+
+            // Fichas del Jugador 1 (a la izquierda)
+            let p1_chip = new Circle(
+                player1X, 
+                posY, 
+                chipSize,
+                './img/ficha-rojo.png', 
+                false, 
+                true, 
+                "p1",
+                false
+            );
+
+            // Fichas del Jugador 2 (a la derecha)
+            let p2_chip = new Circle(player2X, posY, chipSize, './img/circulo-negro.png', false, true, "p2", false);
+
+            boardElements.push(p1_chip);
+            boardElements.push(p2_chip);
+        }
+    
         return boardElements;
     }
+    
 
 
     getChip(row,column){
@@ -171,16 +230,6 @@ class Board extends Drawable{
     
         // Si no se encontraron 4 consecutivas en ninguna diagonal, devolvemos false
         return false;
-    }
-    
-
-
-    DEBUG_RENDERMATRIZ(){
-        console.table(this.matrix);
-    }
-
-    DEBUG_MATRIZELEMENTO(row,col){
-        console.log(this.matrix[row][col]);
     }
 
 }

@@ -18,6 +18,16 @@ class Game{
         this.isMouseDown = false;    //Esta el mouse siendo presionado?
 
 
+        // Cargar la imagen de fondo solo una vez
+        this.bgImage = new Image();
+        this.bgImage.src = "./img/ruta.png";
+
+        // Esperar a que la imagen se cargue antes de iniciar el bucle de renderizado
+        this.bgImage.onload = () => {
+            this.newFrame();  // Empieza el bucle de animación cuando la imagen esté cargada
+        };
+
+
         //Agregar los eventos que escuchan al mouse
         this.canvas.addEventListener('mousedown' , (e)=>{this.onMouseDown(e)}, false);  //Cuando presiono el mouse
         this.canvas.addEventListener('mouseup' , (e)=>{this.onMouseUp(e)}, false);  //Cuando suelto el mouse
@@ -25,10 +35,6 @@ class Game{
 
 
         this.newFrame();
-
-
-
-
     }
 
 
@@ -38,7 +44,7 @@ class Game{
 
         console.log("cola de renderizado");
         console.log(this.renderQueue);
-        elements.flat().forEach(element =>{
+        elements.forEach(element =>{
 
             this.renderQueue.push(element);
         });
@@ -54,17 +60,17 @@ class Game{
     //Genera un nuevo fotograma, limpia la pantalla y dibuja todas las figuras de la lista
     newFrame(){
         this.clearCanvas();
-        console.log(this.renderQueue);
+        //console.log(this.renderQueue);
         for (let i = 0; i < this.renderQueue.length; i++){
             this.renderQueue[i].draw(this.ctx);  //Aprovecha binding dinamico para dibujar cualquier figura
         }
     }
 
 
-    //Crea un rectangulo blanco que ocupa toda la pantalla (usado para limpiar el canvas)
-    clearCanvas(){
-        this.ctx.fillStyle = "white";
-        this.ctx.fillRect(0,0,this.canvasWidth,this.canvasHeight);
+    // Dibuja el fondo solo usando la imagen previamente cargada
+    clearCanvas() {
+        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight); // Limpiar antes de dibujar el fondo
+        this.ctx.drawImage(this.bgImage, 0, 0, this.canvasWidth, this.canvasHeight);
     }
 
 
@@ -75,10 +81,8 @@ class Game{
             if (element.isPointInside(x,y)){
                 return element;
             }
-
-
-            }
         }
+    }
 
 
 
@@ -118,6 +122,7 @@ class Game{
     onMouseMove(e){
         if (this.isMouseDown && this.lastClickedFigure != null && this.lastClickedFigure.isDraggable(this.currentPlayer)){
             this.lastClickedFigure.setPosition(e.layerX,e.layerY);
+            //console.table(this.lastClickedFigure);
             this.newFrame();
         }
     }
@@ -133,19 +138,19 @@ class Game{
             this.lastClickedFigure.setResaltado(false);
 
 
-
             let validTurn = false;
             for (let figure of this.renderQueue) {
 
                 //Cuando suelto una ficha en otro elemento
                 if (figure !== this.lastClickedFigure && figure.encloses(this.lastClickedFigure)) {
+                    console.log("holaa");
 
                     //Si es un casillero
                     if (figure.getSlot()){
 
 
                         //Alineo horizontalmente la ficha con el casillero
-                        this.lastClickedFigure.posX = figure.posX;
+                        this.lastClickedFigure.x = figure.x;
 
                         //El propio casillero me indica en que columna estoy, asi que necesito saber
                         //en que fila va a caer la ficha
@@ -194,27 +199,19 @@ class Game{
         }
     }
 
-    DEBUG_RENDERMATRIZ(){
-        this.board.DEBUG_RENDERMATRIZ();
-    }
-
-    DEBUG_MATRIZELEMENTO(row,col){
-        this.board.DEBUG_MATRIZELEMENTO(row,col);
-    }
-
-
     start(rows,columns){
         this.currentPlayer = "p1";
         const centro = {
             x: canvas.width / 2,
             y: canvas.height / 2
         };
-        this.board = new Board(120,150,'#FF5733',this.ctx,rows,columns, centro);
+        this.board = new Board(rows,columns, centro, this.canvas.width, this.canvas.height);
         this.renderBoard();
         this.newFrame();
     }
 
     swapCurrentPlayer(){
+        console.log("jugador actual");
         if (this.currentPlayer === "p1"){
             this.currentPlayer = "p2";
         }
@@ -222,12 +219,4 @@ class Game{
             this.currentPlayer = "p1";
         }
     }
-
-
-
-
-
-
-
-
 }
