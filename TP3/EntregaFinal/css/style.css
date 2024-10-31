@@ -1227,7 +1227,27 @@ footer .linea-separador{
     height: 100%;
     position: relative;
     z-index: 1;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--azul-contenedores);
+    align-items: center;
+    gap:20px;
+    border-radius: var(--bordes-esquinas);
+
+}
+
+.render-juego .seccion-tablero{
+    display: flex;
+    width:50%;
+    justify-content: space-around;
+
+}
+
+.render-juego .selector-fichas{
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
