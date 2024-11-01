@@ -229,6 +229,14 @@ class Game{
         this.renderBoard();
 
 
+        setInterval(()=>{
+            const timerText = document.querySelector(".timer");
+            let time = Number(timerText.textContent);
+            time--;
+            timerText.textContent= time;
+        },1000)
+
+
 
 
         this.newFrame();

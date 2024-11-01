@@ -28,6 +28,11 @@ function newGame(rows,columns){
     gameRender.innerHTML = "";
     gameRender.appendChild(canvas);
 
+    const timerText = document.createElement("h3");
+    timerText.textContent = "200";
+    timerText.classList.add("timer");
+    gameRender.appendChild(timerText);
+
     let juego = new Game();
     juego.start(rows,columns);
 }
