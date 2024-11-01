@@ -159,7 +159,7 @@ class Board{
 
     // Funciones para verificar ganador
 
-    checkHorizontal(row, player, column) {
+    checkHorizontal(row, player, column, targetScore) {
         let total = 1;
     
         // Contamos hacia la derecha desde la columna actual
@@ -168,7 +168,7 @@ class Board{
             total++;
             rightColumn++;
             //console.log("Jugador: " + player + " Total: " + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }
@@ -179,7 +179,7 @@ class Board{
             total++;
             leftColumn--;
             console.log("total" + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }
@@ -189,7 +189,7 @@ class Board{
     }
 
 
-    checkVertical(row, player, column) {
+    checkVertical(row, player, column,targetScore) {
         let total = 1;
     
         // Contamos hacia abajo desde la fila actual
@@ -198,7 +198,7 @@ class Board{
             total++;
             belowRow++;
             console.log("Jugador: " + player + " Total: " + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }
@@ -209,7 +209,7 @@ class Board{
             total++;
             aboveRow--;
             console.log("Jugador: " + player + " Total: " + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }
@@ -219,7 +219,7 @@ class Board{
     }
     
     
-    checkDiagonal(row, player, column) {
+    checkDiagonal(row, player, column,targetScore) {
         let total = 1;
     
         // Diagonal descendente hacia la derecha (↘)
@@ -230,7 +230,7 @@ class Board{
             downRightRow++;
             downRightCol++;
             console.log("Jugador: " + player + " Total: " + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }
@@ -243,7 +243,7 @@ class Board{
             upLeftRow--;
             upLeftCol--;
             console.log("Jugador: " + player + " Total: " + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }
@@ -259,7 +259,7 @@ class Board{
             downLeftRow++;
             downLeftCol--;
             console.log("Jugador: " + player + " Total: " + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }
@@ -272,7 +272,7 @@ class Board{
             upRightRow--;
             upRightCol++;
             console.log("Jugador: " + player + " Total: " + total);
-            if (total === 4) {
+            if (total === targetScore) {
                 return true;
             }
         }

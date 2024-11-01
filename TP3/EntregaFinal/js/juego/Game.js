@@ -1,5 +1,5 @@
 class Game{
-    constructor(){
+    constructor(targetScore){
         //CANVAS
         this.canvas = document.querySelector("#canvas");
         this.ctx = this.canvas.getContext("2d");
@@ -13,6 +13,7 @@ class Game{
 
         this.currentPlayer = null;
         this.timerInterval = null;
+        this.targetScore = targetScore;
 
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
@@ -175,9 +176,9 @@ class Game{
                             this.lastClickedFigure.setDraggableState(false);
     
                             // verificar ganador
-                            let h_check = this.board.checkHorizontal(target_row, this.currentPlayer, figure.getColPos());
-                            let v_check = this.board.checkVertical(target_row, this.currentPlayer, figure.getColPos())
-                            let d_check = this.board.checkDiagonal(target_row, this.currentPlayer, figure.getColPos())
+                            let h_check = this.board.checkHorizontal(target_row, this.currentPlayer, figure.getColPos(),this.targetScore);
+                            let v_check = this.board.checkVertical(target_row, this.currentPlayer, figure.getColPos(),this.targetScore);
+                            let d_check = this.board.checkDiagonal(target_row, this.currentPlayer, figure.getColPos(),this.targetScore);
 
                             //Si se hizo N en linea, muestro el ganador por pantalla
                             if (h_check || v_check || d_check){

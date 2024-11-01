@@ -4,27 +4,27 @@ let gameRender = document.querySelector(".render-juego");
 
 //Boton de 4 en linea
 document.querySelector("#btn-4-en-linea").addEventListener("click", ()=>{
-    newGame(6,7)
+    newGame(6,7,4)
 });
 
 //Boton de 5 en linea
 document.querySelector("#btn-5-en-linea").addEventListener("click", ()=>{
-    newGame(7,8)
+    newGame(7,8,5)
 });
 
 //Boton de 6 en linea
 document.querySelector("#btn-6-en-linea").addEventListener("click", ()=>{
-    newGame(8,9)
+    newGame(8,9,6)
 });
 
 //Boton de 7 en linea
 document.querySelector("#btn-7-en-linea").addEventListener("click", ()=>{
-    newGame(9,10)
+    newGame(9,10,7)
 });
 
 
 //Crea el elemento canvas, instancia el juego y lo inicia con los parametros ingresados en el menu
-function newGame(rows,columns){
+function newGame(rows,columns, targetScore){
     const canvas = document.createElement('canvas');
     canvas.id = 'canvas';
     canvas.width = 1472;
@@ -39,7 +39,7 @@ function newGame(rows,columns){
     timerText.classList.add("timer");
     gameRender.appendChild(timerText);
 
-    let juego = new Game();
+    let juego = new Game(targetScore);
     juego.start(rows,columns);
 }
 
