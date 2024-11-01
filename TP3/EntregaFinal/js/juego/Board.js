@@ -30,7 +30,7 @@ class Board{
         // Calcula el desplazamiento para centrar el tablero en el canvas
         // Coordenadas donde debe empezar a dibujarse el tablero. Tomando en cuenta que el margen restante se divide x2 para que se centre, y
         // que debe dejar un espacio vertical para las flechas.
-        const offsetX = (this.canvasWidth - boardWidth) / 2;
+        const offsetX = (this.canvasWidth - boardWidth) / 1.3;
         const offsetY = (this.canvasHeight - boardHeight) / 2 + cellSize;
     
 
@@ -64,9 +64,9 @@ class Board{
             (new Circle
                 (posX + cellSize / 2,
                 posY + chipSize,
-                chipSize * 1.5, 
+                chipSize * 1.2, 
                 './img/flecha-indicadora.png', 
-                false, 
+                true, 
                 false,
                 null,
                 true,
@@ -79,54 +79,110 @@ class Board{
         // Fichas del jugador
         const maxChips = Math.ceil((this.rows * this.columns) / 2);
 
-        // Posiciones de las fichas a los lados del tablero
-        const player1X = offsetX - cellSize; 
-        // coord x donde se posicionaran las flechas del jugador 1 del lado izq. Para esto se posiciona en el origen del tablero y le suma el
-        // ancho de una celda.
-        const player2X = offsetX + boardWidth + cellSize; // A la derecha del tablero
-        // coord x donde se posicionaran las flechas del jugador w del lado derecho. Para esto se posiciona en el origen del tablero y le suma
-        // el ancho de una celda.
+        //j1
+        const player1X = 0 + cellSize;
+        let posX = player1X;
+        let posY = offsetY + cellSize;  // Initialize posY if it's not done elsewhere
+        let col = 0;   // Initialize col if it's not done elsewhere
 
         for (let i = 0; i < maxChips; i++) {
-            // Calcular la posición en `Y` para que se alineen en una columna a los lados del tablero
-            let posY = offsetY + i * 30;
+            posX = player1X + col * 30;  // Update posX based on column
 
-            // Fichas del Jugador 1 (a la izquierda)
-            let p1_chip = new Circle(
-                player1X, 
-                posY, 
-                chipSize,
-                './img/ficha-rojo.png', 
-                false, 
-                true, 
-                "p1",
-                false,
-                null,
-                null
-            );
-
-            // Fichas del Jugador 2 (a la derecha)
-            let p2_chip = new Circle(
-                player2X, 
-                posY, 
-                chipSize, 
-                './img/jugador_2.png', 
-                false, 
-                true, 
-                "p2", 
-                false, 
-                null, 
-                null
-            );
-            boardElements.push(p1_chip);
-            boardElements.push(p2_chip);
+            if (posX < offsetX - chipSize) {
+                // Place Player 1's chip
+                let p1_chip = new Circle(
+                    posX, 
+                    posY, 
+                    chipSize,
+                    './img/ficha-rojo.png', 
+                    false, 
+                    true, 
+                    "p1",
+                    false,
+                    null,
+                    null
+                );
+                col++;  // Increment column for the next chip
+                boardElements.push(p1_chip);
+            } else {
+                // Reset position for the next row
+                col = 0;                // Reset column to 0
+                posX = player1X;        // Reset posX based on player1X
+                posY += cellSize;       // Move posY down by one cell
+            }
         }
 
-        console.table(boardElements);
+        //j2
+        const player2X = 0 + cellSize;
+        posX = player1X;
+        posY = this.canvasHeight /2 + cellSize;  // Initialize posY if it's not done elsewhere
+        col = 0;   // Initialize col if it's not done elsewhere
+
+        for (let i = 0; i < maxChips; i++) {
+            posX = player2X + col * 30;  // Update posX based on column
+
+            if (posX < offsetX - chipSize) {
+                let p2_chip = new Circle(
+                    posX, 
+                    posY, 
+                    chipSize, 
+                    './img/ficha-marron.png', 
+                    false, 
+                    true, 
+                    "p2", 
+                    false, 
+                    null, 
+                    null
+                );
+                col++;  // Increment column for the next chip
+                boardElements.push(p2_chip);
+            } else {
+                // Reset position for the next row
+                col = 0;                // Reset column to 0
+                posX = player2X;        // Reset posX based on player1X
+                posY += cellSize;       // Move posY down by one cell
+            }
+        }
+
     
         return boardElements;
     }
-    
+
+    instanciarFichasJugador(cellSize, offsetY, offsetX, maxChips, chipSize) {
+        let boardElements = [];
+        const player1X = 0 + cellSize;
+        let posX = player1X;
+        let posY = offsetY + cellSize;  // Initialize posY if it's not done elsewhere
+        let col = 0;   // Initialize col if it's not done elsewhere
+
+        for (let i = 0; i < maxChips; i++) {
+            posX = player1X + col * 30;  // Update posX based on column
+
+            if (posX < offsetX - chipSize) {
+                // Place Player 1's chip
+                let p1_chip = new Circle(
+                    posX, 
+                    posY, 
+                    chipSize,
+                    './img/ficha-rojo.png', 
+                    false, 
+                    true, 
+                    "p1",
+                    false,
+                    null,
+                    null
+                );
+                col++;  // Increment column for the next chip
+                boardElements.push(p1_chip);
+            } else {
+                // Reset position for the next row
+                col = 0;                // Reset column to 0
+                posX = player1X;        // Reset posX based on player1X
+                posY += cellSize;       // Move posY down by one cell
+            }
+        }
+        return boardElements;
+    }
 
 
     getChip(row,column){

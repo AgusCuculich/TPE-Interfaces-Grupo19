@@ -16,6 +16,9 @@ class Circle {
         //Posicion en la matriz de tablero
         this.rowPos = rowPos;
         this.colPos = colPos;
+
+        this.startingPosX = x;
+        this.startingPosY = y;
     }
 
     getPosX(){

@@ -141,7 +141,7 @@ class Game{
             this.lastClickedFigure.setResaltado(false);
 
 
-            let validTurn = true;
+            let validTurn = false;
             for (let figure of this.renderQueue) {
 
                 //Cuando suelto una ficha en otro elemento
