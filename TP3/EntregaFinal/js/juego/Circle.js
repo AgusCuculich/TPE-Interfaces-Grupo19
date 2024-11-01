@@ -1,6 +1,6 @@
 class Circle {
 
-    constructor(x, y , radius, imgSrc, conBorde, draggable, player, slot = false) {
+    constructor(x, y , radius, imgSrc, conBorde, draggable, player, slot = false, rowPos = null, colPos = null) {
         // isFree, rowPos = null, 
         // draggable,isFree,player,rowPos=null,colPos=null, slot= false
         this.x = x;
@@ -12,6 +12,10 @@ class Circle {
         this.draggable = draggable;
         this.player = player;
         this.slot = slot;
+
+        //Posicion en la matriz de tablero
+        this.rowPos = rowPos;
+        this.colPos = colPos;
     }
 
     getPosX(){
@@ -97,22 +101,30 @@ class Circle {
         this.y = y;
     }
 
+    //Define si este elemento se puede arrastrar o no
+    setDraggableState(state){
+        this.draggable = state;
+    }
+
     //Comprueba si esta figura esta dentro de otra figura
     encloses(other) {
-        const { x, y } = other.getPosition();   //Traigo la posicion de la otra figura
-        console.log(other.getPosition());
-        const distance = Math.sqrt(     //Calculo la distancia entre las figuras
-            Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2)
+        // Obtiene la posición de la otra figura
+        const otherPosition = other.getPosition();
+        const otherX = otherPosition.x;
+        const otherY = otherPosition.y;
+
+        // Calcula la distancia entre las figuras
+        const distance = Math.sqrt(
+            Math.pow(this.x - otherX, 2) + Math.pow(this.y - otherY, 2)
         );
 
-        //Calcula ya sea el radio o el mayor lado (para crear el area que se considera "dentro")
+        // Calcula el radio o el mayor lado para crear el área que se considera "dentro"
         const otherRadius = other.getRadius ? other.getRadius() : Math.max(other.getWidth(), other.getHeight()) / 2;
 
-        console.log(distance + otherRadius <= this.radius);
-
-        //Si el radio es menor, está dentro
+        // Si el radio es menor, está dentro
         return distance + otherRadius <= this.radius;
     }
+
 
     //Obtener posicion global
     getPosition(){
@@ -126,21 +138,20 @@ class Circle {
         let velocity = speed; // Velocidad Inicial
         let damping = 0.6; // Cuanto se amortigua el rebote en cada impacto
         let bounceThreshold = 3; // Umbral para detener la animacion cuando los rebotes sean minimos
-        comsole.log("funcion");
 
         const animacionCaer = () => {
             // Hago descender el elemento
-            this.posY += velocity;
+            this.y += velocity;
             velocity += 0.98; // Acelera la caida (gravedad simulada)
 
             // Cuando me pase del target_y deseado, reboto
-            if (this.posY >= target_y) {
-                this.posY = target_y; // Aseguro que no pase del target
+            if (this.y >= target_y) {
+                this.y = target_y; // Aseguro que no pase del target
                 velocity = -velocity * damping; // Invierto la velocidad para simular el rebote
 
                 // Si el rebote es demasiado pequeño, detengo la animación
                 if (Math.abs(velocity) < bounceThreshold) {
-                    this.posY = target_y; // Ajusto a la posición final
+                    this.y = target_y; // Ajusto a la posición final
                     if (renderCallBack) renderCallBack(); // Renderizo el frame (donde la ficha esta perfectamente alineada)
                     return; // Se detiene la animacion
                 }

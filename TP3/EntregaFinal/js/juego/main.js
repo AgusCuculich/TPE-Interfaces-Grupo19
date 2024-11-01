@@ -5,4 +5,4 @@ let juego = new Game();
 // 6 en linea 8x9
 // 7 en linea 9x10
 
-juego.start(6,7);
+juego.start(4,4);

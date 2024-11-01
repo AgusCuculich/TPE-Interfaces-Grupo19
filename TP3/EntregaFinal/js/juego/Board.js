@@ -11,7 +11,11 @@ class Board{
     
     createBoard() {
 
-        const cellSize = (this.rows === 9) ? 70 : 80;
+        // 9 o 8 filas --> cellSize = 70
+        // 7 filas --> cellSize = 80
+        // 6 filas --> cellSize = 90
+        const cellSize = (this.rows === 9 || this.rows === 8) ? 70 : (this.rows === 7) ? 80 : 90;
+        console.log(cellSize);
         const chipSize = 35;
     
         let boardElements = [];
@@ -40,7 +44,7 @@ class Board{
 
                 // Añadir celda y círculo negro (agujero) al arreglo de elementos.
                 boardElements.push(new Cell(posX, posY, cellSize, './img/patron.jpg'));
-                let chip = new Circle(posX + cellSize / 2, posY + cellSize / 2, chipSize, './img/circulo-negro.png', false);
+                let chip = new Circle(posX + cellSize / 2, posY + cellSize / 2, chipSize, './img/circulo-negro.png', false, false, null, false, row, col);
                 boardElements.push(chip);
                 fila.push(chip);
             }
@@ -56,7 +60,19 @@ class Board{
             const posY = offsetY - cellSize; 
             // En el eje y restamos el espacio dejado para las flechas, así comienzan a renderizarse por sobre las celdas con agujeros del tablero
     
-            boardElements.push(new Circle(posX + cellSize / 2, posY + chipSize, chipSize, './img/flecha-indicadora.png', true));
+            boardElements.push
+            (new Circle
+                (posX + cellSize / 2,
+                posY + chipSize,
+                chipSize * 1.5, 
+                './img/flecha-indicadora.png', 
+                false, 
+                false,
+                null,
+                true,
+                null,
+                col
+            ));
         }
 
 
@@ -73,7 +89,7 @@ class Board{
 
         for (let i = 0; i < maxChips; i++) {
             // Calcular la posición en `Y` para que se alineen en una columna a los lados del tablero
-            const posY = offsetY + i * 20;
+            let posY = offsetY + i * 30;
 
             // Fichas del Jugador 1 (a la izquierda)
             let p1_chip = new Circle(
@@ -84,15 +100,29 @@ class Board{
                 false, 
                 true, 
                 "p1",
-                false
+                false,
+                null,
+                null
             );
 
             // Fichas del Jugador 2 (a la derecha)
-            let p2_chip = new Circle(player2X, posY, chipSize, './img/circulo-negro.png', false, true, "p2", false);
-
+            let p2_chip = new Circle(
+                player2X, 
+                posY, 
+                chipSize, 
+                './img/jugador_2.png', 
+                false, 
+                true, 
+                "p2", 
+                false, 
+                null, 
+                null
+            );
             boardElements.push(p1_chip);
             boardElements.push(p2_chip);
         }
+
+        console.table(boardElements);
     
         return boardElements;
     }
@@ -231,5 +261,20 @@ class Board{
         // Si no se encontraron 4 consecutivas en ninguna diagonal, devolvemos false
         return false;
     }
+
+
+    //Calcular hasta que fila deberia caer la ficha (ya sabiendo su columna)
+    findLandingRow(col) {
+        let i = 0;
+        while (i < this.rows) {
+            console.log(this.matrix[i][col].getPlayer());
+            if (this.matrix[i][col].getPlayer() !== null) {
+                return i - 1; // Cuando detecta una fila ocupada, devuelve la de arriba
+            }
+            i++;
+        }
+        // Si la última fila también está vacía, devuelvo esa
+        return this.rows - 1;
+    }    
 
 }

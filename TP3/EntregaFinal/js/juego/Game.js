@@ -60,11 +60,13 @@ class Game{
     //Genera un nuevo fotograma, limpia la pantalla y dibuja todas las figuras de la lista
     newFrame(){
         this.clearCanvas();
-        //console.log(this.renderQueue);
+        let arrOriginal = this.renderQueue;
         for (let i = 0; i < this.renderQueue.length; i++){
-            this.renderQueue[i].draw(this.ctx);  //Aprovecha binding dinamico para dibujar cualquier figura
+            if(this.renderQueue[i].getPosition() != arrOriginal[i].getPosition) {
+                this.renderQueue[i].draw(this.ctx);
+            }
         }
-    }
+    }    
 
 
     // Dibuja el fondo solo usando la imagen previamente cargada
@@ -108,6 +110,7 @@ class Game{
         if (clickFig != null && clickFig.isDraggable(this.currentPlayer)){
             clickFig.setResaltado(true);
             this.lastClickedFigure = clickFig;
+            console.log(clickFig);
         }
         this.newFrame(); //Refresca la pantalla, creando un nuevo frame
 
@@ -138,13 +141,11 @@ class Game{
             this.lastClickedFigure.setResaltado(false);
 
 
-            let validTurn = false;
+            let validTurn = true;
             for (let figure of this.renderQueue) {
 
                 //Cuando suelto una ficha en otro elemento
                 if (figure !== this.lastClickedFigure && figure.encloses(this.lastClickedFigure)) {
-                    console.log("holaa");
-
                     //Si es un casillero
                     if (figure.getSlot()){
 
@@ -161,6 +162,7 @@ class Game{
                             let target_chip = this.board.getChip(target_row,figure.getColPos());
 
                             this.moveToLastRenderPosition(this.lastClickedFigure);
+                            console.log(this.board.findLandingRow(figure.getColPos()));
                             this.board.putChip(target_row, figure.getColPos(), this.lastClickedFigure);
     
                             //Entonces, hago que la ficha descienda hasta la misma posicion Y que la ficha vacia
@@ -211,12 +213,12 @@ class Game{
     }
 
     swapCurrentPlayer(){
-        console.log("jugador actual");
         if (this.currentPlayer === "p1"){
             this.currentPlayer = "p2";
         }
         else if (this.currentPlayer === "p2"){
             this.currentPlayer = "p1";
         }
+        console.log("jugador actual: " + this.currentPlayer);
     }
 }
