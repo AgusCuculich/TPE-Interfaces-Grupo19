@@ -57,4 +57,4 @@ function newGame(rows,columns){
 // 6 en linea 8x9
 // 7 en linea 9x10
 
-juego.start(9,10);
+//juego.start(9,10);

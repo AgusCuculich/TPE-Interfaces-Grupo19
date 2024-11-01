@@ -1,8 +1,6 @@
 class Circle {
 
     constructor(x, y , radius, imgSrc, conBorde, draggable, player, slot = false, rowPos = null, colPos = null) {
-        // isFree, rowPos = null, 
-        // draggable,isFree,player,rowPos=null,colPos=null, slot= false
         this.x = x;
         this.y = y;
         this.radius = radius;
@@ -125,7 +123,7 @@ class Circle {
         const otherRadius = other.getRadius ? other.getRadius() : Math.max(other.getWidth(), other.getHeight()) / 2;
 
         // Si el radio es menor, está dentro
-        return distance + otherRadius <= this.radius;
+        return distance + otherRadius <= this.radius + 30;
     }
 
 

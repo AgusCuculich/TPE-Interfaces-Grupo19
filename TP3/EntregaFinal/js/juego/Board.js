@@ -64,7 +64,7 @@ class Board{
             (new Circle
                 (posX + cellSize / 2,
                 posY + chipSize,
-                chipSize * 1.2, 
+                chipSize * 1.1, 
                 './img/flecha-indicadora.png', 
                 true, 
                 false,
@@ -147,43 +147,6 @@ class Board{
     
         return boardElements;
     }
-
-    instanciarFichasJugador(cellSize, offsetY, offsetX, maxChips, chipSize) {
-        let boardElements = [];
-        const player1X = 0 + cellSize;
-        let posX = player1X;
-        let posY = offsetY + cellSize;  // Initialize posY if it's not done elsewhere
-        let col = 0;   // Initialize col if it's not done elsewhere
-
-        for (let i = 0; i < maxChips; i++) {
-            posX = player1X + col * 30;  // Update posX based on column
-
-            if (posX < offsetX - chipSize) {
-                // Place Player 1's chip
-                let p1_chip = new Circle(
-                    posX, 
-                    posY, 
-                    chipSize,
-                    './img/ficha-rojo.png', 
-                    false, 
-                    true, 
-                    "p1",
-                    false,
-                    null,
-                    null
-                );
-                col++;  // Increment column for the next chip
-                boardElements.push(p1_chip);
-            } else {
-                // Reset position for the next row
-                col = 0;                // Reset column to 0
-                posX = player1X;        // Reset posX based on player1X
-                posY += cellSize;       // Move posY down by one cell
-            }
-        }
-        return boardElements;
-    }
-
 
     getChip(row,column){
         return this.matrix[row][column];
