@@ -6,6 +6,10 @@ class Text extends Drawable{
 
     draw(){
         super.draw();
+        this.ctx.setLineDash([]);
+        this.ctx.lineWidth = 7;
+        this.ctx.strokeStyle = "black";
+        this.ctx.strokeText(this.text, this.posX, this.posY);
         this.ctx.fillText(this.text,this.posX,this.posY);
     }
 

@@ -156,6 +156,13 @@ class Board{
         this.matrix[row][column] = element;
     }
 
+    getRows(){
+        return this.rows;
+    }
+    getColumns(){
+        return this.columns;
+    }
+
 
     // Funciones para verificar ganador
 

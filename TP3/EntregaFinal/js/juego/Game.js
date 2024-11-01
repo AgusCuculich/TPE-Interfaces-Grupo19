@@ -256,6 +256,44 @@ class Game{
         }
 
         console.log("Partida finalizada. Desactivados objetos");
+        this.createNavButtons();
+    }
+
+    createNavButtons(){
+        let gameRender = document.querySelector(".render-juego");
+        const btn_menu = document.createElement("button");
+        btn_menu.classList.add("btn-menu-juego");
+        btn_menu.textContent = "Menu";
+        btn_menu.addEventListener("click", ()=>{
+            location.reload();
+
+        })
+
+        const btn_reset = document.createElement("button");
+        btn_reset.classList.add("btn-reset-juego");
+        btn_reset.textContent = "Reiniciar";
+        btn_reset.addEventListener("click", ()=>{
+            gameRender.innerHTML = "";
+            const canvas = document.createElement('canvas');
+            canvas.id = 'canvas';
+            canvas.width = 1472;
+            canvas.height = 720;
+            canvas.style.border = '1px solid black';
+
+
+            gameRender.appendChild(canvas);
+
+            const timerText = document.createElement("h3");
+            timerText.textContent = "10";
+            timerText.classList.add("timer");
+            gameRender.appendChild(timerText);
+
+            let juego = new Game(this.targetScore);
+            juego.start(this.board.getRows(),this.board.getColumns());
+        })
+
+        gameRender.appendChild(btn_menu);
+        gameRender.appendChild(btn_reset);
     }
 
     decreaseTimer() {

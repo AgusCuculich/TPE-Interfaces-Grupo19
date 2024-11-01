@@ -1778,6 +1778,31 @@ footer .linea-separador{
         height: auto;
     }
 
+    .timer, .btn-menu-juego, .btn-reset-juego{
+        position: relative;
+        right:100px;
+    }
+
+    .btn-menu-juego, .btn-reset-juego{
+        right:150px;
+        bottom: 250px;
+    }
+
+
+
+    .timer{
+        font-size: var(--tamanio-titulo);
+
+        text-shadow:
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                -2px 0 0 #000,
+                2px 0 0 #000,
+                0 2px 0 #000,
+                0 -2px 0 #000;
+    }
     #game-menu {
         width: 50%;
         display: flex;

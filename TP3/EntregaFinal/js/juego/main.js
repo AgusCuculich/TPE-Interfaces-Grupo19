@@ -35,7 +35,7 @@ function newGame(rows,columns, targetScore){
     gameRender.appendChild(canvas);
 
     const timerText = document.createElement("h3");
-    timerText.textContent = "200";
+    timerText.textContent = "10";
     timerText.classList.add("timer");
     gameRender.appendChild(timerText);
 
