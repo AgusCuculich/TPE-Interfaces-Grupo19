@@ -12,11 +12,12 @@ class Game{
         this.board = null;
 
         this.currentPlayer = null;
+        this.timerInterval = null;
 
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
         this.isMouseDown = false;    //Esta el mouse siendo presionado?
-        this.playerText = new Text(100,50,"#000000",this.ctx,"Texto default");
+        this.playerText = new Text(100,50,"#FFFFFF",this.ctx,"Texto default");
         this.playerText.changeFont("50px serif");
         this.renderQueue.push(this.playerText);
 
@@ -185,6 +186,7 @@ class Game{
                                 this.playerText.changeText("Ha ganado el jugador: " + this.currentPlayer);
 
                                 this.newFrame();
+                                this.stop();
                             }
                             else{
                                 this.swapCurrentPlayer();
@@ -217,28 +219,56 @@ class Game{
         }
     }
 
-    start(rows,columns){
+    start(rows, columns) {
         this.currentPlayer = "p1";
         this.playerText.changeText("Turno de: " + this.currentPlayer);
+
         const centro = {
             x: canvas.width / 2,
             y: canvas.height / 2
         };
-        this.board = new Board(rows,columns, centro, this.canvas.width, this.canvas.height);
+
+        this.board = new Board(rows, columns, centro, this.canvas.width, this.canvas.height);
         this.renderBoard();
 
-
-        setInterval(()=>{
-            const timerText = document.querySelector(".timer");
-            let time = Number(timerText.textContent);
-            time--;
-            timerText.textContent= time;
-        },1000)
-
-
-
+        // Guarda el ID del intervalo en `timerInterval`
+        this.timerInterval = setInterval(() => {
+            this.decreaseTimer();
+        }, 1000);
 
         this.newFrame();
+    }
+
+    stop() {
+        console.log("Intentando frenar el juego");
+        this.newFrame();
+
+        // Desactiva la capacidad de arrastrar de los elementos en renderQueue
+        this.renderQueue.forEach(element => {
+            element.draggable = false;
+        });
+
+        // Limpia el intervalo para detener el temporizador
+        if (this.timerInterval) {
+            clearInterval(this.timerInterval);
+            console.log("Intervalo de temporizador detenido.");
+        }
+
+        console.log("Partida finalizada. Desactivados objetos");
+    }
+
+    decreaseTimer() {
+        const timerText = document.querySelector(".timer");
+        let time = Number(timerText.textContent);
+        if(time < 1){
+            this.playerText.changeText("Se ha acabado el tiempo");
+            this.stop();
+        }
+        else{
+            time--;
+            timerText.textContent = time;
+        }
+
     }
 
     swapCurrentPlayer(){
