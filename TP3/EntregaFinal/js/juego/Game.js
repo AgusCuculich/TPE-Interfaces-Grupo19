@@ -1,3 +1,5 @@
+//Representa el juego, controla los parametros y estado del mismo, y asigna los eventos para los inputs del jugador
+
 class Game{
     constructor(targetScore,p1_path,p2_path){
         //CANVAS
@@ -9,18 +11,20 @@ class Game{
 
         //Variables del juego
         this.renderQueue = [];   //Lista de todas las figuras dibujadas
-        this.board = null;
+        this.board = null;       //Tablero
 
-        this.currentPlayer = null;
+        this.currentPlayer = null;  //Jugador en este turno
         this.timerInterval = null;
-        this.targetScore = targetScore;
+        this.targetScore = targetScore; //Cantidad de fichas agrupadas para ganar
+
+        //Imagenes de las fichas
         this.p1_path = p1_path;
         this.p2_path = p2_path;
 
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
         this.isMouseDown = false;    //Esta el mouse siendo presionado?
-        this.playerText = new Text(100,50,"#FFFFFF",this.ctx,"Texto default");
+        this.playerText = new Text(100,50,"#FFFFFF",this.ctx,"Texto default");  //Texto informativo
         this.playerText.changeFont("50px serif");
         this.renderQueue.push(this.playerText);
 
@@ -36,7 +40,7 @@ class Game{
         };
 
 
-        //Agregar los eventos que escuchan al mouse
+        //Eventos que escuchan al mouse
         this.canvas.addEventListener('mousedown' , (e)=>{this.onMouseDown(e)}, false);  //Cuando presiono el mouse
         this.canvas.addEventListener('mouseup' , (e)=>{this.onMouseUp(e)}, false);  //Cuando suelto el mouse
         this.canvas.addEventListener('mousemove' , (e)=>{this.onMouseMove(e)}, false);  //Cuando muevo el mouse
@@ -47,6 +51,8 @@ class Game{
 
 
 
+
+    //Crea y dibuja el tablero del juego
     renderBoard(){
         let elements = this.board.createBoard(this.p1_path,this.p2_path);
 
@@ -58,10 +64,6 @@ class Game{
         });
 
 
-    }
-
-    addRender(element){
-        this.renderQueue.push(element);
     }
 
 
@@ -103,7 +105,7 @@ class Game{
 
 
 
-    //Cuando presiono el click del mouse
+    //Al presionar el mouse, se busca la figura clikeada, la resalta, y la asigna como ultima figura presionada
     onMouseDown(e){
         this.isMouseDown = true;
 
@@ -133,14 +135,14 @@ class Game{
     onMouseMove(e){
         if (this.isMouseDown && this.lastClickedFigure != null && this.lastClickedFigure.isDraggable(this.currentPlayer)){
             this.lastClickedFigure.setPosition(e.layerX,e.layerY);
-            //console.table(this.lastClickedFigure);
             this.newFrame();
         }
     }
 
 
 
-//Cuando levanto el mouse, seteo como false
+//Al levantar el mouse, quitamos el resaltado de la ficha, y empezamos a realizar las comprobaciones del juego.
+    //Si es una posicion valida, ingresamos la ficha y comprobamos si hay ganador.
     onMouseUp(e){
         this.isMouseDown = false;
 
@@ -212,6 +214,7 @@ class Game{
 
 
 
+    //Mueve un elemento al final de renderQueue, haciendo que se dibuje siempre por encima
     moveToLastRenderPosition(element){
         for(let i = 0; i < this.renderQueue.length;i++){
             if (this.renderQueue[i] === element){
@@ -222,6 +225,8 @@ class Game{
         }
     }
 
+
+    //Comienza la partida, seteando los parametros iniciales y crenado el tablero
     start(rows, columns) {
         this.currentPlayer = "p1";
         this.playerText.changeText("Turno de: " + this.currentPlayer);
@@ -242,6 +247,8 @@ class Game{
         this.newFrame();
     }
 
+
+    //Frena el juego, impidiendo que se puedan realizar mas movimientos
     stop() {
         console.log("Intentando frenar el juego");
         this.newFrame();
@@ -261,6 +268,8 @@ class Game{
         this.createNavButtons();
     }
 
+
+    //Crea los botones para reiniciar partida e ir al menu principal
     createNavButtons(){
         let gameRender = document.querySelector(".render-juego");
         const btn_menu = document.createElement("button");
@@ -286,7 +295,7 @@ class Game{
             gameRender.appendChild(canvas);
 
             const timerText = document.createElement("h3");
-            timerText.textContent = "10";
+            timerText.textContent = "200";
             timerText.classList.add("timer");
             gameRender.appendChild(timerText);
 
@@ -298,6 +307,7 @@ class Game{
         gameRender.appendChild(btn_reset);
     }
 
+    //Decrementa el timer de tiempo restante
     decreaseTimer() {
         const timerText = document.querySelector(".timer");
         let time = Number(timerText.textContent);
@@ -312,6 +322,8 @@ class Game{
 
     }
 
+
+    //Le da el turno al otro jugador
     swapCurrentPlayer(){
         if (this.currentPlayer === "p1"){
             this.currentPlayer = "p2";

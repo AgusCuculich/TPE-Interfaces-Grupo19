@@ -1,3 +1,5 @@
+//Representa el tablero donde se jugará. Esta compuesto por celdas (Cell).
+//Esta clase se encarga de crear el tablero, insertar fichas y comprobar ganadores
 class Board{
 
     constructor(rows, columns, centro, canvasWidth, canvasHeight) {
@@ -8,7 +10,9 @@ class Board{
         this.canvasHeight = canvasHeight;
         this.matrix = [];
     }
-    
+
+
+    //Crea un tablero dinamico de Cells, las fichas de los jugadores, los huecos, y los casilleros para insertar fichas
     createBoard(p1_path,p2_path) {
 
         // 9 o 8 filas --> cellSize = 70
@@ -82,11 +86,11 @@ class Board{
         //j1
         const player1X = 0 + cellSize;
         let posX = player1X;
-        let posY = offsetY + cellSize;  // Initialize posY if it's not done elsewhere
-        let col = 0;   // Initialize col if it's not done elsewhere
+        let posY = offsetY + cellSize;
+        let col = 0;
 
         for (let i = 0; i < maxChips; i++) {
-            posX = player1X + col * 30;  // Update posX based on column
+            posX = player1X + col * 30;
 
             if (posX < offsetX - chipSize) {
                 // Place Player 1's chip
@@ -102,24 +106,24 @@ class Board{
                     null,
                     null
                 );
-                col++;  // Increment column for the next chip
+                col++;
                 boardElements.push(p1_chip);
             } else {
-                // Reset position for the next row
-                col = 0;                // Reset column to 0
-                posX = player1X;        // Reset posX based on player1X
-                posY += cellSize;       // Move posY down by one cell
+
+                col = 0;
+                posX = player1X;
+                posY += cellSize;
             }
         }
 
         //j2
         const player2X = 0 + cellSize;
         posX = player1X;
-        posY = this.canvasHeight /2 + cellSize;  // Initialize posY if it's not done elsewhere
-        col = 0;   // Initialize col if it's not done elsewhere
+        posY = this.canvasHeight /2 + cellSize;
+        col = 0;
 
         for (let i = 0; i < maxChips; i++) {
-            posX = player2X + col * 30;  // Update posX based on column
+            posX = player2X + col * 30;
 
             if (posX < offsetX - chipSize) {
                 let p2_chip = new Circle(
@@ -134,13 +138,13 @@ class Board{
                     null, 
                     null
                 );
-                col++;  // Increment column for the next chip
+                col++;
                 boardElements.push(p2_chip);
             } else {
-                // Reset position for the next row
-                col = 0;                // Reset column to 0
-                posX = player2X;        // Reset posX based on player1X
-                posY += cellSize;       // Move posY down by one cell
+
+                col = 0;
+                posX = player2X;
+                posY += cellSize;
             }
         }
 
@@ -148,10 +152,12 @@ class Board{
         return boardElements;
     }
 
+    //Obtiene una ficha del tablero en una determinada posicion
     getChip(row,column){
         return this.matrix[row][column];
     }
 
+    //Inserta una ficha en el tablero en una determinada posicion
     putChip(row,column, element){
         this.matrix[row][column] = element;
     }

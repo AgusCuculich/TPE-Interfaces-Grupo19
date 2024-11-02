@@ -1,3 +1,4 @@
+// Representa un texto genérico. Se utiliza para informar a los jugadores del estado de la partida
 class Text extends Drawable{
     constructor(posX, posY, fill, context, text) {
         super(posX,posY,fill,context);

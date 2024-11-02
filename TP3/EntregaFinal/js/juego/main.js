@@ -1,3 +1,6 @@
+// Este script controla el menu principal. Permite a los jugadores elegir una apariencia para sus fichas, asi como
+// el tamaño del tablero a usar. Se encarga de crear el juego, con dichas configuraciones.
+
 //let juego = new Game();
 //Este es el div render-juego
 let gameRender = document.querySelector(".render-juego");

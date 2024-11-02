@@ -1,3 +1,4 @@
+//Representa una celda de tablero. Un tablero se compone por multiples instancias de estas celdas
 class Cell {
     constructor(x, y, size, imgSrc) {
         this.x = x;

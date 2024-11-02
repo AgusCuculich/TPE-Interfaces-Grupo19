@@ -1,3 +1,4 @@
+// Representa una ficha. Ya sea ficha de jugador, un hueco del tablero, o un casillero para insertar fichas.
 class Circle {
 
     constructor(x, y , radius, imgSrc, conBorde, draggable, player, slot = false, rowPos = null, colPos = null) {
@@ -55,6 +56,7 @@ class Circle {
         return this.slot;
     }
 
+    //Dibuja esta ficha
     draw(ctx) {
         // Dibujar borde si está habilitado
         if (this.conBorde) {
@@ -67,6 +69,7 @@ class Circle {
         }
     }
 
+    //Agrega un contorno a esta ficha
     dibujarBorde(ctx) {
         if (this.conBorde) {
             ctx.beginPath();
@@ -78,7 +81,7 @@ class Circle {
         }
     }
 
-    //Calcula la distancia entre el centro del circulo y la posicion dada
+    //Calcula la distancia entre el centro del circulo y la posicion dada.
     //Una distancia menor al radio indica que seguimos dentro del circulo
     isPointInside(x, y) {
         let _x = this.x - x;
@@ -87,6 +90,7 @@ class Circle {
         return Math.sqrt(_x * _x + _y * _y) < this.radius;
     }
 
+    // Comprueba si esta ficha se puede arrastrar (solo el jugador con el turno actual)
     isDraggable(player){
         return this.draggable && (this.player === player);
     }
@@ -107,9 +111,9 @@ class Circle {
         this.draggable = state;
     }
 
-    //Comprueba si esta figura esta dentro de otra figura
+    //Comprueba si este elemento esta encerrando a otro
     encloses(other) {
-        // Obtiene la posición de la otra figura
+        // Obtiene la posición del otro elemento
         const otherPosition = other.getPosition();
         const otherX = otherPosition.x;
         const otherY = otherPosition.y;
@@ -123,8 +127,8 @@ class Circle {
         const otherRadius = other.getRadius ? other.getRadius() : Math.max(other.getWidth(), other.getHeight()) / 2;
 
         // Si el radio es menor, está dentro
-        return distance + otherRadius <= this.radius + 30;
-    }
+        return distance + otherRadius <= this.radius + 30;  // Le agregamos +30 al radio para dar margen de error al usuario
+    }                                                       // para que no necesite ser 100% preciso en donde suelta el click
 
 
     //Obtener posicion global
@@ -135,6 +139,9 @@ class Circle {
         }
     }
 
+
+    // Hace que esta ficha caiga a una posicion vertical determinada, a cierta velocidad.
+    // la animacion incluye rebote, y refresca el frame en cada step
     descendTo(target_y, speed, renderCallBack) {
         let velocity = speed; // Velocidad Inicial
         let damping = 0.6; // Cuanto se amortigua el rebote en cada impacto
