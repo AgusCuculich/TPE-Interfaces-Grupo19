@@ -1842,7 +1842,7 @@ footer .linea-separador{
     }
 
     .ficha-roja {
-        background-image: url(../img/ficha-rojo.png);
+        /*background-image: url(../img/ficha-rojo.png);*/
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -1850,12 +1850,28 @@ footer .linea-separador{
     }
 
     .ficha-marron {
-        background-image: url(../img/ficha-marron.png);
+        /*background-image: url(../img/ficha-marron.png);*/
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
         background-color: #894828;
     }
+
+    .ficha-roja img, .ficha-marron img{
+        width:100%;
+        height:100%;
+    }
+
+
+    .ficha-marcada{
+        border: 7px solid black;
+
+    }
+
+    .ficha-marcada img{
+
+    }
+
 
     #game-menu .selector-fichas button:hover {
         border: 2px solid var(--gris-oscuro);

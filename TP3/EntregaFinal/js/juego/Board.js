@@ -9,7 +9,7 @@ class Board{
         this.matrix = [];
     }
     
-    createBoard() {
+    createBoard(p1_path,p2_path) {
 
         // 9 o 8 filas --> cellSize = 70
         // 7 filas --> cellSize = 80
@@ -94,7 +94,7 @@ class Board{
                     posX, 
                     posY, 
                     chipSize,
-                    './img/ficha-rojo.png', 
+                    p1_path,
                     false, 
                     true, 
                     "p1",
@@ -126,7 +126,7 @@ class Board{
                     posX, 
                     posY, 
                     chipSize, 
-                    './img/ficha-marron.png', 
+                    p2_path,
                     false, 
                     true, 
                     "p2", 

@@ -1,5 +1,5 @@
 class Game{
-    constructor(targetScore){
+    constructor(targetScore,p1_path,p2_path){
         //CANVAS
         this.canvas = document.querySelector("#canvas");
         this.ctx = this.canvas.getContext("2d");
@@ -14,6 +14,8 @@ class Game{
         this.currentPlayer = null;
         this.timerInterval = null;
         this.targetScore = targetScore;
+        this.p1_path = p1_path;
+        this.p2_path = p2_path;
 
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
@@ -46,7 +48,7 @@ class Game{
 
 
     renderBoard(){
-        let elements = this.board.createBoard();
+        let elements = this.board.createBoard(this.p1_path,this.p2_path);
 
         console.log("cola de renderizado");
         console.log(this.renderQueue);
@@ -288,7 +290,7 @@ class Game{
             timerText.classList.add("timer");
             gameRender.appendChild(timerText);
 
-            let juego = new Game(this.targetScore);
+            let juego = new Game(this.targetScore, this.p1_path,this.p2_path);
             juego.start(this.board.getRows(),this.board.getColumns());
         })
 
