@@ -1765,12 +1765,16 @@ footer .linea-separador{
     }
 
     .render-juego{
-        width: 100%;
-        height: 100%;
+        width: 1481px;
+        height: 722px;
         display: flex;
         z-index: 1;
         align-items: center;
         background-color: #ffc13a;
+    }
+
+    .render-juego h3 {
+        min-width: 100px;
     }
 
     .render-juego img {
@@ -1779,27 +1783,49 @@ footer .linea-separador{
     }
 
     .timer, .btn-menu-juego, .btn-reset-juego{
-        position: absolute;
+        position: relative;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
     }
 
     .timer{
-        right:275px;
+        right: 100px;
+        bottom: 320px;
+        font-size: var(--tamanio-titulo);
+        border: 2px solid var(--gris-oscuro);
     }
 
     .btn-menu-juego{
-        right:250px;
-        bottom: 250px;
+        /*right:245px;
+        bottom: 20px;*/
+        right: 190px;
+        bottom: 245px;
+        background-color: #ffc13a;
+        border: 2px solid var(--gris-oscuro);
+        font-weight: bold;
+        border-radius: 10px;
+        transition: transform 0.5s ease;
     }
 
     .btn-reset-juego{
-        right:300px;
-        bottom:250px;
+        /*right: 340px;
+        bottom: 100px;*/
+        right:295px;
+        bottom: 190px;
+        background-color: #ffc13a;
+        border: 2px solid var(--gris-oscuro);
+        font-weight: bold;
+        border-radius: 10px;
+        transition: transform 0.5s ease;
     }
 
-
+    .btn-reset-juego:hover, .btn-menu-juego:hover {
+        transform: scale(1.2);
+    }
 
     .timer{
-        font-size: var(--tamanio-titulo);
 
         text-shadow:
                 -2px -2px 0 #000,
@@ -1863,6 +1889,22 @@ footer .linea-separador{
         background-repeat: no-repeat;
         background-position: center;
         background-color: #894828;
+    }
+
+    #p2_2 {
+        background-color: #0012f6;
+    }
+
+    #p1_2 {
+        background-color: #005b1b;
+    }
+
+    #p2_3 {
+        background-color: #ffffff;
+    }
+
+    #p1_3 {
+        background-color: #fffa00;
     }
 
     .ficha-roja img, .ficha-marron img{
