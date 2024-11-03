@@ -24,7 +24,7 @@ class Game{
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
         this.isMouseDown = false;    //Esta el mouse siendo presionado?
-        this.playerText = new Text(100,50,"#FFFFFF",this.ctx,"Texto default");  //Texto informativo
+        this.playerText = new Text(50,50,"#FFFFFF",this.ctx,"Texto default");  //Texto informativo
         this.playerText.changeFont("50px serif");
         this.renderQueue.push(this.playerText);
 
@@ -188,7 +188,7 @@ class Game{
                             if (h_check || v_check || d_check){
 
 
-                                this.playerText.changeText("Ha ganado el jugador: " + this.currentPlayer);
+                                this.playerText.changeText("¡"+this.currentPlayer + " Gana!");
 
                                 this.newFrame();
                                 this.stop();
@@ -228,7 +228,8 @@ class Game{
 
     //Comienza la partida, seteando los parametros iniciales y crenado el tablero
     start(rows, columns) {
-        this.currentPlayer = "p1";
+        this.createNavButtons();
+        this.currentPlayer = "Jugador 1";
         this.playerText.changeText("Turno de: " + this.currentPlayer);
 
         const centro = {
@@ -265,7 +266,7 @@ class Game{
         }
 
         console.log("Partida finalizada. Desactivados objetos");
-        this.createNavButtons();
+
     }
 
 
@@ -284,10 +285,14 @@ class Game{
         btn_reset.classList.add("btn-reset-juego");
         btn_reset.textContent = "Reiniciar";
         btn_reset.addEventListener("click", ()=>{
+            if (this.timerInterval) {
+                clearInterval(this.timerInterval);
+                this.timerInterval = null;
+            }
             gameRender.innerHTML = "";
             const canvas = document.createElement('canvas');
             canvas.id = 'canvas';
-            canvas.width = 1472;
+            canvas.width = 1479;
             canvas.height = 720;
             canvas.style.border = '1px solid black';
 
@@ -325,11 +330,11 @@ class Game{
 
     //Le da el turno al otro jugador
     swapCurrentPlayer(){
-        if (this.currentPlayer === "p1"){
-            this.currentPlayer = "p2";
+        if (this.currentPlayer === "Jugador 1"){
+            this.currentPlayer = "Jugador 2";
         }
-        else if (this.currentPlayer === "p2"){
-            this.currentPlayer = "p1";
+        else if (this.currentPlayer === "Jugador 2"){
+            this.currentPlayer = "Jugador 1";
         }
         console.log("jugador actual: " + this.currentPlayer);
 

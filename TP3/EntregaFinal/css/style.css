@@ -1779,13 +1779,21 @@ footer .linea-separador{
     }
 
     .timer, .btn-menu-juego, .btn-reset-juego{
-        position: relative;
-        right:100px;
+        position: absolute;
     }
 
-    .btn-menu-juego, .btn-reset-juego{
-        right:150px;
+    .timer{
+        right:275px;
+    }
+
+    .btn-menu-juego{
+        right:250px;
         bottom: 250px;
+    }
+
+    .btn-reset-juego{
+        right:300px;
+        bottom:250px;
     }
 
 

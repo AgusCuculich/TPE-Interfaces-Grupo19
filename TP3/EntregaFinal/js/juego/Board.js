@@ -101,7 +101,7 @@ class Board{
                     p1_path,
                     false, 
                     true, 
-                    "p1",
+                    "Jugador 1",
                     false,
                     null,
                     null
@@ -133,7 +133,7 @@ class Board{
                     p2_path,
                     false, 
                     true, 
-                    "p2", 
+                    "Jugador 2",
                     false, 
                     null, 
                     null

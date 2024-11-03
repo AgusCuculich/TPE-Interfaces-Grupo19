@@ -53,7 +53,7 @@ document.querySelector("#btn-7-en-linea").addEventListener("click", ()=>{
 function newGame(rows,columns, targetScore,p1_path,p2_path){
     const canvas = document.createElement('canvas');
     canvas.id = 'canvas';
-    canvas.width = 1472;
+    canvas.width = 1479;
     canvas.height = 720;
     canvas.style.border = '1px solid black';
 
