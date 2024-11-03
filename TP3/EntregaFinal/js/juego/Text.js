@@ -5,6 +5,10 @@ class Text extends Drawable{
         this.text = text;
     }
 
+    getSlot(){
+        return false;
+    }
+
     draw(){
         super.draw();
         this.ctx.setLineDash([]);

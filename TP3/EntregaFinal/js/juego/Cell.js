@@ -24,6 +24,10 @@ class Cell {
         }
     }
 
+    getSlot(){
+        return false;
+    }
+
     draw(ctx) {
         // Si la imagen ya está cargada, dibujarla inmediatamente
         if (this.img.complete) {

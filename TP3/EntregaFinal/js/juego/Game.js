@@ -12,6 +12,7 @@ class Game{
         //Variables del juego
         this.renderQueue = [];   //Lista de todas las figuras dibujadas
         this.board = null;       //Tablero
+        this.arrFlechas = [];
 
         this.currentPlayer = null;  //Jugador en este turno
         this.timerInterval = null;
@@ -72,7 +73,7 @@ class Game{
         this.clearCanvas();
         let arrOriginal = this.renderQueue;
         for (let i = 0; i < this.renderQueue.length; i++){
-            if(this.renderQueue[i].getPosition() != arrOriginal[i].getPosition) {
+            if(this.renderQueue[i].getPosition() != arrOriginal[i].getPosition()) {
                 this.renderQueue[i].draw(this.ctx);
             }
         }
@@ -128,6 +129,20 @@ class Game{
 
     }
 
+    detectarFlecha(mousePos) {
+        this.arrFlechas.forEach(flecha => {
+            // Calcula la distancia entre el mouse y el centro de la flecha (círculo)
+            const dx = mousePos.x - flecha.x;
+            const dy = mousePos.y - flecha.y;
+            const distancia = Math.sqrt(dx * dx + dy * dy);
+    
+            // Verifica si la distancia es menor o igual al radio de la flecha
+            if (distancia <= flecha.radius) {
+                flecha.changeColor(this.ctx);
+            }
+        });
+    }
+
 
 
 //Cuando el mouse se esta moviendo
@@ -136,6 +151,8 @@ class Game{
         if (this.isMouseDown && this.lastClickedFigure != null && this.lastClickedFigure.isDraggable(this.currentPlayer)){
             this.lastClickedFigure.setPosition(e.layerX,e.layerY);
             this.newFrame();
+            let mousePos = { x: e.layerX, y: e.layerY };
+            this.detectarFlecha(mousePos);
         }
     }
 
@@ -239,6 +256,14 @@ class Game{
 
         this.board = new Board(rows, columns, centro, this.canvas.width, this.canvas.height);
         this.renderBoard();
+
+        this.renderQueue.forEach(element => {
+            if(element.getSlot()) {
+                this.arrFlechas.push(element);
+            }
+        });
+
+        console.log(this.arrFlechas);
 
         // Guarda el ID del intervalo en `timerInterval`
         this.timerInterval = setInterval(() => {

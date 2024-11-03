@@ -69,6 +69,16 @@ class Circle {
         }
     }
 
+    changeColor(ctx) {
+        if (this.conBorde) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.strokeStyle = "#ffc13a";
+            ctx.lineWidth = 3;
+            ctx.stroke();
+        }
+    }
+
     //Agrega un contorno a esta ficha
     dibujarBorde(ctx) {
         if (this.conBorde) {
