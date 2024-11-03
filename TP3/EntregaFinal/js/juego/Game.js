@@ -22,6 +22,14 @@ class Game{
         this.p1_path = p1_path;
         this.p2_path = p2_path;
 
+        //Efectos de sonido
+        this.sounds = {
+            invalid: new Audio('./snd/error.wav'),
+            valid: new Audio('./snd/click.wav'),
+            victory: new Audio('./snd/victory.wav'),
+            grab: new Audio('./snd/grab.wav')
+        };
+
 
         this.lastClickedFigure = null;   //Figura mas recientemente clickeada
         this.isMouseDown = false;    //Esta el mouse siendo presionado?
@@ -121,7 +129,8 @@ class Game{
         if (clickFig != null && clickFig.isDraggable(this.currentPlayer)){
             clickFig.setResaltado(true);
             this.lastClickedFigure = clickFig;
-            console.log(clickFig);
+
+            this.sounds.grab.play();
         }
         this.newFrame(); //Refresca la pantalla, creando un nuevo frame
 
@@ -163,6 +172,8 @@ class Game{
     onMouseUp(e){
         this.isMouseDown = false;
 
+
+
         //Si tenia una figura clickeada, le quito el resaltado
         if (this.lastClickedFigure != null){
             this.lastClickedFigure.setResaltado(false);
@@ -185,6 +196,7 @@ class Game{
                         let target_row = this.board.findLandingRow(figure.getColPos());
                         if (target_row >=0){
                             validTurn = true;
+                            this.sounds.valid.play();
                             //Una vez que tengo fila y columna, ya se a cual ficha vacia voy a viajar
                             let target_chip = this.board.getChip(target_row,figure.getColPos());
 
@@ -206,6 +218,7 @@ class Game{
 
 
                                 this.playerText.changeText("¡"+this.currentPlayer + " Gana!");
+                                this.sounds.victory.play();
 
                                 this.newFrame();
                                 this.stop();
@@ -222,6 +235,10 @@ class Game{
                 }
             }
             if (!validTurn){
+
+
+
+                this.sounds.invalid.play();
                 this.lastClickedFigure.setPosition(this.lastClickedFigure.startingPosX,this.lastClickedFigure.startingPosY);
             }
         }

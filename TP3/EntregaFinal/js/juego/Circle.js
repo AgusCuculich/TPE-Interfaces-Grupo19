@@ -74,7 +74,7 @@ class Circle {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.strokeStyle = "#ffc13a";
-            ctx.lineWidth = 3;
+            ctx.lineWidth = 5;
             ctx.stroke();
         }
     }
