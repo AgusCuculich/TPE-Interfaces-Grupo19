@@ -64,9 +64,6 @@ class Game{
     //Crea y dibuja el tablero del juego
     renderBoard(){
         let elements = this.board.createBoard(this.p1_path,this.p2_path);
-
-        console.log("cola de renderizado");
-        console.log(this.renderQueue);
         elements.forEach(element =>{
 
             this.renderQueue.push(element);
@@ -201,7 +198,6 @@ class Game{
                             let target_chip = this.board.getChip(target_row,figure.getColPos());
 
                             this.moveToLastRenderPosition(this.lastClickedFigure);
-                            console.log(this.board.findLandingRow(figure.getColPos()));
                             this.board.putChip(target_row, figure.getColPos(), this.lastClickedFigure);
     
                             //Entonces, hago que la ficha descienda hasta la misma posicion Y que la ficha vacia
@@ -212,6 +208,7 @@ class Game{
                             let h_check = this.board.checkHorizontal(target_row, this.currentPlayer, figure.getColPos(),this.targetScore);
                             let v_check = this.board.checkVertical(target_row, this.currentPlayer, figure.getColPos(),this.targetScore);
                             let d_check = this.board.checkDiagonal(target_row, this.currentPlayer, figure.getColPos(),this.targetScore);
+                            let e_check = this.board.checkFull();
 
                             //Si se hizo N en linea, muestro el ganador por pantalla
                             if (h_check || v_check || d_check){
@@ -225,6 +222,11 @@ class Game{
                             }
                             else{
                                 this.swapCurrentPlayer();
+                                if(e_check) {
+                                    this.playerText.changeText("¡Empate!");
+                                    this.newFrame();
+                                    this.stop();
+                                }
                             }
 
                             //Pasa el turno al siguiente jugador
@@ -280,8 +282,6 @@ class Game{
             }
         });
 
-        console.log(this.arrFlechas);
-
         // Guarda el ID del intervalo en `timerInterval`
         this.timerInterval = setInterval(() => {
             this.decreaseTimer();
@@ -293,7 +293,6 @@ class Game{
 
     //Frena el juego, impidiendo que se puedan realizar mas movimientos
     stop() {
-        console.log("Intentando frenar el juego");
         this.newFrame();
 
         // Desactiva la capacidad de arrastrar de los elementos en renderQueue
@@ -304,11 +303,7 @@ class Game{
         // Limpia el intervalo para detener el temporizador
         if (this.timerInterval) {
             clearInterval(this.timerInterval);
-            console.log("Intervalo de temporizador detenido.");
         }
-
-        console.log("Partida finalizada. Desactivados objetos");
-
     }
 
 
@@ -378,7 +373,6 @@ class Game{
         else if (this.currentPlayer === "Jugador 2"){
             this.currentPlayer = "Jugador 1";
         }
-        console.log("jugador actual: " + this.currentPlayer);
 
         this.playerText.changeText("Turno de: " + this.currentPlayer);
     }
