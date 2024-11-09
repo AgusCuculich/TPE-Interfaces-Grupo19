@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ChascaGames | Crea tu cuenta</title>
+</head>
+<body class="body-form">
+
+
+
+<form class="contenedor-form">
+    <h1>Crea tu cuenta</h1>
+    <h3>¿Ya tienes una cuenta? <span id="cambio-formulario"><a href="form-login.html">Inicia Sesión</a></span></h3>
+
+    <hr class="custom-line">
+
+
+
+    <section class="grupo-inputs">
+        <div class="tupla-inputs">
+            <label for="nombre"><span class="campo-obligatorio">*</span> Nombre</label>
+            <input type="text" name="nombre" id="nombre" placeholder="John">
+
+            <label for="nickname">Nickname</label>
+            <input type="text" name="nickname" id="nickname" placeholder="Star791">
+        </div>
+
+        <div class="tupla-inputs">
+
+            <label for="apellido"><span class="campo-obligatorio">*</span> Apellido</label>
+            <input type="text" name="apellido" id="apellido"  placeholder="Doe">
+
+            <label for="edad"><span class="campo-obligatorio">*</span> Edad</label>
+            <input type="number" name="edad" id="edad"  placeholder="20">
+
+        </div>
+
+    </section>
+
+    <section class="grupo-inputs">
+        <div class="tupla-inputs">
+
+            <label for="email"><span class="campo-obligatorio">*</span> Correo Electrónico</label>
+            <input type="email" name="email" id="email" placeholder="john22@email.com">
+
+            <label for="password"><span class="campo-obligatorio">*</span> Contraseña</label>
+            <input type="password" name="password" id="password">
+
+        </div>
+
+        <div class="singular-input">
+            <label for="password-confirm"><span class="campo-obligatorio">*</span> Confirmar Contraseña</label>
+            <input type="password" name="password-confirm" id="password-confirm">
+        </div>
+
+    </section>
+
+
+    <img src="img/captcha.png" alt="Captcha" id="captcha">
+    <a href="index.html" class="no-decor"><button class="btn-ingreso">Registrarse</button></a>
+
+    <hr class="custom-line">
+    <div class="sign-redes">
+
+        <button id="sign_google" class="btn-ingreso">
+            <img src="svg/compartir_google.svg" alt="Boton de iniciar sesion con Google">
+            Continuar con Google
+        </button>
+        <button id="sign_facebook" class="btn-ingreso">
+            <img src="svg/compartir_facebook.svg" alt="Boton de iniciar sesion con Facebook">
+            Continuar con Facebook
+        </button>
+
+    </div>
+
+</form>
+
+<script src="js/ingreso-registro.js"></script>
+
+
+
+</body>
+</html>
