@@ -67,22 +67,9 @@ function newGame(rows,columns, targetScore,p1_path,p2_path){
 
     let juego = new Game(targetScore,p1_path,p2_path);
     juego.start(rows,columns);
-    console.log(p1_path);
-    console.log(p2_path);
 }
-
-
-
-
-
-
-
-
-//let juego = new Game(9, 10);
 
 // 4 en linea 6x7
 // 5 en linea 7x8
 // 6 en linea 8x9
 // 7 en linea 9x10
-
-//juego.start(9,10);

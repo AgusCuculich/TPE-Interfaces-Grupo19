@@ -1918,11 +1918,6 @@ footer .linea-separador{
 
     }
 
-    .ficha-marcada img{
-
-    }
-
-
     #game-menu .selector-fichas button:hover {
         border: 2px solid var(--gris-oscuro);
     }

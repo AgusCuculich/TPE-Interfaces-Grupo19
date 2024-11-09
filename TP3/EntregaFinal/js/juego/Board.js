@@ -9,6 +9,7 @@ class Board{
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
         this.matrix = [];
+        this.maxChips = this.rows * this.columns;
     }
 
 
@@ -19,7 +20,6 @@ class Board{
         // 7 filas --> cellSize = 80
         // 6 filas --> cellSize = 90
         const cellSize = (this.rows === 9 || this.rows === 8) ? 70 : (this.rows === 7) ? 80 : 90;
-        console.log(cellSize);
         const chipSize = 35;
     
         let boardElements = [];
@@ -55,8 +55,6 @@ class Board{
             this.matrix.push(fila); // Agregar la fila creada a la matriz
         }
 
-        console.table(this.matrix);
-
     
         // Flechas
         for (let col = 0; col < this.columns; col++) {
@@ -81,7 +79,8 @@ class Board{
 
 
         // Fichas del jugador
-        const maxChips = Math.ceil((this.rows * this.columns) / 2);
+        //const maxChips = Math.ceil((this.rows * this.columns) / 2);
+        const maxChipsPlayer = Math.floor(this.maxChips / 2);
 
         //j1
         const player1X = 0 + cellSize;
@@ -89,7 +88,7 @@ class Board{
         let posY = offsetY + cellSize;
         let col = 0;
 
-        for (let i = 0; i < maxChips; i++) {
+        for (let i = 0; i <= maxChipsPlayer; i++) {
             posX = player1X + col * 30;
 
             if (posX < offsetX - chipSize) {
@@ -122,7 +121,7 @@ class Board{
         posY = this.canvasHeight /2 + cellSize;
         col = 0;
 
-        for (let i = 0; i < maxChips; i++) {
+        for (let i = 0; i <= maxChipsPlayer; i++) {
             posX = player2X + col * 30;
 
             if (posX < offsetX - chipSize) {
@@ -158,8 +157,9 @@ class Board{
     }
 
     //Inserta una ficha en el tablero en una determinada posicion
-    putChip(row,column, element){
+    putChip(row,column, element) {
         this.matrix[row][column] = element;
+        this.maxChips--;
     }
 
     getRows(){
@@ -191,7 +191,6 @@ class Board{
         while (leftColumn >= 0 && this.matrix[row][leftColumn].getPlayer() == player) {
             total++;
             leftColumn--;
-            console.log("total" + total);
             if (total === targetScore) {
                 return true;
             }
@@ -210,7 +209,6 @@ class Board{
         while (belowRow < this.rows && this.matrix[belowRow][column].getPlayer() == player) {
             total++;
             belowRow++;
-            console.log("Jugador: " + player + " Total: " + total);
             if (total === targetScore) {
                 return true;
             }
@@ -221,7 +219,6 @@ class Board{
         while (aboveRow >= 0 && this.matrix[aboveRow][column].getPlayer() == player) {
             total++;
             aboveRow--;
-            console.log("Jugador: " + player + " Total: " + total);
             if (total === targetScore) {
                 return true;
             }
@@ -242,7 +239,6 @@ class Board{
             total++;
             downRightRow++;
             downRightCol++;
-            console.log("Jugador: " + player + " Total: " + total);
             if (total === targetScore) {
                 return true;
             }
@@ -255,7 +251,6 @@ class Board{
             total++;
             upLeftRow--;
             upLeftCol--;
-            console.log("Jugador: " + player + " Total: " + total);
             if (total === targetScore) {
                 return true;
             }
@@ -271,7 +266,6 @@ class Board{
             total++;
             downLeftRow++;
             downLeftCol--;
-            console.log("Jugador: " + player + " Total: " + total);
             if (total === targetScore) {
                 return true;
             }
@@ -284,7 +278,6 @@ class Board{
             total++;
             upRightRow--;
             upRightCol++;
-            console.log("Jugador: " + player + " Total: " + total);
             if (total === targetScore) {
                 return true;
             }
@@ -294,12 +287,15 @@ class Board{
         return false;
     }
 
+    checkFull() {
+        return this.maxChips == 0
+    }
+
 
     //Calcular hasta que fila deberia caer la ficha (ya sabiendo su columna)
     findLandingRow(col) {
         let i = 0;
         while (i < this.rows) {
-            console.log(this.matrix[i][col].getPlayer());
             if (this.matrix[i][col].getPlayer() !== null) {
                 return i - 1; // Cuando detecta una fila ocupada, devuelve la de arriba
             }
