@@ -1,0 +1,13 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.contenedor-padre{
+    width:1080px;
+    min-height:1000px;
+    height:fit-content;
+    background-color: #3effa2;
+    margin: auto;
+}
