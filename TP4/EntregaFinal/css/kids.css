@@ -272,3 +272,68 @@ header {
     width: 333px;
     height: 189px;
 }
+
+#sec4 {
+    width: 100%;
+    background-color: white;
+    position: relative;
+}
+
+#sec4-grid {
+    width: 1080px;
+    display: grid;
+    grid-template-columns: calc(1080px - 467px) 467px;
+    grid-template-rows: max-content auto;
+    grid-template-areas: 
+    "titulo titulo"
+    "img txt";
+    margin: auto;
+}
+
+#sec4-grid h1 {
+    grid-area: titulo;
+    height: fit-content;
+    font-size: 60px;
+    line-height: 94.5%;
+    font-weight: 600;
+    color: #000;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 159px;
+}
+
+#sec4-grid #sec4-txt h2 {
+    font-size: 40px;
+    line-height: 94.5%;
+    color: #000;
+    text-align: left;
+    display: inline-block;
+}
+
+#sec4-grid #sec4-txt h2 + p {
+    margin-top: 15px;
+    margin-bottom: 267px;
+}
+
+#sec4-grid #sec4-txt h2 + p:last-of-type {
+    /*margin-bottom: 147.17px; /* Elimina el margen en el último <p> */
+    margin-bottom: 0px;
+}
+
+#sec4-txt {
+    width: 100%;
+    height: 4884px;
+    grid-area: txt;
+}
+
+#sec4-txt p {
+    font-size: 20px;
+    line-height: 94.5%;
+    color: #000;
+    text-align: left;
+    display: inline-block;
+}
+
+#reveal {
+    position: absolute;
+}
