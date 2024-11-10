@@ -1,13 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: "Lato", sans-serif;
 }
 
-.contenedor-padre{
-    width:1080px;
+.contenedor-padre {
+    width: 1280px;
     min-height:1000px;
     height:fit-content;
     background-color: #3effa2;
     margin: auto;
+    overflow-x: hidden;
+}
+
+#sec2 {
+    width: 100%;
+    background-color: white;
+    height: 1852px;
+    position: relative;
+}
+
+#sec2 .bg1 {
+    background-image: url(../svg/numberblocks/bg-sec2.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1280px;
+    height: 894px;
+    position: absolute;
+}
+
+#sec2-blue-rect {
+    height: 1259px;
+    width: 572px;
+    position: absolute;
+    top: -87px;
+    right: -79px;
+}
+
+#sec2-txt1 {
+    width: 508px;
+    position: absolute;
+    font-size: 47px;
+    line-height: 94.5%;
+    font-weight: 600;
+    font-family: Lato;
+    color: #1b428f;
+    text-align: left;
+    display: inline-block;
+    margin-top: 60px;
+    margin-left: 100px;
+}
+
+#sec2-txt2 {
+    width: 704px;
+    position: absolute;
+    font-size: 20px;
+    font-family: Lato;
+    color: #1b428f;
+    text-align: left;
+    display: inline-block;
+    height: 154px;
+    top: 214px;
+    left: 100px;
+}
+
+#sec2-tv {
+    height: 324.35px;
+    width: 576.38px;
+    position: absolute;
+    top: 336px;
+    left: 236px;
+}
+
+#sec2-green-square {
+    width: 601.64px;
+    height: 603px;
+    position: absolute;
+    top: 537px;
+    left: 48px;
+}
+
+.sec2-tv-channels {
+    width: 332.96px;
+    height: 302.69px;
+    bottom: 329.31px;
+    position: absolute;
+}
+
+.sec2-tv-channels-txt {
+    color: #000;
+    position: absolute;
+    font-size: 20px;
+    text-align: left;
+    display: inline-block;
+}
+
+#sec2-tv1 {
+    left: 100px;
+}
+
+#sec2-tv1-txt {
+    width: 333px;
+    height: 218px;
+    bottom: 88px;
+    left: 100px;
+}
+
+#sec2-tv2 {
+    left: 473.52px;
+}
+
+#sec2-tv2-txt {
+    bottom: 89px;
+    left: 474px;
+    width: 332px;
+    height: 217px;
+}
+
+#sec2-tv3 {
+    right: 100px;
+}
+
+#sec2-tv3-txt {
+    right: 100px;
+    bottom: 117px;
+    width: 333px;
+    height: 189px;
 }
