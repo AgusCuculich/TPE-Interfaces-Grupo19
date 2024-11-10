@@ -9,7 +9,7 @@
 
 .contenedor-padre {
     width: 1280px;
-    min-height:1000px;
+    min-height:4300px;
     height:fit-content;
     background-color: #3effa2;
     margin: auto;
@@ -271,4 +271,84 @@ header {
     bottom: 117px;
     width: 333px;
     height: 189px;
+}
+
+#sec3{
+    position: relative;
+}
+
+.bg-violeta{
+    margin:auto;
+    width:1280px;
+    height:1157px;
+    overflow-x: hidden;
+    position: relative;
+    background-image: url('../svg/numberblocks/bg-violeta-curvo.svg');
+}
+
+#bg3-chars,#btn-descarga{
+    position: absolute;
+}
+
+#bg3-chars{
+
+    z-index: 5;
+    bottom:0;
+}
+
+#btn-descarga{
+    z-index:3;
+    width:556px;
+    height: 82px;
+    box-shadow: 4px 5px 0px #02187e;
+    border-radius: 111px;
+    background-color: #83c252;
+    border: 8px solid #fff;
+
+
+
+
+
+    font-size: 31.14px;
+    line-height: 110%;
+    font-family: Lato;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+
+
+
+    left: 50%;
+    transform: translateX(-50%);
+    top:390px;
+
+
+
+}
+
+/*950x153*/
+#sec3-text{
+    position: absolute;
+    width:950px;
+    height:153px;
+    z-index: 8;
+    top:175px;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+
+    font-size: 61px;
+    line-height: 110%;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    font-family: Lato;
+    font-weight: 600;
+}
+
+#matematicas{
+    font-weight: 700;
+    font-style: italic;
 }
