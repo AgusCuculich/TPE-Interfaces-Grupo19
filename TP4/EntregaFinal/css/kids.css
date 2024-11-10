@@ -5,9 +5,153 @@
 }
 
 .contenedor-padre{
-    width:1080px;
+    width: 1280px;
     min-height:1000px;
     height:fit-content;
     background-color: #3effa2;
     margin: auto;
+    overflow-x: hidden;
+}
+
+.background-principal{
+    margin:auto;
+    width:1280px;
+    height:959px;
+    overflow-x: hidden;
+    position: relative;
+    background-image: url('../svg/numberblocks/background1.svg');
+
+}
+
+#sec1{
+    /*background-color: red;*/
+    position: relative;
+    width:100%;
+    height:959px;
+    margin: auto;
+}
+
+
+header {
+    width: 1280px;
+    z-index: 10;
+    position: fixed;
+    background: linear-gradient(180deg, #00d1d5, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0));
+    /*background-color: red;*/
+    height: 103px;
+}
+
+#btn-comprar {
+    position: absolute;
+    right: 92px;
+    top: 20px;
+    width: 216px;
+    box-shadow: 6px 6px 0px #02187e; /* Ajusta el desplazamiento y color */
+    border-radius: 111px;
+    background-color: #83c252;
+    border: 8px solid #fff;
+    box-sizing: border-box;
+    height: 66px;
+
+    font-size: 20px;
+    letter-spacing: 0.11em;
+    line-height: 94.5%;
+    font-weight: 600;
+    font-family: Lato, serif;
+    color: #fff;
+    text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+
+
+
+#btn-menu{
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+    position: relative;
+    top:21px;
+    left:100px;
+}
+
+
+
+#nb-logo,#nb-1,#nb-2, #nb-3, #arbol1, #arbol2, #arbol3,#arbusto1,#piedra4,#arbusto4,#piedra3,#piedra2,#piedra1,
+#arbusto3,#arbusto2{
+    position: absolute;
+}
+
+#sec1 #nb-logo{
+    left:360px;
+    top:55px;
+
+}
+
+#sec1 #nb-1{
+    left:411px;
+    top:500px;
+}
+
+#sec1 #nb-2{
+    left: 536px;
+    top: 403px;
+}
+
+#sec1 #nb-3{
+    left: 694px;
+    top: 338px;
+}
+
+#arbol1{
+    left: 1081px;
+    top: 279px;
+}
+
+#arbol2{
+    left: 881px;
+    top: 108px;
+}
+
+#arbol3{
+    right: 871px;
+    bottom:92px;
+}
+
+#arbusto1{
+    left:197px;
+    top:823px;
+}
+
+#piedra4{
+    left: 129px;
+    top: 794px;
+}
+
+#arbusto4{
+    left: 161px;
+    top: 719px;
+}
+
+#piedra3{
+    bottom: 147px;
+    right:92px;
+}
+
+#piedra2{
+    right:177px;
+    bottom:165px;
+}
+
+#piedra1{
+    bottom:137px;
+    right:177px;
+}
+
+#arbusto3{
+    left: 1081px;
+    bottom: 189px;
+}
+
+#arbusto2{
+    right:59px;
+    bottom:265px;
 }
