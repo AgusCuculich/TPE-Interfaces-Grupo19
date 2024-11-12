@@ -465,6 +465,112 @@ header {
     bottom: 296px;
 }
 
+#sec7 {
+    display: grid;
+    height: 730px;
+    margin: auto;
+    background-color: white;
+    grid-template-columns: repeat(5, calc((1296px - 30px * 4) / 5));
+    /*
+    1296px --> ancho total de la imagen con todas las fig en el figma
+    30px --> gap entre cada columna
+    5 --> cant de figuras
+    */
+    grid-template-rows: repeat(2, 350px);
+    grid-template-areas: 
+    "one    two     three   four    five"
+    "six    seven   eight   nine    ten";
+    gap: 30px;
+    /*background: 
+        linear-gradient(to right, #af1b1b, #d58530, #b8a40d, #39af01, #1aa3ad),
+        linear-gradient(to right, #462192, #00f5c9, #ae1e73, #6c6764, white);
+        background-blend-mode: screen; /* Mezcla los gradientes en modo 'screen' para combinar colores */
+    z-index: 2;
+}
+
+#sec7 div {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    overflow: hidden;
+}
+
+#sec7 div img {
+    align-self: flex-end;
+    filter: drop-shadow(5px 5px 10px white);
+}
+
+#fig-one {
+    grid-area: one;
+    background: radial-gradient(#af1b1b, #870c0e);
+}
+
+#fig-one img {
+    justify-self: center;
+}
+
+#fig-two {
+    grid-area: two;
+    background: radial-gradient(#d58530, #cb6d27);
+}
+
+#fig-three {
+    grid-area: three;
+    background: radial-gradient(#b8a40d, #ae9709);
+}
+
+#fig-three img {
+    justify-self: flex-end;
+}
+
+#fig-four {
+    grid-area: four;
+    background: radial-gradient(#39af01, #289c03);
+}
+
+#fig-five {
+    grid-area: five;
+    background: radial-gradient(#1aa3ad, #18a1ab);
+}
+
+#fig-six {
+    grid-area: six;
+    background: radial-gradient(#462192, #30147b);
+}
+
+#fig-seven {
+    grid-area: seven;
+    background: linear-gradient(
+        to bottom,
+        #fb0605 0%, #fb0605 20%,    /* Rojo sólido */
+        #fc7607 20%, #fc7607 40%,    /* Naranja sólido */
+        #f3ea09 40%, #f3ea09 60%,    /* Amarillo sólido */
+        #62f205 60%, #62f205 80%,    /* Verde sólido */
+        #00f5c9 80%, #00f5c9 100%    /* Azul turquesa sólido */
+    );
+}
+
+#fig-seven img {
+    justify-self: center;
+}
+
+#fig-eight {
+    grid-area: eight;
+    background: radial-gradient(#ae1e73, #99155e);
+}
+
+#fig-nine {
+    grid-area: nine;
+    background: radial-gradient(#6c6764, #4e4d4b);
+}
+
+#fig-ten {
+    grid-area: ten;
+    background-color: #ffffff;
+}
+
+
+
 #sec8 *{
     position: absolute;
 }
