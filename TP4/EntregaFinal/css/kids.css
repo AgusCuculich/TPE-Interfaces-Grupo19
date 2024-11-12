@@ -623,6 +623,44 @@ header {
     display: inline-block;
 }
 
-/*.subrayado{*/
-/*    text-decoration: underline;*/
-/*}*/
+footer{
+    position: relative;
+    width:100%;
+    height: 590px;
+    background-color: #5E5E5D;
+}
+
+#platforms{
+
+    width:1280px;
+    height: 75px;
+    background-color: #242424;
+}
+
+#platforms img{
+    position: absolute;
+    top: 0;
+    left: 100px;
+}
+
+
+footer p{
+    position: absolute;
+    width: 820px;
+    font-size: 20px;
+    letter-spacing: 0.11em;
+    line-height: 94.5%;
+    font-family: Lato;
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+
+    left:100px;
+    top:110px;
+}
+
+#share-icons{
+    position: absolute;
+    left:100px;
+    bottom: 43px;
+}
