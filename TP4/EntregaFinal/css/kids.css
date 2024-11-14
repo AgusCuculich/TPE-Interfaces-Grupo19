@@ -76,7 +76,13 @@ header {
 #sec1 #nb-logo{
     left:360px;
     top:55px;
+    z-index: 15;
+    overflow: visible;
+}
 
+#nb-logo.sticky{
+    position: sticky;
+    top:6px;
 }
 
 #sec1 #nb-1{
@@ -270,18 +276,26 @@ header {
     background-image: url('../svg/numberblocks/bg-violeta-curvo.svg');
 }
 
+#sec3{
+    overflow: hidden;
+}
+
 #bg3-chars,#btn-descarga{
     position: absolute;
 }
 
 #bg3-chars{
 
-    z-index: 5;
+    z-index: 3;
     bottom:0;
+    width:1280px;
+    height:767px;
+    transform: scale(1.2);
+
 }
 
 #btn-descarga{
-    z-index:3;
+    z-index:5;
     width:556px;
     height: 82px;
     box-shadow: 4px 5px 0px #02187e;
