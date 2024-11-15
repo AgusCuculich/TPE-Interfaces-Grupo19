@@ -10,18 +10,11 @@ function gestionarParallax(){
 
         //Recorro todos los elementos para aplicarles el efecto
         elementosParallax.forEach(elemento =>{
-            const rect = elemento.getBoundingClientRect(); //Obtengo el rectangulo del DOM que contiene al elemento
             const speed = parseFloat(elemento.getAttribute('data-speed'));  //Obtengo la velocidad
 
-
-            //Solo si el elemento es visible en el viewport, lo desplazo
-            //De esta forma se optimiza la logica y cada parallax puede funcionar independientemente sin afectar al resto
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
                 let yPos = window.scrollY * speed / 100;    //Calculo su desplazamiento
                 elemento.style.transform = `translateY(${yPos}px)`; //Lo desplazo usando translateY
-                console.log("Acabo de desplazar verticalmente algo");
 
-            }
         })
 
 
@@ -87,12 +80,33 @@ function gestionarParallax(){
 
 
 
+    let lastSrc = null; // Variable para almacenar la última fuente cambiada
+
+    function sec4Img(){
+
+    }
+
+
+    function changeSrc(img, newSrc) {
+        img.style.transition = "opacity 0.2s ease";
+        img.style.opacity = "0";
+
+
+        setTimeout(() => {
+            img.src = newSrc;
+            img.style.transition = "opacity 0.2s ease";
+                img.style.opacity = "1";
+        }, 250);
+        // img.src = newSrc;
+    }
+
 
 
     //Llamo a la funcion cada vez que detecta que estoy scrolleando
     window.addEventListener('scroll', parallax_vertical);
     window.addEventListener('scroll', parallax_escalado);
     window.addEventListener("mousemove", imagenMouse);
+    window.addEventListener('scroll', sec4Img);
 
 
 

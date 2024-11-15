@@ -21,12 +21,14 @@ section {
     /*background-color: #3effa2;*/
     background-color: #ffffff;
     margin: auto;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 #sec1{
     height: 959px;
     background-image: url('../svg/numberblocks/background1.svg');
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 
@@ -157,6 +159,7 @@ header {
 
 #sec2 {
     height: 1852px;
+    overflow-x: hidden;
 }
 
 #sec2 .bg1 {
@@ -207,7 +210,7 @@ header {
     height: 324.35px;
     width: 576.38px;
     position: absolute;
-    top: 336px;
+    top: 450px;
     left: 236px;
 }
 
@@ -215,9 +218,10 @@ header {
     width: 601.64px;
     height: 603px;
     position: absolute;
-    top: 537px;
+    top: 800px;
     left: 48px;
 }
+
 
 .sec2-tv-channels {
     width: 332.96px;
@@ -344,10 +348,27 @@ header {
     display: grid;
     grid-template-columns: calc(1080px - 467px) 467px;
     grid-template-rows: max-content auto;
-    grid-template-areas: 
+    grid-template-areas:
     "titulo titulo"
     "img txt";
     margin: auto;
+
+}
+
+#sec4-img{
+    grid-area: img;
+    /*background-color: red;*/
+    width:90%;
+    height:400px;
+    position: sticky;
+    top:200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.5s ease;
+    opacity: 1;
 }
 
 #sec4-grid h1 {
@@ -415,7 +436,7 @@ header {
 }
 
 #three-crown{
-    bottom: 103px;
+    bottom: -2300px;
     /*right:89px;*/
     left: 731px;
 }
@@ -612,7 +633,7 @@ header {
 
 /*Fix temporal (aparece scroll)*/
 .contenedor-padre{
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #sec8-seven{
