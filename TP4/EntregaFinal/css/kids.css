@@ -323,12 +323,24 @@ header {
     left: 100px;
 }
 
+#sec2-tv-frame{
+    position: absolute;
+    top: 450px;
+    left: 236px;
+}
+
 #sec2-tv {
     height: 324.35px;
     width: 576.38px;
     position: absolute;
     top: 450px;
     left: 236px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#sec2-tv.active {
+    opacity: 1;
 }
 
 #sec2-green-square {

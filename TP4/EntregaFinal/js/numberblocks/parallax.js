@@ -113,6 +113,42 @@ function gestionarParallax(){
 
 
 
+
+    //Imagen cambiante del televisor en seccion 2
+
+    //Cada 5 segundos, cambia la ruta de la imagen, hay 4 posibles variantes
+
+    const images = ['./img/numberblocks/sec2-tv.png', './img/numberblocks/sec2-tv-a1.png', './img/numberblocks/sec2-tv-a2.png','./img/numberblocks/sec2-tv-a3.png']; // Lista de rutas de las imágenes
+    let currentIndex = 0;
+    const fadeImage = document.querySelector("#sec2-tv");
+
+    function changeImage() {
+        //Hace fade out a la imagen actual, desvaneciendola
+        fadeImage.classList.remove('active');
+
+        //Cambia el source de la imagen y actualiza el indice de la img actual
+        setTimeout(() => {
+
+            currentIndex = (currentIndex + 1) % images.length;
+            fadeImage.src = images[currentIndex];
+
+            //Le agrego la clase active para que empiece a desvanecerse
+            fadeImage.classList.add('active');
+        }, 1000);
+    }
+
+        //Llama a la funcion cada 5 segundos
+        setInterval(changeImage, 5000);
+
+
+
+
+        // La imagen inicial tiene que comenzar con active para que sea visible (por default es invisible)
+        fadeImage.classList.add('active');
+
+
+
+
     document.querySelector("#btn-menu").addEventListener("click",toggle_menu);
 
 
