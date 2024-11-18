@@ -105,6 +105,9 @@ function gestionarParallax(){
     function toggle_menu(){
         const btn = document.querySelector("#btn-menu");
         btn.classList.toggle("activo");
+
+        const menu = document.querySelector("#menu");
+        menu.classList.toggle("activo");
     }
 
 
