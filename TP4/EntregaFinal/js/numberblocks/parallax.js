@@ -102,6 +102,17 @@ function gestionarParallax(){
 
 
 
+    function toggle_menu(){
+        const btn = document.querySelector("#btn-menu");
+        btn.classList.toggle("activo");
+    }
+
+
+
+
+    document.querySelector("#btn-menu").addEventListener("click",toggle_menu);
+
+
     //Llamo a la funcion cada vez que detecta que estoy scrolleando
     window.addEventListener('scroll', parallax_vertical);
     window.addEventListener('scroll', parallax_escalado);
