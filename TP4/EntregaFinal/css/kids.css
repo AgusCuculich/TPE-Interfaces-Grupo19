@@ -678,7 +678,7 @@ header {
     height: 730px;
     margin: auto;
     background-color: white;
-    grid-template-columns: repeat(5, calc((1296px - 30px * 4) / 5));
+    grid-template-columns: repeat(5, calc((1280px - 30px * 4) / 5));
     /*
     1296px --> ancho total de la imagen con todas las fig en el figma
     30px --> gap entre cada columna
@@ -689,10 +689,6 @@ header {
     "one    two     three   four    five"
     "six    seven   eight   nine    ten";
     gap: 30px;
-    /*background: 
-        linear-gradient(to right, #af1b1b, #d58530, #b8a40d, #39af01, #1aa3ad),
-        linear-gradient(to right, #462192, #00f5c9, #ae1e73, #6c6764, white);
-        background-blend-mode: screen; /* Mezcla los gradientes en modo 'screen' para combinar colores */
     z-index: 2;
     overflow:clip;
 }
@@ -778,24 +774,23 @@ header {
     background-color: #ffffff;
 }
 
-#sec7-gradient{
+#sec7-gradient {
     position: absolute;
-    /*1280 729*/
-    width: 1296px;
-    height:796px;
-    top: -25px;
-    left: -15px;
-
-
+    width: 1279px;
+    height: 730px;
+    z-index: -1;
 }
+
 #sec7 div{
     transition: 0.2s;
 }
+
 #sec7 div:hover{
     transform: scale(1.05);
     transition: 0.2s;
-    filter: brightness(120%) saturate(100%);
+    filter: brightness(110%) saturate(100%);
 }
+
 #sec7-gradient:hover{
     transform: none;
     pointer-events: none;
