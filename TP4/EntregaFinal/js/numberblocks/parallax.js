@@ -19,6 +19,17 @@ function gestionarParallax(){
 
 
 
+        const horizontales = document.querySelectorAll(".parallax-h");
+        horizontales.forEach(elemento =>{
+            const speed = parseFloat(elemento.getAttribute('data-speed'));
+
+            let xPos = window.scrollY * speed / 100;
+            elemento.style.transform = `translateX(${xPos}px)`;
+
+        })
+
+
+
     }
 
 

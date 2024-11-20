@@ -173,6 +173,19 @@ header {
     }
 }
 
+@keyframes aparecerDerecha {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
 
 
 .linea{
@@ -192,6 +205,19 @@ header {
     position: absolute;
 }
 
+
+#nb-1, #nb-2, #nb-3, #arbol3, #arbusto1, #piedra4, #arbusto4 {
+    animation: aparecerIzquierda 1s ease;
+    /*opacity: 0;*/
+}
+
+#arbol2, #arbol1, #arbusto2, #arbusto3, #piedra1, #piedra2, #piedra3 {
+    animation: aparecerDerecha 1s ease;
+    /*opacity: 0;*/
+}
+
+
+
 #sec1 #nb-logo{
     left:360px;
     top:55px;
@@ -207,6 +233,7 @@ header {
 #sec1 #nb-1{
     left:411px;
     top:500px;
+
 }
 
 #sec1 #nb-2{
@@ -292,7 +319,7 @@ header {
     height: 1259px;
     width: 572px;
     position: absolute;
-    top: -87px;
+    top: -5px;
     right: -79px;
 }
 
