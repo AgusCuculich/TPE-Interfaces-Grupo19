@@ -37,10 +37,8 @@ section {
     width: 1280px;
     min-height:4300px;
     height:fit-content;
-    /*background-color: #3effa2;*/
     background-color: #ffffff;
     margin: auto;
-    /*overflow-x: hidden;*/
 }
 
 #sec1{
@@ -97,25 +95,35 @@ header {
 
 }
 #btn-menu.activo > .linea:nth-child(1) {
-    transform: rotate(45deg) translate(5px,11px);
-    box-shadow: none;
+    animation: girar1 1s forwards;
 }
 
 #btn-menu.activo > .linea:nth-child(2) {
-    opacity: 0;
+    animation: desaparecer 1s forwards;
 }
 
 #btn-menu.activo > .linea:nth-child(3) {
-    transform: rotate(-45deg) translate(5px,-10px);
-    box-shadow: none;
+    animation: girar2 1s forwards;
 }
+
+#btn-menu:not(.activo) > .linea:nth-child(1) {
+    animation: girar1-reversa 1s forwards;
+}
+
+#btn-menu:not(.activo) > .linea:nth-child(2) {
+    animation: desaparecer-reversa 1s forwards;
+}
+
+#btn-menu:not(.activo) > .linea:nth-child(3) {
+    animation: girar2-reversa 1s forwards;
+}
+
 
 #menu{
     position: fixed;
     width:250px;
     height:100vh;
     background-color: rgba(155, 214, 238, 0.85);
-    /*background: linear-gradient(90deg, #00d1d5, rgba(0, 209, 213, 0.12) 95.91%, rgba(1, 208, 213, 0));*/
     border: 2px solid rgb(229, 249, 255);
     border-radius: 10px;
     z-index: 20;
@@ -130,6 +138,73 @@ header {
 
 
 
+}
+
+
+@keyframes girar1{
+    from{
+        transform: rotate(0deg) translate(0px,0px);
+        box-shadow: none;
+    }
+    to{
+        transform: rotate(45deg) translate(5px,11px);
+        box-shadow: none;
+    }
+}
+
+@keyframes girar2{
+    from{
+        transform: rotate(0deg) translate(0px,0px);
+        box-shadow: none;
+    }
+    to{
+        transform: rotate(-45deg) translate(5px,-10px);
+        box-shadow: none;
+    }
+}
+
+@keyframes desaparecer{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes girar1-reversa{
+    from{
+        transform: rotate(45deg) translate(5px,11px);
+        box-shadow: none;
+    }
+    to{
+        transform: rotate(0deg) translate(0px,0px);
+        box-shadow: 4px 5px 0px 4px #02187e;
+
+    }
+}
+
+@keyframes girar2-reversa{
+    from{
+        transform: rotate(-45deg) translate(5px,-10px);
+        box-shadow: none;
+    }
+    to{
+        transform: rotate(0deg) translate(0px,0px);
+        box-shadow: 4px 5px 0px 4px #02187e;
+
+    }
+}
+
+@keyframes desaparecer-reversa{
+    from{
+        opacity: 0;
+
+    }
+    to{
+        opacity: 1;
+        box-shadow: 4px 5px 0px 4px #02187e;
+    }
 }
 
 #menu li{
@@ -1129,6 +1204,22 @@ footer p{
     border: 8px solid #83c252;
     background-color: #ffffff;
 
+}
+
+#btn-comprar:hover{
+    animation: pulsar 0.8s infinite;
+}
+
+@keyframes pulsar{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 #btn-menu:hover{
