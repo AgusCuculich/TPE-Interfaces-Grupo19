@@ -126,8 +126,8 @@ function gestionarParallax(){
         }, 1000);
     }
 
-        //Llama a la funcion cada 5 segundos
-        setInterval(changeImage, 5000);
+        //Llama a la funcion cada 3 segundos
+        setInterval(changeImage, 3000);
 
 
 

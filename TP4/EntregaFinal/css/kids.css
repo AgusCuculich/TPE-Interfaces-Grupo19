@@ -7,6 +7,11 @@
     font-family: "Lato", sans-serif;
 
 }
+
+button{
+    transition: 0.2s;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -65,7 +70,7 @@ header {
     border: 8px solid #fff;
     box-sizing: border-box;
     height: 66px;
-
+    transition: 0.2s;
     font-size: 20px;
     letter-spacing: 0.11em;
     line-height: 94.5%;
@@ -1102,4 +1107,19 @@ footer p{
 @keyframes sprite {
     from { background-position: 0px 0px; }
     to { background-position: calc(-1 * var(--sprite-width)) 0px; }
+}
+
+#btn-comprar:hover,#btn-suscripcion:hover,#btn-descarga:hover{
+    background-color: #00bd42;
+    cursor:pointer;
+    transition: 0.2s;
+    color: #83c252;
+    border: 8px solid #83c252;
+    background-color: #ffffff;
+
+}
+
+#btn-menu:hover{
+    transition: 0.2s;
+    transform: scale(1.1);
 }
