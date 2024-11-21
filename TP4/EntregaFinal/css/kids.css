@@ -136,7 +136,7 @@ header {
     opacity: 0;
     list-style: none;
     font-family: Lato;
-    color: #f39e46;
+    color: #e08524;
     font-weight: bold;
     font-size: 30px;
     transition: 0.2s;
@@ -223,11 +223,13 @@ header {
 
 #nb-1, #nb-2, #nb-3, #arbol3, #arbusto1, #piedra4, #arbusto4 {
     animation: aparecerIzquierda 1s ease;
+    animation-delay: 4s;
     /*opacity: 0;*/
 }
 
 #arbol2, #arbol1, #arbusto2, #arbusto3, #piedra1, #piedra2, #piedra3 {
     animation: aparecerDerecha 1s ease;
+    animation-delay: 4s;
     /*opacity: 0;*/
 }
 
@@ -1155,4 +1157,112 @@ footer p{
     color: #ffffff;
     border: 8px solid #ffffff;
     cursor: default;
+}
+
+
+.seccion-carga {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 60;
+    background-color: white;
+    height: 100vh;
+    width: 99vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.seccion-carga ul {
+    position: relative;
+    width: 400px;
+    height: 240px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+.seccion-carga ul li {
+    list-style: none;
+    border-radius: 50%;
+    border: 15px solid #000;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    animation: rainbow 5s infinite alternate;
+    animation-fill-mode: backwards; /* Asegura que arranca desde el estado inicial */
+    transform: translate(-50%, -50%);
+}
+
+.seccion-carga ul li:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    border-color: #e81416;
+    animation-delay: .2s;
+}
+
+.seccion-carga ul li:nth-child(2) {
+    width: 90px;
+    height: 90px;
+    border-color: #ffa500;
+    animation-delay: .4s;
+}
+
+.seccion-carga ul li:nth-child(3) {
+    width: 120px;
+    height: 120px;
+    border-color: #faeb36;
+    animation-delay: .6s;
+}
+
+.seccion-carga ul li:nth-child(4) {
+    width: 150px;
+    height: 150px;
+    border-color: #79c314;
+    animation-delay: .8s;
+}
+
+.seccion-carga ul li:nth-child(5) {
+    width: 180px;
+    height: 180px;
+    border-color: #487de7;
+    animation-delay: 1s;
+}
+
+.seccion-carga ul li:nth-child(6) {
+    width: 210px;
+    height: 210px;
+    border-color: #4b369d;
+    animation-delay: 1.2s;
+}
+
+.seccion-carga ul li:nth-child(7) {
+    width: 240px;
+    height: 240px;
+    border-color: #70369d;
+    animation-delay: 1.4s;
+}
+
+@keyframes rainbow {
+    0% {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(315deg);
+    }
+}
+
+#porcentaje-carga {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.desaparecer {
+    opacity: 0;
+    transition: 0.2s;
 }
