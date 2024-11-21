@@ -900,7 +900,7 @@ header {
 #sec8-seven{
     width: 561px;
     height: 997px;
-
+    z-index:5;
     top: 339px;
     left: 756px;
 }

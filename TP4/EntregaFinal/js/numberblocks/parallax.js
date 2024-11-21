@@ -207,11 +207,28 @@ function gestionarParallax(){
 
 
 
+    const nubes = [
+        { elemento: document.getElementById("sec8-cloud3"), velocidad: 2 },
+        { elemento: document.getElementById("sec8-cloud2"), velocidad: 3 },
+        { elemento: document.getElementById("sec8-cloud1"), velocidad: 1.5 }
+    ];
 
+    const anchoVentana = window.innerWidth;
 
+    function moverNubes() {
+        nubes.forEach((nube) => {
+            const posicionActual = parseFloat(getComputedStyle(nube.elemento).left);
 
+            if (posicionActual + nube.elemento.offsetWidth < -200) {
 
-
+                nube.elemento.style.left = `${anchoVentana}px`;
+            } else {
+                nube.elemento.style.left = `${posicionActual - nube.velocidad}px`;
+            }
+        });
+        requestAnimationFrame(moverNubes);
+    }
+    moverNubes();
 
 
 
