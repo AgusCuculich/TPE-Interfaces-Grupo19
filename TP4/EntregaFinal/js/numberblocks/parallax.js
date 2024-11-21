@@ -207,27 +207,38 @@ function gestionarParallax(){
 
 
 
+
+
+    // SECCION PARALLAX NUBES
+
+
+    //Inicializo el grupo de nubes, cada una con distinta velocidad
     const nubes = [
         { elemento: document.getElementById("sec8-cloud3"), velocidad: 2 },
         { elemento: document.getElementById("sec8-cloud2"), velocidad: 3 },
         { elemento: document.getElementById("sec8-cloud1"), velocidad: 1.5 }
     ];
 
+    //Se calcula el ancho de la ventana para saber cuando la nube se sale de la pantalla
     const anchoVentana = window.innerWidth;
 
     function moverNubes() {
+        //Para cada nube, calculo su posicion actual
         nubes.forEach((nube) => {
-            const posicionActual = parseFloat(getComputedStyle(nube.elemento).left);
+            const posicionActual = parseFloat(getComputedStyle(nube.elemento).left);    //Devuelve su posicion, considerando el css
 
+            //Si su posicion + su ancho se sale de la pantalla, lo muevo hasta la derecha de la pantalla, fuera de camara
             if (posicionActual + nube.elemento.offsetWidth < -200) {
-
                 nube.elemento.style.left = `${anchoVentana}px`;
+            //Si aun no salio de la pantalla, lo desplazo a la izquierda segun su velocidad
             } else {
                 nube.elemento.style.left = `${posicionActual - nube.velocidad}px`;
             }
         });
+        //Dibuja el siguiente frame
         requestAnimationFrame(moverNubes);
     }
+    //Llamo al primer frame
     moverNubes();
 
 
