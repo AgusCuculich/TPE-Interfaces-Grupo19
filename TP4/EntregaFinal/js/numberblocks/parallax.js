@@ -91,28 +91,6 @@ function gestionarParallax(){
 
 
 
-    let lastSrc = null; // Variable para almacenar la última fuente cambiada
-
-    function sec4Img(){
-
-    }
-
-
-    function changeSrc(img, newSrc) {
-        img.style.transition = "opacity 0.2s ease";
-        img.style.opacity = "0";
-
-
-        setTimeout(() => {
-            img.src = newSrc;
-            img.style.transition = "opacity 0.2s ease";
-                img.style.opacity = "1";
-        }, 250);
-        // img.src = newSrc;
-    }
-
-
-
     function toggle_menu(){
         const btn = document.querySelector("#btn-menu");
         btn.classList.toggle("activo");
@@ -163,11 +141,50 @@ function gestionarParallax(){
     document.querySelector("#btn-menu").addEventListener("click",toggle_menu);
 
 
+
+    //sec4 - CODIGO CONTENEDOR STICKY
+    const stickyContainer = document.getElementById('sticky-container');
+    //Div sticky que mostrará imagenes a medida que se scrolea.
+
+    const options = {
+        //configura los parámetros del observador
+        root: null, // Usa el viewport como contenedor
+        /**The element that is used as the viewport for checking visibility of the target. */
+        rootMargin: '0px 0px -50% 0px', // Zona observada: desde el borde superior del viewport (0px) hasta la mitad de la pantalla.
+        /**This set of values serves to grow or shrink each side of the root element's bounding box */
+        threshold: 0.5 // El callback se ejecuta cuando el 70% del elemento es visible
+    };
+
+    function verificarVisibilidad(entries) {
+        entries.forEach(entry => {
+            // Para cada elemento observado (entries), verifica si está intersectando con el área visible.
+            if (entry.isIntersecting) {
+                stickyContainer.innerHTML = '';
+                // Limpia el contenido del stickyContainer
+                const clonedImage = entry.target.cloneNode(true);
+                // Crear una copia de la imagen (para no modificar la original en sec4-images)
+                stickyContainer.appendChild(clonedImage);
+                // Añadir la imagen al contenedor sticky-container
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver(verificarVisibilidad, options);
+    // Se crea un nuevo observador que monitorea los elementos dados.
+
+    let img = document.querySelectorAll('#sec4-images img');
+    // Selecciona todas las imágenes dentro del contenedor con el ID sec4-images.
+
+    img.forEach(image => observer.observe(image));
+    // Itera sobre cada imagen y las observa individualmente.
+
+    //sec4 ------------------------------------------------------------------------------------------------------------------
+
     //Llamo a la funcion cada vez que detecta que estoy scrolleando
     window.addEventListener('scroll', parallax_vertical);
     window.addEventListener('scroll', parallax_escalado);
     window.addEventListener("mousemove", imagenMouse);
-    window.addEventListener('scroll', sec4Img);
+
 
 
 
