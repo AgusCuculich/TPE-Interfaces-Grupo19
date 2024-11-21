@@ -208,9 +208,9 @@ function gestionarParallax(){
 
 
     const nubes = [
-        { elemento: document.getElementById("sec8-cloud3"), velocidad: 2 },
-        { elemento: document.getElementById("sec8-cloud2"), velocidad: 3 },
-        { elemento: document.getElementById("sec8-cloud1"), velocidad: 1.5 }
+        { elemento: document.getElementById("sec8-cloud3"), velocidad: 1.5 },
+        { elemento: document.getElementById("sec8-cloud2"), velocidad: 2 },
+        { elemento: document.getElementById("sec8-cloud1"), velocidad: 2 }
     ];
 
     const anchoVentana = window.innerWidth;
