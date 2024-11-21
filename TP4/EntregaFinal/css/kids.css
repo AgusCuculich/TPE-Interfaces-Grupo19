@@ -853,10 +853,10 @@ header {
     transition: 0.2s;
 }
 
-#sec7 div:hover{
+#sec7 div img:hover{
     transform: scale(1.05);
     transition: 0.2s;
-    filter: brightness(110%) saturate(100%);
+    filter: drop-shadow(5px 5px 10px white) brightness(110%) saturate(100%);
 }
 
 #sec7-gradient:hover{
