@@ -182,12 +182,28 @@ function gestionarParallax(){
 
     //sec4 ------------------------------------------------------------------------------------------------------------------
 
+
+    function registrar(e){
+        e.preventDefault();
+        let textoConfirmacion = document.createElement("p");
+        textoConfirmacion.textContent="¡Suscrito con éxito!";
+        textoConfirmacion.classList.add("texto-confirmacion");
+
+        document.querySelector("#sec8").appendChild(textoConfirmacion);
+
+        document.querySelector("#btn-suscripcion").disabled = true;
+        document.querySelector("#btn-suscripcion").classList.add("boton-desactivado");
+
+    }
+
+
+
     //Llamo a la funcion cada vez que detecta que estoy scrolleando
     window.addEventListener('scroll', parallax_vertical);
     window.addEventListener('scroll', parallax_escalado);
     window.addEventListener("mousemove", imagenMouse);
 
-
+    document.querySelector("#form-suscripcion").addEventListener("submit", registrar);
 
 
 

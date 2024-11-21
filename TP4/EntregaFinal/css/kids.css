@@ -138,12 +138,19 @@ header {
     font-family: Lato;
     color: #ffffff;
     font-size: 30px;
+    transition: 0.2s;
 }
 
 #menu.activo li{
     margin-top: 10px;
     animation: aparecerIzquierda 1s ease forwards;
     opacity: 0;
+}
+
+#menu.activo li:hover{
+    background-color: rgba(165, 241, 245, 0.57);
+    border-radius:20px;
+    color: black;
 }
 
 #menu.activo li:nth-child(1) {
@@ -1122,4 +1129,27 @@ footer p{
 #btn-menu:hover{
     transition: 0.2s;
     transform: scale(1.1);
+}
+
+.texto-confirmacion{
+    position: absolute;
+    top: 165px;
+    right:180px;
+    font-size: 20px;
+    line-height: 94.5%;
+    font-family: Lato;
+    color: #000;
+    text-align: left;
+    animation: aparecerIzquierda 1s ease forwards;
+}
+
+#btn-suscripcion.boton-desactivado{
+    background-color: #5E5E5D;
+}
+
+#btn-suscripcion.boton-desactivado:hover{
+    background-color: #5E5E5D;
+    color: #ffffff;
+    border: 8px solid #ffffff;
+    cursor: default;
 }
