@@ -563,6 +563,19 @@ header {
     justify-items: center;
 }
 
+.animated{
+    animation: appear-clip 1s ease-out forwards;
+}
+
+@keyframes appear-clip {
+    0% {
+        clip-path: circle(0% at 50% 50%);
+    }
+    100% {
+        clip-path: circle(150% at 50% 50%);
+    }
+}
+
 #sec4-images img {
     margin: 0 auto;
     opacity: 0;

@@ -164,6 +164,8 @@ function gestionarParallax(){
                 const clonedImage = entry.target.cloneNode(true);
                 // Crear una copia de la imagen (para no modificar la original en sec4-images)
                 stickyContainer.appendChild(clonedImage);
+                // Agrego animación de aparición
+                clonedImage.classList.add("animated");
                 // Añadir la imagen al contenedor sticky-container
             }
         });
